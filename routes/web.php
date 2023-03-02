@@ -29,10 +29,17 @@ return view('login.principal');
 });
 
 
-Route::get('/usuario',function(){
+Route::get('/registrar_usuario',function(){
 return view('dashboard.usuario.nuevo_usuario');
 });
 
+
+
+
+Route::get('/usuario',function(){
+  return view('dashboard.usuario.principal');
+  });
+  
 
 Route::get('/dashboard', [controllerInicio::class, 'show'])->name('index');
 
