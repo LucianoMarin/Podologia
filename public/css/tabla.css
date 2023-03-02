@@ -1,0 +1,35 @@
+.t_imagen{
+width: 45px;
+
+}
+
+
+.tablas{
+    width: 95%;
+    
+    }
+    
+    .tablas th{
+    background-color: #9b84ad;
+    color:white;
+    font-size: 18px;
+    text-align: center;
+    }
+    
+    .tablas tr{
+        border-radius:6px;
+     
+        
+    }
+    
+    .tablas td{
+        color:rgb(63, 62, 62);
+        font-size: 16px;
+        text-align: center;
+        padding-bottom: 10px;
+        }
+
+
+        .tablas tr:hover{
+            background-color: rgb(231, 231, 231);
+        }
