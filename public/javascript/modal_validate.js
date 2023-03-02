@@ -120,9 +120,11 @@ for(let i=0; i<=btnEditarPublicacion.length-1; i++){
          
          
 btnEditarPublicacion[i].addEventListener('click',()=>{
-     
+   
+
         inputTituloEd[i].value=aTitulo[i];
         inputPublicacionEd[i].value=aComentario[i];
+
         inputTituloEd[i].addEventListener('input',(e)=>{
             
         titulos[i]=e.target.value;
@@ -144,7 +146,6 @@ btnEditarPublicacion[i].addEventListener('click',()=>{
 })
 
 
-
 inputPublicacionEd[i].addEventListener('input',(e)=>{
     const titulo2=e.target.value;
 
@@ -163,9 +164,16 @@ inputPublicacionEd[i].addEventListener('input',(e)=>{
     })
 
 
+  
+
+         
+    
+
 
 
 }
+
+
 
 
 

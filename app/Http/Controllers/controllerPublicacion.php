@@ -72,6 +72,17 @@ class controllerPublicacion extends Controller
     public function update(Request $request, $id)
     {
 
+
+        $this->validate($request,[
+            'tipo'=>'required',
+            'titulo'=>'required',
+            'publicacion'=>'required'
+
+        ]);
+
+
+
+
         date_default_timezone_set("America/Santiago");
         $date = date("Y-m-d");
         $idCuenta=Auth::user()->id;
@@ -84,8 +95,17 @@ class controllerPublicacion extends Controller
         $publicacion->contenido=$request->publicacion;
         $publicacion->user=$idCuenta;
 
-        $publicacion->save();
-        return redirect()->route('index.publicacion');
+        if($request->publicacion!='' && $request->titulo!='' ){
+
+            $publicacion->save();
+            return redirect()->route('index.publicacion')->with('sucess','modificacion exitosa!');
+
+        }
+        else{
+            return redirect()->route('asds')->with('error','modificacion exitosa!');
+
+
+        }
 
 
     }
