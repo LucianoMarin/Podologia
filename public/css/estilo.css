@@ -121,13 +121,29 @@ footer {
 
     }
 
+
+    #txtTitulo{
+        width: 220px;
+        padding: 2px;
+        
+        }
+        
+
+        #txtComentario{
+            width: 400px;
+            height: 200px;
+            outline:none;
+            resize:none;
+            }
+
 }
+
 
 
 @media(max-width: 422px) {
     
     #txtTitulo{
-        width: 200px;
+        width: 220px;
         padding: 2px;
         
         }
@@ -135,7 +151,7 @@ footer {
         
         
         #txtComentario{
-            width: 320px;
+            width: 300px;
             height: 200px;
             outline:none;
             resize:none;
@@ -163,7 +179,7 @@ footer {
     
     
     #txtComentario{
-        width: 270px;
+        width: 300px;
         height: 200px;
         outline:none;
         resize:none;
@@ -191,7 +207,7 @@ footer {
         
         
         #txtComentario{
-            width: 220px;
+            width: 265px;
             height: 200px;
             outline:none;
             resize:none;

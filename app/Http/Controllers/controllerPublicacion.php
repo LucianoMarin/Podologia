@@ -41,12 +41,12 @@ class controllerPublicacion extends Controller
         $publicacion->user=$id;
         if($request->titulo!='' && $request->publicacion!='' && $request->tipo!='' ){
             $publicacion->save();
-            return redirect()->route('index.publicacion');
+            return redirect()->route('index.publicacion')->with('resultado','Se a agregado una nueva publicación');
         }
         return redirect()->route('index');
 
     }catch(QueryException $ex){
-        return redirect()->route('index')->with('resultado', 'ERROR: No se ingreso la publicación');
+        return redirect()->route('index.publicacion')->with('error', 'ERROR: No se ingreso la publicación');
 
 
 
@@ -72,7 +72,7 @@ class controllerPublicacion extends Controller
     public function update(Request $request, $id)
     {
 
-
+try{
         $this->validate($request,[
             'tipo'=>'required',
             'titulo'=>'required',
@@ -98,17 +98,18 @@ class controllerPublicacion extends Controller
         if($request->publicacion!='' && $request->titulo!='' ){
 
             $publicacion->save();
-            return redirect()->route('index.publicacion')->with('sucess','modificacion exitosa!');
+            return redirect()->route('index.publicacion')->with('resultado','modificacion exitosa!');
 
         }
-        else{
-            return redirect()->route('asds')->with('error','modificacion exitosa!');
 
+    }catch(QueryException $ex){
+        return redirect()->route('index.publicacion')->with('error','Error: ingreso fallido, compruebe todos los campos!');
 
-        }
 
 
     }
+    }
+
 
  
     public function destroy($id)

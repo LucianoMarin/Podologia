@@ -19,6 +19,7 @@ class controllerInicio extends Controller
             $publicaciones=DB::table('publicacions')->where('user',$id)->get();
             $publicaciones=Publicacion::where('user',$id)
             ->where('tipo','nota')
+            ->orderBy('id_publicacion','desc')
             ->paginate(1);
            return view('dashboard.principal',compact('publicaciones'));
 

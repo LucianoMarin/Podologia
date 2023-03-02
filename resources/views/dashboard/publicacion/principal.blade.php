@@ -59,11 +59,36 @@
 </tbody>
 </table>
 
-<br>
-<br>
-<br>    
-@stop
 
+<br>
+<br>
+<br> 
+   
+@stop
+@section('cHorizontal3')
+
+@if (session('resultado'))
+<div class="alert alert-success">
+{{ session('resultado') }}
+</div>
+
+@elseif(session('error'))
+<div class="alert alert-danger">
+{{ session('error') }}
+</div>
+
+@elseif (count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                {{ $error }}
+                <br>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+@stop
 @section('cHorizontal')
 <img class="icono" src="imagenes/iconos/publicalo.png">
 <label>Crear nota: </label>
