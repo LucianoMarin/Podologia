@@ -2,7 +2,7 @@
   <div class="row">
   <div class="col-md-11">  
   <div class="alert-info alerta" role="alert">
-  <h4 class="alert-heading"><img src="imagenes/usuario/configuraciones.png"><b>Mi Perfil</b></h4>
+  <h4 class="alert-heading"><img class="icono" src="imagenes/usuario/configuraciones.png"><b>Mi Perfil</b></h4>
 <label>Opciones:</label>
 <br>
 <label>Editar Perfil</label>
@@ -18,11 +18,11 @@
     <form action="" method="POST">
         <label>Rut:</label>
         <br>
-        <input type="text" name="rut" disabled="disabled">
+        <input type="text" name="rut" disabled="disabled" value="">
         <br>
         <label>Primer Nombre:</label>   
         <br>
-        <input type="text" name="nombre" disabled="disabled">
+        <input type="text" name="primer_nombre" disabled="disabled">
         <br>
         <label>Segundo Nombre:</label>
         <br>
@@ -45,10 +45,7 @@
   
     <lavel>Cargo: </label>  
     <br>
-    @foreach($cargo as $cargos)
-    <input type="text" value="{{$cargos->nombre}}" disabled="disabled">
-    @endforeach
-   
+    <input type="text" value="" disabled="disabled">
     <br>
     <br>
     <br>

@@ -13,14 +13,15 @@
     <div class="col-md-6">  
     <br>
 
-    <form action="" method="POST">
+    <form action="{{Route('crear_perfil')}}" method="POST">
+        @csrf
         <label>Rut:</label>
         <br>
         <input type="text" name="rut">
         <br>
         <label>Primer Nombre:</label>   
         <br>
-        <input type="text" name="nombre">
+        <input type="text" name="primer_nombre">
         <br>
         <label>Segundo Nombre:</label>
         <br>
@@ -42,7 +43,7 @@
     <br>
   
     <lavel>Cargo: </label>  
-    <select>
+    <select name="cargo">
     @foreach($cargo as $cargos)
     <option value="{{$cargos->id_cargo}}">{{$cargos->nombre}}</option>
     @endforeach

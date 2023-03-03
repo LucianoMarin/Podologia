@@ -14,17 +14,23 @@ class controllerEspecialista extends Controller
     public function index()
     {
 
+        
+        $validar=false;
+        $id=Auth::user()->id;
         $cargo=new Cargo();
         $cargo=DB::table('cargos')->get();
-
+        $especialistas=DB::table('especialistas')->where('user',$id)->first();
+      if($especialistas!=null){
         $validar=true;
-        if($validar==true){
+        return view('dashboard.usuario.principal',compact('cargo','validar','especialistas'));
 
+      }
+      else{
         return view('dashboard.usuario.principal',compact('cargo','validar'));
-    }
-    else{
-         return view('dashboard.usuario.principal',compact('cargo','validar'));
-    }
+
+      }
+       
+
     }
 
 /*
@@ -55,9 +61,12 @@ class controllerEspecialista extends Controller
         $especialista->apellido_paterno=$request->apellido_paterno;
         $especialista->apellido_materno=$request->apellido_materno;
         $especialista->cargo=$request->cargo;
-        $especialista->usuario=$idCuenta;
+        $especialista->user=$idCuenta;
+        
 
         $especialista->save();
+        return redirect()->route('index.usuario');
+
     }
 
   

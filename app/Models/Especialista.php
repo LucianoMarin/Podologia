@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Especialista extends Model
 {
     use HasFactory;
-
+    public $timestamps = false;
+    protected $primaryKey = 'rut';
 
     protected $fillable = [
         'rut',

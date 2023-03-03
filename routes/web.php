@@ -41,8 +41,8 @@ return view('dashboard.usuario.nuevo_usuario');
 
 
 
-  Route::get('/usuario', [controllerEspecialista::class, 'index'])->name('index.nuevousuario');
-
+  Route::get('/usuario', [controllerEspecialista::class, 'index'])->name('index.usuario');
+  Route::post('/usuario',[controllerEspecialista::class, 'store'])->name('crear_perfil');
 
 
 
