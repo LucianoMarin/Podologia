@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cargo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class controllerCargo extends Controller
 {
@@ -20,13 +22,17 @@ class controllerCargo extends Controller
 
     public function store(Request $request)
     {
-        //
+    
     }
 
 
     public function show($id)
     {
-        //
+ 
+
+
+
+
     }
 
     public function edit($id)

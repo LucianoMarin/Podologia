@@ -13,9 +13,11 @@
 <a href="#">Agendar Hora</a>
 @stop
 @section('contenedor')
+@if($validar==false)
 @include('dashboard.usuario.nuevo_usuario')
-
-
+@else
+@include('dashboard.usuario.mi_perfil')
+@endif
 
 <br>
 <br>

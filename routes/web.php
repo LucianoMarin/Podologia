@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\controllerCargo;
 use App\Http\Controllers\controllerCuenta;
+use App\Http\Controllers\controllerEspecialista;
 use App\Http\Controllers\controllerInicio;
 use App\Http\Controllers\controllerLogin;
 use App\Http\Controllers\controllerPaciente;
@@ -29,21 +30,31 @@ return view('login.principal');
 });
 
 
+/*
+
 Route::get('/registrar_usuario',function(){
 return view('dashboard.usuario.nuevo_usuario');
 });
 
+*/
 
 
 
-Route::get('/usuario',function(){
-  return view('dashboard.usuario.principal');
-  });
-  
+
+  Route::get('/usuario', [controllerEspecialista::class, 'index'])->name('index.nuevousuario');
+
+
+
 
 Route::get('/dashboard', [controllerInicio::class, 'show'])->name('index');
 
     
+
+Route::get('/pacientes',[controllerPaciente::class, 'show'])->name('index.paciente');
+
+
+
+// RUTAS LOGUEO, REGISTRO
 Route::get('/registrar', [controllerRegistrar::class, 'show'])->name('index.registrar');
 Route::post('/registrar', [controllerRegistrar::class, 'registrar'])->name('registrar');
 
@@ -52,11 +63,7 @@ Route::post('/login','App\Http\Controllers\controllerLogin@login');
 Route::get('/login','App\Http\Controllers\controllerLogin@show');
 
 
-
-Route::get('/pacientes',[controllerPaciente::class, 'show'])->name('index.paciente');
-
-
-
+// RUTAS PUBLICACION
 
 Route::get('/publicaciones',[controllerPublicacion::class, 'show'])->name('index.publicacion');
 Route::post('/publicaciones',[controllerPublicacion::class, 'store'])->name('publicar');
