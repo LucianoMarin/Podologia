@@ -122,14 +122,14 @@ footer {
     }
 
 
-    #txtTitulo{
+    .txtTitulo{
         width: 220px;
         padding: 2px;
         
         }
         
 
-        #txtComentario{
+        .txtComentario{
             width: 400px;
             height: 200px;
             outline:none;
@@ -142,7 +142,7 @@ footer {
 
 @media(max-width: 422px) {
     
-    #txtTitulo{
+    .txtTitulo{
         width: 220px;
         padding: 2px;
         
@@ -150,7 +150,7 @@ footer {
         
         
         
-        #txtComentario{
+        .txtComentario{
             width: 300px;
             height: 200px;
             outline:none;
@@ -170,7 +170,7 @@ footer {
 
 @media(max-width: 400px) {
     
-#txtTitulo{
+.txtTitulo{
     width: 200px;
     padding: 2px;
     
@@ -178,7 +178,7 @@ footer {
     
     
     
-    #txtComentario{
+    .txtComentario{
         width: 300px;
         height: 200px;
         outline:none;
@@ -198,7 +198,7 @@ footer {
     
 @media(max-width: 350px) {
     
-    #txtTitulo{
+    .txtTitulo{
         width: 200px;
         padding: 2px;
         
@@ -206,7 +206,7 @@ footer {
         
         
         
-        #txtComentario{
+        .txtComentario{
             width: 265px;
             height: 200px;
             outline:none;

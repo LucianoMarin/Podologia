@@ -2,7 +2,7 @@
 @media(max-width: 700px){
 
 
-	#txtTitulo{
+	.txtTitulo{
 		width: 100px;
 		padding: 2px;
 		
@@ -10,7 +10,7 @@
 		
 		
 		
-		#txtComentario{
+		.txtComentario{
 			width: 410px;
 			height: 200px;
 			outline:none;

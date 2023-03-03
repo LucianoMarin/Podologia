@@ -17,12 +17,17 @@ class controllerEspecialista extends Controller
         
         $validar=false;
         $id=Auth::user()->id;
+        $username=Auth::user()->username;
         $cargo=new Cargo();
         $cargo=DB::table('cargos')->get();
-        $especialistas=DB::table('especialistas')->where('user',$id)->first();
+
+        $especialistas=DB::table('especialistas')
+        ->join('cargos', 'cargos.id_cargo', '=', 'especialistas.cargo')
+        ->where('user',$id)->first();
       if($especialistas!=null){
+
         $validar=true;
-        return view('dashboard.usuario.principal',compact('cargo','validar','especialistas'));
+        return view('dashboard.usuario.principal',compact('cargo','validar','especialistas','username'));
 
       }
       else{

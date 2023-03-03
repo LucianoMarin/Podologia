@@ -35,7 +35,8 @@ class controllerRegistrar extends Controller
             $cuenta->email=$request->correo;
             $cuenta->username = $request->username;
             $cuenta->password = Hash::make($request->contraseña); //ENCRIPTA 
-          
+            
+            $cuenta->save();
             return redirect('registrar')->with('resultado', 'Registro exitoso!');
             
 
