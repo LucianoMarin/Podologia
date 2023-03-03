@@ -1,36 +1,55 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-<div class="col md-12">
-    <div class="col md-6 border">  
+  <div class="col-md-11">  
+  <div class="alert-info alerta" role="alert">
+  <h4 class="alert-heading"><b>IMPORTANTE!</b></h4>
+  <p>El registro de datos personales es obligatorio para los <b>usuarios nuevos</b>, si sus datos personales no son registrados no podra usar todas las funcionalidades del sistema.</p>
+  <hr>
+  <p class="mb-0">Si necesita ayuda, por favor contactarse con el administrador del sistema.</p>
+</div>
+
+</div>
+
+    <div class="col-md-6">  
+    <br>
         <label>Rut:</label>
+        <br>
         <input type="text" name="rut">
         <br>
-        <label>Primer Nombre:</label>
+        <label>Primer Nombre:</label>   
+        <br>
         <input type="text" name="nombre">
         <br>
         <label>Segundo Nombre:</label>
+        <br>
         <input type="text" name="segundo_nombre">
         <br>
-        <label>apellido Paterno:</label>
+       
+        
+    </div>
+    <div class="col-md-4">  
+    <br>
+    <label>Apellido Paterno:</label>
+        <br>
         <input type="text" name="apellido_paterno">
         <br>
-        <label>apellido Materno:</label>
+        <label>Apellido Materno:</label>
+        <br>
         <input type="text" name="apellido_materno">
-        <br>
+    <br>
+    <br>
+    <lavel>Cargo: </label>  
+    <select>
+    <option></option>
 
-    <div clas="col md-6 border">
-        <label>Cargo:</label>
-        <select>
-            <option></option>
-        </select>
-
-        <br>
-        <br>
-        <input type="submit" class="btn btn-primary" value="Guardar">
+    </select>
+    <br>
+    <br>
+    <br>
+    <br>
+        <input type="submit" class="btnPublicar" value="Guardar">
+        </div>
     </div>
-    </div>
-
-    </div>
-    
+    <br>
 </div>
 </div>

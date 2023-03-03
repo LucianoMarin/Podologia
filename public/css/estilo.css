@@ -3,7 +3,7 @@
 @import url('tabla.css');
 @import url('media.css');
 @import url('modales.css');
-
+@import url('alerta.css');
 .contenedor {
     min-height: 100vh;
     position: relative;
