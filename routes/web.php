@@ -42,9 +42,12 @@ return view('dashboard.usuario.nuevo_usuario');
 
 
   Route::get('/usuario', [controllerEspecialista::class, 'index'])->name('index.usuario');
-  Route::post('/usuario',[controllerEspecialista::class, 'store'])->name('crear_perfil');
+  Route::post('/usuario',[controllerEspecialista::class, 'store'])->name('crear.perfil');
+  Route::post('/{id}/usuario',[controllerEspecialista::class, 'edit'])->name('edit.perfil');
+  Route::patch('/usuario/{id}',[controllerEspecialista::class, 'update'])->name('editar.perfil');
 
 
+  
 
 Route::get('/dashboard', [controllerInicio::class, 'show'])->name('index');
 
@@ -68,7 +71,6 @@ Route::get('/login','App\Http\Controllers\controllerLogin@show');
 Route::get('/publicaciones',[controllerPublicacion::class, 'show'])->name('index.publicacion');
 Route::post('/publicaciones',[controllerPublicacion::class, 'store'])->name('publicar');
 Route::delete('/publicaciones/{id}',[controllerPublicacion::class, 'destroy'])->name('eliminar.publicacion');
-Route::get('/{id}/publicaciones',[controllerPublicacion::class, 'edit'])->name('edit.publicacion');
 Route::patch('/publicaciones/{id}',[controllerPublicacion::class, 'update'])->name('editar.publicacion');
 
 

@@ -47,7 +47,6 @@ class controllerEspecialista extends Controller
     }
     */
 
-
     public function create()
     {
      
@@ -81,14 +80,30 @@ class controllerEspecialista extends Controller
     }
 
     public function edit($id)
-    {
-        //
+    {        
+        $cargo=$this->cargarCargos();
+        $idCuenta=Auth::user()->id;
+        $especialista=Especialista::findOrFail($id);
+        return view('dashboard.usuario.editar_perfil',compact('especialista','cargo'));
     }
 
 
     public function update(Request $request, $id)
-    {
-        //
+    {        
+        $especialista =Especialista::findOrFail($id); //busca por id
+        $idCuenta=Auth::user()->id;
+        $especialista->rut=$id;
+        $especialista->primer_nombre=$request->edprimer_nombre;
+        $especialista->segundo_nombre=$request->edsegundo_nombre;
+        $especialista->apellido_paterno=$request->edapellido_paterno;
+        $especialista->apellido_materno=$request->edapellido_materno;
+        $especialista->cargo=$request->edcargo;
+        $especialista->user=$idCuenta;
+        
+
+        $especialista->save();
+        echo $especialista;
+
     }
 
  
@@ -99,10 +114,8 @@ class controllerEspecialista extends Controller
 
 
     public function cargarCargos(){
-
         $cargo=new Cargo();
         $cargo=DB::table('cargos')->get();
-
         return $cargo;
 
     }

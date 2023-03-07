@@ -1,7 +1,5 @@
 
 @auth
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -23,7 +21,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-1 imgl">
-                <a href="dashboard"><img class="imgl" src="imagenes/imgl.png"></a>
+                <a href="/dashboard"><img class="imgl" src="../imagenes/imgl.png"></a>
             </div>
             <div class="col col-md-11 cnav">
                 <div class="navo">
@@ -48,7 +46,9 @@
                     </li>
                     </ul>
                     </li>
-                    <li><!---LIBRE-->
+                    <li>
+                    <a href="/usuario">Perfil</a>  
+                    <!---LIBRE-->
                     </li>
                     </ul>
                 </nav>

@@ -1,22 +1,13 @@
 <div class="container-fluid">
   <div class="row">
-  <div class="col-md-11">  
+  <div class="col col-md-12">  
   <div class="alert-info alerta" role="alert">
   <h4 class="alert-heading"><img class="icono" src="imagenes/usuario/configuraciones.png"><b>Mi Perfil</b></h4>
   <br>
-  <label><h4>Nombre Usuario: <br>{{$username}}</h4></label>
-  <br>
-  <br>
+  <label><h4><b>Nombre Usuario: </b><br>{{$username}}</h4></label>
 <br>
-
-<hr>
-</hr>
-<label>Editar Perfil</label>
-</div>
-
-</div>
-
-    <div class="col-md-6">  
+<div class="row">
+<div class="col-md-6">  
     <br>
         <label>Rut:</label>
         <br>
@@ -33,7 +24,7 @@
        
         
     </div>
-    <div class="col-md-4">  
+    <div class="col-md-5">  
     <br>
     <label>Apellido Paterno:</label>
         <br>
@@ -50,9 +41,20 @@
     <input type="text" disabled="disabled" value="{{$especialistas->nombre}}">
     <br>
     <br>
-    <br>
-    <br>
 
+    </div>
+<hr>
+</hr>
+<form action="{{Route('edit.perfil', $especialistas->rut)}}" method="POST">
+  
+        @csrf
+<input type="submit" value="Editar Perfil" class="btnPublicar">
+
+</form>
+</div>
+
+
+</div>
         </div>
     </div>
     <br>

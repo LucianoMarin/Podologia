@@ -1,8 +1,14 @@
+
+@extends('..plantilla.plantillaPagina')
+<link href="../css/estilo.css" rel="stylesheet"/>
+
+
+@section('contenedor')
 <div class="container-fluid">
   <div class="row">
   <div class="col-md-11">  
   <div class="alert-info alerta" role="alert">
-  <h4 class="alert-heading"><b>IMPORTANTE!</b></h4>
+  <h4 class="alert-heading"><b>EDITAR</b></h4>
   <p>El registro de datos personales es obligatorio para los <b>usuarios nuevos</b>, si sus datos personales no son registrados, su cuenta no se considerada como especialista y no podra usar todas las funcionalidades del sistema.</p>
   <hr>
   <p class="mb-0">Si necesita ayuda, por favor contactarse con un administrador.</p>
@@ -13,19 +19,16 @@
     <div class="col-md-6">  
     <br>
 
-    <form action="{{Route('crear.perfil')}}" method="POST">
+    <form action="{{Route('editar.perfil', $especialista->rut)}}" method="POST">
+        @method('PATCH')   
         @csrf
-        <label>Rut:</label>
-        <br>
-        <input type="text" name="rut">
-        <br>
         <label>Primer Nombre:</label>   
         <br>
-        <input type="text" name="primer_nombre">
+        <input type="text" name="edprimer_nombre">
         <br>
         <label>Segundo Nombre:</label>
         <br>
-        <input type="text" name="segundo_nombre">
+        <input type="text" name="edsegundo_nombre">
         <br>
        
         
@@ -34,16 +37,16 @@
     <br>
     <label>Apellido Paterno:</label>
         <br>
-        <input type="text" name="apellido_paterno">
+        <input type="text" name="edapellido_paterno">
         <br>
         <label>Apellido Materno:</label>
         <br>
-        <input type="text" name="apellido_materno">
+        <input type="text" name="edapellido_materno">
     <br>
     <br>
   
     <lavel>Cargo: </label>  
-    <select name="cargo">
+    <select name="edcargo">
     @foreach($cargo as $cargos)
     <option value="{{$cargos->id_cargo}}">{{$cargos->nombre}}</option>
     @endforeach
@@ -59,3 +62,20 @@
     <br>
 </div>
 </div>
+
+@stop
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
