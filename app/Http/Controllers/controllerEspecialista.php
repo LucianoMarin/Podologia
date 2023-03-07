@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cargo;
 use App\Models\Especialista;
 use Auth;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -38,14 +39,6 @@ class controllerEspecialista extends Controller
 
     }
 
-/*
-    public function indexNuevoUsuario($validar){
-        $cargo=new Cargo();
-        $cargo=DB::table('cargos')->get();
-        return view('dashboard.usuario.principal',compact('cargo','validar'));
-
-    }
-    */
 
     public function create()
     {
@@ -57,6 +50,18 @@ class controllerEspecialista extends Controller
   
     public function store(Request $request)
     {
+
+        try{
+        $this->validate($request,[
+        'rut'=>'required | numeric',
+        'primer_nombre'=>'required',
+        'segundo_nombre'=>'required',
+        'apellido_paterno'=>'required',
+        'apellido_materno'=>'required',
+        'cargo'=>'required'
+          ]);
+
+
         $especialista=new Especialista();
         $idCuenta=Auth::user()->id;
         $especialista->rut=$request->rut;
@@ -69,8 +74,12 @@ class controllerEspecialista extends Controller
         
 
         $especialista->save();
-        return redirect()->route('index.usuario');
+        return redirect()->route('index.usuario')->with('resultado', 'A creado su perfil Exitosamente!');
+        }catch(QueryException $ex){
 
+        return redirect()->route('index.usuario')->with('error', 'Error: no se pudo ingresar informacion en la BD');
+
+        }
     }
 
   

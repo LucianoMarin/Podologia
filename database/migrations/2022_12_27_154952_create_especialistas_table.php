@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('especialistas', function (Blueprint $table) {
-            $table->string('rut',15);
+            $table->integer('rut');
+            $table->string('verificador',1);
             $table->string('primer_nombre', 15);
             $table->string('segundo_nombre', 15);
             $table->string('apellido_paterno', 15);

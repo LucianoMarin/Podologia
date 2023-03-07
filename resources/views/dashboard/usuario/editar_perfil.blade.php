@@ -1,17 +1,15 @@
 
 @extends('..plantilla.plantillaPagina')
 <link href="../css/estilo.css" rel="stylesheet"/>
-
-
 @section('contenedor')
 <div class="container-fluid">
   <div class="row">
   <div class="col-md-11">  
   <div class="alert-info alerta" role="alert">
   <h4 class="alert-heading"><b>EDITAR</b></h4>
-  <p>El registro de datos personales es obligatorio para los <b>usuarios nuevos</b>, si sus datos personales no son registrados, su cuenta no se considerada como especialista y no podra usar todas las funcionalidades del sistema.</p>
+  <p>Sr <b>usuarios</b>, tener precaucion al cambiar sus datos de perfil, ya que estos se veran reflejados en las demas funciones del sistema.</p>
   <hr>
-  <p class="mb-0">Si necesita ayuda, por favor contactarse con un administrador.</p>
+  <p class="mb-0">Si necesita ayuda, por favor contactarse al correo: </p>
 </div>
 
 </div>
@@ -20,15 +18,18 @@
     <br>
 
     <form action="{{Route('editar.perfil', $especialista->rut)}}" method="POST">
+
+     
         @method('PATCH')   
         @csrf
+
         <label>Primer Nombre:</label>   
         <br>
-        <input type="text" name="edprimer_nombre">
+        <input type="text" name="edprimer_nombre" value="{{$especialista->primer_nombre}}">
         <br>
         <label>Segundo Nombre:</label>
         <br>
-        <input type="text" name="edsegundo_nombre">
+        <input type="text" name="edsegundo_nombre" value="{{$especialista->segundo_nombre}}">
         <br>
        
         
@@ -37,14 +38,14 @@
     <br>
     <label>Apellido Paterno:</label>
         <br>
-        <input type="text" name="edapellido_paterno">
+        <input type="text" name="edapellido_paterno" value="{{$especialista->apellido_paterno}}">
         <br>
         <label>Apellido Materno:</label>
         <br>
-        <input type="text" name="edapellido_materno">
+        <input type="text" name="edapellido_materno" value="{{$especialista->apellido_materno}}">
     <br>
     <br>
-  
+
     <lavel>Cargo: </label>  
     <select name="edcargo">
     @foreach($cargo as $cargos)
