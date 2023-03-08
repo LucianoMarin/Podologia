@@ -11,7 +11,7 @@
     <br>
         <label>Rut:</label>
         <br>
-        <input type="text" name="rut" disabled="disabled" value="{{$especialistas->rut}}">
+        <input type="text" name="rut" disabled="disabled" value="{{$especialistas->rut}}-{{$especialistas->verificador}}">
         <br>
         <label>Primer Nombre:</label>   
         <br>
@@ -45,10 +45,14 @@
     </div>
 <hr>
 </hr>
-<form action="{{Route('edit.perfil', $especialistas->rut)}}" method="POST">
-  
-        @csrf
-<input type="submit" value="Editar Perfil" class="btnPublicar">
+
+<!----
+<form action="{{Route('edit.perfil', $especialistas->rut)}}" method="post">
+@csrf
+--->
+
+<a href="{{Route('edit.perfil', $especialistas->rut)}}">Link</a>
+
 
 </form>
 </div>

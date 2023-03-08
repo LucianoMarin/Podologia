@@ -8,8 +8,10 @@
   <div class="alert-info alerta" role="alert">
   <h4 class="alert-heading"><b>EDITAR</b></h4>
   <p>Sr <b>usuarios</b>, tener precaucion al cambiar sus datos de perfil, ya que estos se veran reflejados en las demas funciones del sistema.</p>
+
+
   <hr>
-  <p class="mb-0">Si necesita ayuda, por favor contactarse al correo: </p>
+  <p class="mb-0">Si necesita ayuda, por favor contactarse con un administrador.</p>
 </div>
 
 </div>
@@ -17,11 +19,9 @@
     <div class="col-md-6">  
     <br>
 
-    <form action="{{Route('editar.perfil', $especialista->rut)}}" method="POST">
-
-     
-        @method('PATCH')   
-        @csrf
+    <form action="{{Route('editar.perfil', $especialista->rut)}}" method="POST">     
+    @csrf
+    @method('PUT')   
 
         <label>Primer Nombre:</label>   
         <br>

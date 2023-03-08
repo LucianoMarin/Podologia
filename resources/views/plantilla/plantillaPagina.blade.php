@@ -1,5 +1,5 @@
 
-@auth
+<!---@auth--->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -173,4 +173,4 @@
     </body>
 
     </html>
-    @endauth
+    <!----@endauth---->

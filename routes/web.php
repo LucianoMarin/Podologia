@@ -43,8 +43,8 @@ return view('dashboard.usuario.nuevo_usuario');
 
   Route::get('/usuario', [controllerEspecialista::class, 'index'])->name('index.usuario');
   Route::post('/usuario',[controllerEspecialista::class, 'store'])->name('crear.perfil');
-  Route::post('/{id}/usuario',[controllerEspecialista::class, 'edit'])->name('edit.perfil');
-  Route::patch('/usuario/{id}',[controllerEspecialista::class, 'update'])->name('editar.perfil');
+  Route::get('{id}/usuario/',[controllerEspecialista::class, 'edit'])->name('edit.perfil');
+  Route::put('/usuario/{id}',[controllerEspecialista::class, 'update'])->name('editar.perfil');
 
 
   

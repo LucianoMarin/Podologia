@@ -24,6 +24,7 @@ return new class extends Migration
             $table->integer('edad');
             $table->string('direccion',30);
             $table->integer('telefono');
+            $table->primary('rut');
         });
     }
 

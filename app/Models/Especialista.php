@@ -12,6 +12,7 @@ class Especialista extends Model
     protected $primaryKey = 'rut';
 
     protected $fillable = [
+        
         'rut',
         'primer_nombre',
         'segundo_nombre',
