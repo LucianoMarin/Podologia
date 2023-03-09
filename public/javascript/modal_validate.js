@@ -4,7 +4,7 @@ export const vModal=(() => {
 
 
 
-const btnCrearNota=document.querySelector('#btnNotas');
+const btnCrearNota=document.querySelector('#btnTablas');
 const btnEditarPublicacion=document.querySelectorAll('#btnEditarPublicacion');
 const inputTitulo=document.querySelector('#txtTitulo');
 const inputPublicacion=document.querySelector('#txtComentario');

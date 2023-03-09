@@ -35,17 +35,17 @@
         <td>{{$publicacion->titulo}}</td>
         <td>{{$fecha}}</td>
         <td>
-        <button type="button" class="btnModales" data-bs-toggle="modal" data-bs-target="#eliminar_publicacion{{$publicacion->id_publicacion}}">
+        <button type="button" class="btnTablas" data-bs-toggle="modal" data-bs-target="#eliminar_publicacion{{$publicacion->id_publicacion}}">
         <img src="/imagenes/iconos/table_icons/eliminar.png" class="t_imagen">
         </button>
         </td>
         <td>
-        <button type="button" class="btnModales" data-bs-toggle="modal" data-bs-target="#editar_publicacion{{$publicacion->id_publicacion}}" id="btnEditarPublicacion">
+        <button type="button" class="btnTablas" data-bs-toggle="modal" data-bs-target="#editar_publicacion{{$publicacion->id_publicacion}}" id="btnEditarPublicacion">
         <img src="/imagenes/iconos/table_icons/editar.png" value="" class="t_imagen">    
         </button>
         </td>
         <td>
-        <button type="button" class="btnModales" data-bs-toggle="modal" data-bs-target="#ver_publicacion{{$publicacion->id_publicacion}}">
+        <button type="button" class="btnTablas" data-bs-toggle="modal" data-bs-target="#ver_publicacion{{$publicacion->id_publicacion}}">
         <img src="/imagenes/iconos/table_icons/comentarios.png" class="t_imagen"></button>
         </td>
         </tr>

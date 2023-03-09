@@ -49,7 +49,7 @@
                 <div class="navo">
                 <nav>
                     <ul>
-                        <li><a href="#">Pacientes</a>
+                        <li><a href="/pacientes">Pacientes</a>
                             <ul>
                                 <li><a href="#">Crear Paciente</a></li>
                                 <li><a href="#">Eliminar Paciente</a></li>

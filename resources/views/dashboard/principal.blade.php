@@ -11,7 +11,7 @@
 <br>
 <a href="#">Agendar Hora</a>
 <br>
-<a href="publicaciones">G. publicacion</a>
+<a href="publicaciones">Publicaciones</a>
 @stop
 @section('contenedor')
 
