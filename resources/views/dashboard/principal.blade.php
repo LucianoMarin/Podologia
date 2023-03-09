@@ -66,7 +66,7 @@ echo str_replace("\n", "<br>", $publicacion->contenido);
 <br>
 <br>
 <button id="btnNotas" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#crear_publicacion">
-Ventana
+Nueva Nota
 </button>
 @stop
 @section('cHorizontal3')

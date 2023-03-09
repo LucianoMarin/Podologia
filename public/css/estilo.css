@@ -15,9 +15,13 @@
 
 
 .contenedorPrincipal {
-    border: 1px solid rgb(215, 206, 206);
-    border-radius: 2px;
-    padding: 20px 0px 0px 20px;
+    border: 1px solid rgba(220, 217, 221, 0.158);
+    border-radius: 10px;
+    background-color: rgba(220, 217, 221, 0.158);
+    box-shadow: 2px 5px 20px 0px rgba(51, 51, 51, 0.2);
+    padding: 20px 20px 10px 20px;
+  
+
 }
 
 
@@ -30,7 +34,7 @@
     background-color: #c07496;
     padding-top: 20px;
     padding-bottom: 1px;
-    border-radius: 0px 0px 4px 4px;
+    border-radius: 4px 4px 4px 4px;
     font-size: 22px;
 
 }
@@ -231,7 +235,12 @@ footer {
 }
 
 .menuLateral {
+    border: 1px solid rgba(220, 217, 221, 0.158);
+    border-radius: 10px;
+    background-color: rgba(220, 217, 221, 0.158);
+    box-shadow: 2px 5px 20px 0px rgba(51, 51, 51, 0.2);
     padding-top: 10px;
+    padding-left: 20px;
     padding-bottom: 10px;
     list-style: none;
 }
@@ -353,8 +362,8 @@ footer {
 .pagination > .active > span,
 .pagination > .active > span:focus,
 .pagination > .active > span:hover {
-    background-color: rgb(169, 87, 194);
-    border-color: rgb(77, 0, 128);
+    background-color: #8f66af;
+    border-color: rgb(214, 214, 214);
 }
 
 
@@ -388,3 +397,7 @@ margin-right: 30px;
 
     } 
 
+    .page-link{
+
+        color:rgb(173, 173, 173) !important;
+    }

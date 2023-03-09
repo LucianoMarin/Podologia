@@ -91,11 +91,13 @@
             <div class="col-md-4">
             </div>
             <div class="col-md-4">
+                
             @yield('cHorizontal3')
 
             </div>
             
             <div class="col-md-4">
+                
                 @yield('cHorizontal2')
                 
             </div>
@@ -117,38 +119,27 @@
             <div class="col-12 col-xs-12 col-md-3 ">
                 <div class="row">
                     <div class="col-12 col-sm-6 col-md-12">
+                        
                         <div class="menuLateral">
                             @yield('menuLateral')
-
-                        </div>
-
-                    </div>
-
-                    <div class="col-12 col-sm-6 col-md-12">
-                        <div class="menuLateral2 ">
-                            @yield('menuLateral2')
-
-                        </div>
-
-
-
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-12">
-                        <div class="menuLateral2 ">
-                            @yield('menuLateral3')
-
-                        </div>
-
-                    
-                       
-                        <div class="col-md-4">
-
+                            <br>
+                            <br>
+                            <br>
+                            <br>
                             @yield('cHorizontal')
-                            
                             <br>
                             <br>
+                            @yield('menuLateral3')
+                    
                         </div>
+                        <br>
+                        <br>
+                
+                    </div>
 
+            
+                    <div class="col-12 col-sm-6 col-md-12">
+                 
                         @include('dashboard.publicacion.crear_publicacion')
 
                     </div>
@@ -156,17 +147,30 @@
             </div>
 
             <div class="col-md-9">
-
                 <div class="contenedorPrincipal">
+           
                     @yield('contenedor')
+                    <br>
+                 
+        
                 </div>
+                
             </div>
+      
         </div>
+        <br>
 
+        <br>
+        <br>
+        <br>
 
     <br>
     </div>
     </div>
+
+
+
+
     <footer>
         <div class="container-fluid">
             <div class="row">

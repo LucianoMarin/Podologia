@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
   <div class="col col-md-12">  
-  <div class="alert-info alerta" role="alert">
+
   <h4 class="alert-heading"><img class="icono" src="imagenes/usuario/configuraciones.png"><b>Mi Perfil</b></h4>
   <br>
   <label><h4><b>Nombre Usuario: </b><br>{{$username}}</h4></label>
