@@ -5,6 +5,7 @@ use App\Http\Controllers\controllerCuenta;
 use App\Http\Controllers\controllerEspecialista;
 use App\Http\Controllers\controllerInicio;
 use App\Http\Controllers\controllerLogin;
+use App\Http\Controllers\controllerLogout;
 use App\Http\Controllers\controllerPaciente;
 use App\Http\Controllers\controllerPublicacion;
 use App\Http\Controllers\controllerRegistrar;
@@ -29,6 +30,10 @@ Route::get('/', function(){
 return view('login.principal');
 });
 
+
+
+
+Route::GET('/salir', [controllerLogout::class, 'salir']);
 
 /*
 

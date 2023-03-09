@@ -356,3 +356,15 @@ footer {
     border-color: rgb(77, 0, 128);
 }
 
+
+
+.navbar .dropdown{
+margin-right: 30px;
+}
+
+.dropColor{
+    color:rgb(255, 255, 255) !important;
+    background-color: rgb(24, 71, 82) !important;
+    text-transform: uppercase;
+   
+}
