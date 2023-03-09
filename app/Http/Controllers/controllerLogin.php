@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginRequest;
 use App\Models\Cuenta;
+use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -22,11 +23,14 @@ else{
 
 
 }
+
 }
 
 
 
 public function login(Request $request){
+
+  try{
   $this->validate($request, [
 
     'usuario'=>'required',
@@ -45,8 +49,11 @@ if(Auth::attempt($credentials)){
   return redirect('/')->with('resultado', 'Error: Credenciales no validas');
 
 }
+}catch(QueryException $ex){
 
-
+  return redirect('/')->with('error','Error: Hay un problema de conexion (BD)');
+  
+  }
   }
 
 

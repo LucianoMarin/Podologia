@@ -16,6 +16,11 @@ class controllerEspecialista extends Controller
    
     public function index()
     {
+
+      if(!Auth::check()){
+        return redirect('/');
+            }  else{
+
         $validar=false;
         $id=Auth::user()->id;
         $username=Auth::user()->username;
@@ -38,7 +43,7 @@ class controllerEspecialista extends Controller
         return view('dashboard.usuario.principal',compact('cargo','validar'));
 
       }
-       
+    }
 
     }
 
@@ -53,6 +58,11 @@ class controllerEspecialista extends Controller
   
     public function store(Request $request)
     {
+
+
+      if(!Auth::check()){
+        return redirect('/');
+            }  else{
 
         try{
         $this->validate($request,[
@@ -85,6 +95,7 @@ class controllerEspecialista extends Controller
         return redirect()->route('index.usuario')->with('error', 'Error: no se pudo ingresar informacion en la BD');
 
         }
+      }
     }
 
   
@@ -95,6 +106,10 @@ class controllerEspecialista extends Controller
 
     public function edit($id)
     {   
+      if(!Auth::check()){
+        return redirect('/');
+            }  else{
+
                 
         $cargo=$this->cargarCargos();
         $especialista=Especialista::findOrFail($id);
@@ -103,13 +118,17 @@ class controllerEspecialista extends Controller
         return view('dashboard.usuario.editar_perfil',compact('especialista','cargo'));
 
     
+            }
 
 
     }
 
 
     public function update(Request $request, $id)
-    {        
+    {          if(!Auth::check()){
+      return redirect('/');
+          }  else{
+
 
         $this->validate($request,[
           'primer_nombre'=>'required',
@@ -136,7 +155,7 @@ class controllerEspecialista extends Controller
         $especialista->save();
         
         return redirect()->route('index.usuario')->with('resultado', 'A editado su perfil Exitosamente!');
-              
+      }
             
     }
 

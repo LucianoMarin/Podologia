@@ -40,8 +40,10 @@
 
             <div class="col col-md-3 ">
             @if (session('resultado'))
+            @elseif (session('error'))
     <div class="alert alert-danger">
         {{ session('resultado') }}
+        {{ session('error') }}
     </div>
     @elseif (count($errors) > 0)
     <div class="alert alert-danger">

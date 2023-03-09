@@ -85,6 +85,7 @@ footer {
     color: #ffffff;
     font-size: 15px;
     padding: 2px;
+    box-shadow: 10px 10px 20px 10px rgba(51, 51, 51, 0.2);
 
 
 }
@@ -364,7 +365,26 @@ margin-right: 30px;
 
 .dropColor{
     color:rgb(255, 255, 255) !important;
-    background-color: rgb(24, 71, 82) !important;
+    background-color: rgb(145, 160, 163) !important;
     text-transform: uppercase;
    
 }
+
+
+
+
+    .estiloNav .navbar-toggler{
+
+        background-color:rgb(255, 255, 255) !important;
+  
+
+    } 
+
+    
+    .estiloNav .navbar-toggler-icon{
+        color:red !important;
+        background-color:rgb(255, 255, 255) !important;
+
+
+    } 
+
