@@ -48,18 +48,4 @@
 @endif
 
 @stop
-@section('cHorizontal')
-<img class="icono" src="imagenes/iconos/publicalo.png">
-<label>Crear nota: </label>
-<br>
-<br>
-<button id="btnNotas" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#crear_publicacion">
-Ventana
-</button>
-
-@stop
-
-
-
-
 

@@ -2,6 +2,8 @@
 export const vModal=(() => {
     'use strict';
 
+
+
 const btnCrearNota=document.querySelector('#btnNotas');
 const btnEditarPublicacion=document.querySelectorAll('#btnEditarPublicacion');
 const inputTitulo=document.querySelector('#txtTitulo');
@@ -22,8 +24,12 @@ const mVFE=document.querySelector('#form_EPublicacion');
 
 
 
+
 //MODALES PUBLICACION
 //MODAL CREAR PUBLICACION
+
+if(btnCrearNota)
+{
 
 btnCrearNota.addEventListener('click',()=>{
 
@@ -79,6 +85,8 @@ texto2.innerHTML='';
 
 
 });
+}
+
 
 
 document.addEventListener("DOMContentLoaded",()=>{
@@ -165,13 +173,12 @@ inputPublicacionEd[i].addEventListener('input',(e)=>{
 
 
   
-
+}
          
     
 
 
 
-}
 
 
 

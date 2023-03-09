@@ -98,8 +98,6 @@ class controllerEspecialista extends Controller
                 
         $cargo=$this->cargarCargos();
         $especialista=Especialista::findOrFail($id);
-        //$valores=[$especialista->user,Auth::user()->id];
-        //echo var_dump($valores);
         $this->authorize('view',$especialista);
 
         return view('dashboard.usuario.editar_perfil',compact('especialista','cargo'));
@@ -113,17 +111,25 @@ class controllerEspecialista extends Controller
     public function update(Request $request, $id)
     {        
 
+        $this->validate($request,[
+          'primer_nombre'=>'required',
+          'segundo_nombre'=>'required',
+          'apellido_paterno'=>'required',
+          'apellido_materno'=>'required',
+          'cargo'=>'required'
+        ]);
+
 
         $especialista =Especialista::findOrFail($id); //busca por id
         $this->authorize('update',$especialista);
 
         $idCuenta=Auth::user()->id;
         $especialista->rut=$id;
-        $especialista->primer_nombre=$request->edprimer_nombre;
-        $especialista->segundo_nombre=$request->edsegundo_nombre;
-        $especialista->apellido_paterno=$request->edapellido_paterno;
-        $especialista->apellido_materno=$request->edapellido_materno;
-        $especialista->cargo=$request->edcargo;
+        $especialista->primer_nombre=$request->primer_nombre;
+        $especialista->segundo_nombre=$request->segundo_nombre;
+        $especialista->apellido_paterno=$request->apellido_paterno;
+        $especialista->apellido_materno=$request->apellido_materno;
+        $especialista->cargo=$request->cargo;
         $especialista->user=$idCuenta;
     
 

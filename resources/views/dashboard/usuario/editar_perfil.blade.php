@@ -1,6 +1,22 @@
 
 @extends('..plantilla.plantillaPagina')
-<link href="../css/estilo.css" rel="stylesheet"/>
+
+
+
+@section('menuLateral')
+
+
+<img class="icono" src="../imagenes/iconos/enlace.png">
+<label class="submenu">Accesos rapidos</label>
+<br>
+<a href="#">Ing. Paciente</a>
+<br>
+<a href="#">Agendar Hora</a>
+@stop
+
+
+
+
 @section('contenedor')
 <div class="container-fluid">
   <div class="row">
@@ -19,17 +35,17 @@
     <div class="col-md-6">  
     <br>
 
-    <form action="{{Route('editar.perfil', $especialista->rut)}}" method="POST">     
+    <form action="{{Route('editar.perfil', $especialista->rut)}}" method="POST" id="editar_perfil">     
     @csrf
     @method('PUT')   
 
         <label>Primer Nombre:</label>   
         <br>
-        <input type="text" name="edprimer_nombre" value="{{$especialista->primer_nombre}}">
+        <input type="text" name="primer_nombre" value="{{$especialista->primer_nombre}}">
         <br>
         <label>Segundo Nombre:</label>
         <br>
-        <input type="text" name="edsegundo_nombre" value="{{$especialista->segundo_nombre}}">
+        <input type="text" name="segundo_nombre" value="{{$especialista->segundo_nombre}}">
         <br>
        
         
@@ -38,16 +54,16 @@
     <br>
     <label>Apellido Paterno:</label>
         <br>
-        <input type="text" name="edapellido_paterno" value="{{$especialista->apellido_paterno}}">
+        <input type="text" name="apellido_paterno" value="{{$especialista->apellido_paterno}}">
         <br>
         <label>Apellido Materno:</label>
         <br>
-        <input type="text" name="edapellido_materno" value="{{$especialista->apellido_materno}}">
+        <input type="text" name="apellido_materno" value="{{$especialista->apellido_materno}}">
     <br>
     <br>
 
     <lavel>Cargo: </label>  
-    <select name="edcargo">
+    <select name="cargo">
     @foreach($cargo as $cargos)
     <option value="{{$cargos->id_cargo}}">{{$cargos->nombre}}</option>
     @endforeach
@@ -65,6 +81,31 @@
 </div>
 
 @stop
+
+@section('cHorizontal3')
+
+@if (session('resultado'))
+<div class="alert alert-success">
+{{ session('resultado') }}
+</div>
+
+@elseif(session('error'))
+<div class="alert alert-danger">
+{{ session('error') }}
+</div>
+
+@elseif (count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                {{ $error }}
+                <br>
+            @endforeach
+        </ul>
+    </div>
+@endif
+@stop
+
 
 
 

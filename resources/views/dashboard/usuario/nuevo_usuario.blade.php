@@ -15,12 +15,12 @@
     <div class="col-md-6">  
     <br>
 
-    <form action="{{Route('crear.perfil')}}" method="POST">
+    <form action="{{Route('crear.perfil')}}" method="POST" id="nuevo_perfil">
         @csrf
         <label>Rut:</label>
         <br>
         <input type="text" name="rut"> - 
-            <select name="verificador">
+            <select name="verificador" id="verificador">
             <option selected></option>
             <option value="0">0</option>
             <option value="1">1</option>
@@ -37,11 +37,11 @@
         <br>
         <label>Primer Nombre:</label>   
         <br>
-        <input type="text" name="primer_nombre">
+        <input type="text" name="primer_nombre" id="primer_nombre">
         <br>
         <label>Segundo Nombre:</label>
         <br>
-        <input type="text" name="segundo_nombre">
+        <input type="text" name="segundo_nombre" id="segundo_nombre">
         <br>
        
         
@@ -50,16 +50,16 @@
     <br>
     <label>Apellido Paterno:</label>
         <br>
-        <input type="text" name="apellido_paterno">
+        <input type="text" name="apellido_paterno" id="apellido_paterno">
         <br>
         <label>Apellido Materno:</label>
         <br>
-        <input type="text" name="apellido_materno">
+        <input type="text" name="apellido_materno" id="apellido_materno">
     <br>
     <br>
   
     <lavel>Cargo: </label>  
-    <select name="cargo">
+    <select name="cargo" id="cargo" >
     @foreach($cargo as $cargos)
     <option value="{{$cargos->id_cargo}}">{{$cargos->nombre}}</option>
     @endforeach
@@ -68,7 +68,7 @@
     <br>
     <br>
     <br>
-        <input type="submit" class="btnPublicar" value="Guardar">
+        <input type="submit" class="btnPublicar" value="Guardar" id="btnNuevoUsuario">
     </form>
         </div>
     </div>

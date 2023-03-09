@@ -46,12 +46,8 @@
 <hr>
 </hr>
 
-<!----
-<form action="{{Route('edit.perfil', $especialistas->rut)}}" method="post">
-@csrf
---->
 
-<a href="{{Route('edit.perfil', $especialistas->rut)}}">Link</a>
+<a href="{{Route('edit.perfil', $especialistas->rut)}}"><button class="btnPublicar">Editar Perfil</button></a>
 
 
 </form>

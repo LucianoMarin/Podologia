@@ -72,7 +72,7 @@ class controllerPublicacion extends Controller
     public function update(Request $request, $id)
     {
 
-try{
+    try{
         $this->validate($request,[
             'tipo'=>'required',
             'titulo'=>'required',
