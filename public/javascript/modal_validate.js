@@ -4,7 +4,7 @@ export const vModal=(() => {
 
 
 
-const btnCrearNota=document.querySelector('#btnTablas');
+const btnCrearNota=document.querySelector('#btnNotas');
 const btnEditarPublicacion=document.querySelectorAll('#btnEditarPublicacion');
 const inputTitulo=document.querySelector('#txtTitulo');
 const inputPublicacion=document.querySelector('#txtComentario');
@@ -46,7 +46,7 @@ texto2.innerHTML='';
     inputTitulo.addEventListener('input',(e)=>{
         const titulo=e.target.value;
 
-
+      
         if(titulo.length>=200){
            
         texto.innerHTML='* Titulo no puede superar 200 caracteres..';

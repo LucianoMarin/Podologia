@@ -9,6 +9,9 @@
     <link href="../css/estilo.css" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+
+    
 <title>Dashboard</title>
 </head>
 
@@ -116,10 +119,9 @@
     <div class="container">
 
         <div class="row ">
-            <div class="col-12 col-xs-12 col-md-3 ">
-                <div class="row">
-                    <div class="col-12 col-sm-6 col-md-12">
-                        
+            <div class="col-12 col-xs-6 col-sm-6 col-md-3 col-lg-2 ">
+              
+                    <div class="row">          
                         <div class="menuLateral">
                             @yield('menuLateral')
                             <br>
@@ -130,23 +132,16 @@
                             <br>
                             <br>
                             @yield('menuLateral3')
-                    
+                            @include('dashboard.publicacion.crear_publicacion')
+
                         </div>
                         <br>
                         <br>
-                
-                    </div>
 
-            
-                    <div class="col-12 col-sm-6 col-md-12">
-                 
-                        @include('dashboard.publicacion.crear_publicacion')
-
-                    </div>
                 </div>
             </div>
 
-            <div class="col-md-9">
+            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 col-lg-10 ">
                 <div class="contenedorPrincipal">
            
                     @yield('contenedor')
@@ -194,10 +189,15 @@
 
 
     </footer>
-   
-    <script src="../javascript/javascript.js" type="module"></script>
+
+
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    </body>
+    <script src="../javascript/DataTables/jQuery-3.6.0/jquery-3.6.0.min.js"></script>
+   <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="../javascript/javascript.js" type="module"></script>
+
+</body>
 
     </html>
     <!----@endauth---->

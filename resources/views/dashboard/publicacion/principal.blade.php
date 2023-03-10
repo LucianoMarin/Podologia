@@ -16,7 +16,8 @@
 <h1>Publicaciones</h1>
 <br>
 <br>
-<table class="tablas">
+
+<table class="tablas" id="tablaPublicacion">
     <thead>
      
     <th>Titulo</th>
@@ -26,13 +27,15 @@
     <th>Ver </th>
 
 </thead>
-@foreach ($publicaciones as $publicacion)
-@php
-        $fecha=date('d/m/Y', strtotime($publicacion->fecha_publicacion));
-        @endphp
+
+
         <tbody>
         <tr>
-        <td>{{$publicacion->titulo}}</td>
+        @foreach ($publicaciones as $publicacion)
+        @php
+        $fecha=date('d/m/Y', strtotime($publicacion->fecha_publicacion));
+        @endphp
+        <td id="titulo">{{$publicacion->titulo}}</td>
         <td>{{$fecha}}</td>
         <td>
         <button type="button" class="btnTablas" data-bs-toggle="modal" data-bs-target="#eliminar_publicacion{{$publicacion->id_publicacion}}">
