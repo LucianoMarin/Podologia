@@ -43,7 +43,7 @@
 <h1>Lista de Pacientes: </h1>
 <br>
 <br>
-<table class="tablas">
+<table class="tablas" id="tablaPaciente">
     <thead>
      
     <th>Rut</th>

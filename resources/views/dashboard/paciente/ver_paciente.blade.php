@@ -6,39 +6,46 @@
     
       </div>
       <div class="modal-body">
-      <label>Rut: </label>
+      <h3>Datos Personales: </h3>
+      <label><b>Rut: </b></label>
         <br>
         <label>{{($pacientes->rut . '-' . $pacientes->verificador)}}</label>
         <br>
-        <label>Nombre: </label>
+        <label><b>Nombre: </b></label>
         <br>
         <label>{{$pacientes->primer_nombre . ' ' . $pacientes->segundo_nombre . ' ' .$pacientes->apellido_paterno .' '.$pacientes->apellido_materno }}</label>
         <br>
         @php
         $fecha=date('d/m/Y', strtotime($pacientes->fecha_nacimiento ));
         @endphp
-
-        <label>Fecha Nacimiento: </label>
+        <label><b>Fecha Nacimiento: </b></label>
         <br>
         <label>{{$fecha}}</label>
         <br>
 
-        <label>Edad</label>
+        <label><b>Edad: </b></label>
         <br>
   
         <label>{{$pacientes->edad}}</label>
+        <br>
+
+        <hr>
+        <h3>Contacto: </h3>
+        <label><b>Dirección: </b></label>
+        <br>
+  
+        <label>{{$pacientes->direccion}}</label>
+        <br>
+      
+        <label><b>Teléfono: </b></label>
+        <br>
+        <label>{{$pacientes->telefono}}</label>
         <br>
     </div>
       <div class="modal-footer">
  
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <form action="{{route('eliminar.paciente', $pacientes->rut)}}" method="POST">
 
-        <button type="submit" id="btnPublicar" class="btnPublicar">Eliminar</button></div>
-        @method('DELETE')
-        @csrf
-
-    </form>
     </div>
   </div>
 </div>

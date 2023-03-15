@@ -23,20 +23,17 @@ class controllerPaciente extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-        'rut_paciente'=>'required | numeric',
+        'rut'=>'required | numeric | unique:pacientes',
         'verificador'=>'required',
         'primer_nombre'=>'required',
-        'segundo_nombre'=>'required',
         'apellido_paterno'=>'required',
         'apellido_materno'=>'required',
         'fecha_nacimiento'=>'required',
-        'edad'=>'required | numeric',
-        'direccion'=>'required',
-        'telefono'=>'required'
+        'edad'=>'numeric',
         ]);
 
         $paciente=new Paciente();
-        $paciente->rut=$request->rut_paciente;
+        $paciente->rut=$request->rut;
         $paciente->verificador=$request->verificador;
         $paciente->primer_nombre=$request->primer_nombre;
         $paciente->segundo_nombre=$request->segundo_nombre;

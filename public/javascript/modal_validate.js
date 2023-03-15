@@ -85,7 +85,7 @@ texto2.innerHTML='';
 
 
 });
-}
+
 
 
 
@@ -175,7 +175,7 @@ inputPublicacionEd[i].addEventListener('input',(e)=>{
   
 }
          
-    
+}
 
 
 
