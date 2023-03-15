@@ -2,6 +2,31 @@
 
 @extends('plantilla.plantillaPagina')
 
+@section('cHorizontal3')
+
+@if (session('resultado'))
+<div class="alert alert-success">
+{{ session('resultado') }}
+</div>
+
+@elseif(session('error'))
+<div class="alert alert-danger">
+{{ session('error') }}
+</div>
+
+@elseif (count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                {{ $error }}
+                <br>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+@stop
+
 @section('menuLateral')
 
 <img class="icono" src="imagenes/iconos/enlace.png">
@@ -10,6 +35,9 @@
 <a href="#">Ing. Paciente</a>
 <br>
 <a href="#">Agendar Hora</a>
+<br>
+<a href="publicaciones">Publicaciones</a>
+
 @stop
 @section('contenedor')
 <h1>Lista de Pacientes: </h1>
@@ -27,11 +55,14 @@
 </thead>
 
         <tbody>
+        @foreach($paciente as $pacientes)
         <tr>
-        <td></td>
-        <td></td>
+        <td>{{$pacientes->rut}}</td>
+        <td>{{$pacientes->primer_nombre}} {{$pacientes->segundo_nombre}} {{$pacientes->apellido_paterno}} {{$pacientes->apellido_materno}}</td>
         <td>
-        <button type="button" class="btnTablas" data-bs-toggle="modal" data-bs-target="#eliminar_publicacion">
+ 
+
+        <button type="button" class="btnTablas" data-bs-toggle="modal" data-bs-target="#eliminar_paciente{{$pacientes->rut}}">
         <img src="/imagenes/iconos/table_icons/eliminar.png" class="t_imagen">
         </button>
         </td>
@@ -41,11 +72,14 @@
         </button>
         </td>
         <td>
-        <button type="button" class="btnTablas" data-bs-toggle="modal" data-bs-target="#ver_publicacion">
+        <button type="button" class="btnTablas" data-bs-toggle="modal" data-bs-target="#ver_paciente{{$pacientes->rut}}">
         <img src="/imagenes/iconos/table_icons/comentarios.png" class="t_imagen"></button>
         </td>
         </tr>
 
+        @include('dashboard.paciente.eliminar_paciente')
+        @include('dashboard.paciente.ver_paciente')
+        @endforeach
   
 </tr>
 </tbody>

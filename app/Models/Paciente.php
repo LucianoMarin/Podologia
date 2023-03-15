@@ -9,6 +9,10 @@ class Paciente extends Model
 {
     use HasFactory;
 
+
+    protected $primaryKey = 'rut';
+    public $timestamps = false;
+
     protected $fillable = [
         'rut',
         'primer_nombre',
