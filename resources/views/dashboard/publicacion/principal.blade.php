@@ -17,6 +17,9 @@
 <br>
 <br>
 
+@if($publicaciones->isEmpty())
+        No existen publicaciones
+@else
 <table class="tablas" id="tablaPublicacion">
     <thead>
      
@@ -31,7 +34,13 @@
 
         <tbody>
         <tr>
+
+       
+   
         @foreach ($publicaciones as $publicacion)
+   
+       
+   
         @php
         $fecha=date('d/m/Y', strtotime($publicacion->fecha_publicacion));
         @endphp
@@ -56,12 +65,13 @@
         @include('dashboard.publicacion.eliminar_publicacion')
         @include('dashboard.publicacion.editar_publicacion')
         @include('dashboard.publicacion.ver_publicacion')
-
+     
         @endforeach
+  
 </tr>
 </tbody>
 </table>
-
+@endif
 
 <br>
 <br>

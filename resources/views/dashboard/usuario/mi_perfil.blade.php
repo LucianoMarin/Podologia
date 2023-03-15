@@ -12,7 +12,7 @@
     <br>
         <label>Rut:</label>
         <br>
-        <input type="text" name="rut" disabled="disabled" value="{{$especialistas->rut}}-{{$especialistas->verificador}}">
+        <input type="text" name="rut" disabled="disabled" value="{{$especialistas->rut}}">
         <br>
         <label>Primer Nombre:</label>   
         <br>
@@ -48,7 +48,7 @@
 </hr>
 
 
-<a href="{{Route('edit.perfil', $especialistas->id_especialista)}}"><button class="btnPublicar">Editar Perfil</button></a>
+<a href="{{Route('edit.perfil', $especialistas->rut)}}"><button class="btnPublicar">Editar Perfil</button></a>
 
 
 </form>

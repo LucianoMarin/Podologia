@@ -9,7 +9,7 @@
       <h3>Datos Personales: </h3>
       <label><b>Rut: </b></label>
         <br>
-        <label>{{($pacientes->rut . '-' . $pacientes->verificador)}}</label>
+        <label>{{($pacientes->rut)}}</label>
         <br>
         <label><b>Nombre: </b></label>
         <br>

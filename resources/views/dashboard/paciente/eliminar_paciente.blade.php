@@ -12,14 +12,14 @@
         <label class="textoSubModal">{{$pacientes->primer_nombre}} {{$pacientes->segundo_nombre}} {{$pacientes->apellido_paterno}} {{$pacientes->apellido_materno}}</label>
         <br>
         <br>
-        <label><b>Correspondiente al rut:</b> {{$pacientes->rut}}-{{$pacientes->verificador}}</label>    
+        <label><b>Correspondiente al rut:</b> {{$pacientes->rut}}</label>    
     </div>
       <div class="modal-footer">
  
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
       
 
-        <form action="{{route('eliminar.paciente', [$pacientes->id_paciente])}}" method="POST">
+        <form action="{{route('eliminar.paciente', [$pacientes->rut])}}" method="POST">
 
         <button type="submit" id="btnPublicar" class="btnPublicar">Eliminar</button></div>
         @method('DELETE')

@@ -48,6 +48,7 @@
 }
 
 .navo ul a {
+ 
     text-decoration: none;
     color: rgb(255, 255, 255);
     margin: 5px;
@@ -63,6 +64,7 @@
 
 
 .navo ul li:hover>ul {
+    
     display: flex;
     flex-direction: column;
 
@@ -402,3 +404,9 @@ margin-right: 30px;
 
         color:rgb(173, 173, 173) !important;
     }
+
+
+  .alert {
+  position: static !important;
+
+}

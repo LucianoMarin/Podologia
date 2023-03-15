@@ -35,7 +35,7 @@
     <div class="col-md-6">  
     <br>
 
-    <form action="{{Route('editar.perfil', $especialista->id_especialista)}}" method="POST" id="editar_perfil">     
+    <form action="{{Route('editar.perfil', $especialista->rut)}}" method="POST" id="editar_perfil">     
     @csrf
     @method('PUT')   
 

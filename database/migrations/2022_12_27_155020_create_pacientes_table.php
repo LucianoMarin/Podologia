@@ -14,9 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('pacientes', function (Blueprint $table) {
-            $table->id('id_paciente');
             $table->integer('rut');
-            $table->string('verificador',1);
             $table->string('primer_nombre',15);
             $table->string('segundo_nombre',15);
             $table->string('apellido_paterno',15);
@@ -25,6 +23,7 @@ return new class extends Migration
             $table->integer('edad');
             $table->string('direccion',100);
             $table->integer('telefono');
+            $table->primary('rut');
         });
     }
 

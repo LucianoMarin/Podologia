@@ -43,6 +43,10 @@
 <h1>Lista de Pacientes: </h1>
 <br>
 <br>
+@if($paciente->isEmpty())
+<label>No hay pacientes registrados</label>
+<br>    
+@else
 <table class="tablas" id="tablaPaciente">
     <thead>
      
@@ -57,7 +61,7 @@
         <tbody>
         @foreach($paciente as $pacientes)
         <tr>
-        <td>{{$pacientes->rut .'-'.$pacientes->verificador}}</td>
+        <td>{{$pacientes->rut}}</td>
         <td>{{$pacientes->primer_nombre}} {{$pacientes->segundo_nombre}} {{$pacientes->apellido_paterno}} {{$pacientes->apellido_materno}}</td>
         <td>
  
@@ -84,7 +88,9 @@
 </tr>
 </tbody>
 </table>   
+@endif
 @stop
+
 
 @section('menuLateral2')
 <img class="icono" src="imagenes/iconos/paciente.png">

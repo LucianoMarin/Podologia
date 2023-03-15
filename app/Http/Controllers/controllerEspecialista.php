@@ -66,7 +66,7 @@ class controllerEspecialista extends Controller
 
         try{
         $this->validate($request,[
-        'rut'=>'required | numeric',
+        'rut'=>'required | numeric | unique:especialistas',
         'verificador'=>'required',
         'primer_nombre'=>'required',
         'segundo_nombre'=>'required',
@@ -78,8 +78,8 @@ class controllerEspecialista extends Controller
 
         $especialista=new Especialista();
         $idCuenta=Auth::user()->id;
-        $especialista->rut=$request->rut;
-        $especialista->verificador=$request->verificador;
+        $rutCompleto=$request->rut.$request->verificador;
+        $especialista->rut=$rutCompleto;
         $especialista->primer_nombre=$request->primer_nombre;
         $especialista->segundo_nombre=$request->segundo_nombre;
         $especialista->apellido_paterno=$request->apellido_paterno;
@@ -91,6 +91,12 @@ class controllerEspecialista extends Controller
         $especialista->save();
         return redirect()->route('index.usuario')->with('resultado', 'A creado su perfil Exitosamente!');
         }catch(QueryException $ex){
+
+          if($ex->errorInfo[1]==1062){
+            return redirect()->route('index.usuario')->with('error', 'Error: El rut ingresado ya fue registrado');
+
+          
+          }
 
         return redirect()->route('index.usuario')->with('error', 'Error: no se pudo ingresar informacion en la BD');
 

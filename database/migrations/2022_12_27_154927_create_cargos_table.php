@@ -17,6 +17,15 @@ return new class extends Migration
             $table->id('id_cargo');
             $table->string('nombre',50);
         });
+
+        DB::table("cargos")
+        ->insert([
+           ["id_cargo" => 0,
+            "nombre" => "Podologo"],
+            ["id_cargo" => 0,
+            "nombre" => "Informatico"]
+        ]);
+
     }
 
     /**
