@@ -84,16 +84,10 @@ class controllerPaciente extends Controller
     public function destroy($id)
     {
     $paciente=new Paciente();
-    
-    echo $id;
-    /*
-    $paciente=db::table('pacientes')->where('rut', $rut)
-                ->where('verificador', $id->verificador)->delete();
+    $paciente=Paciente::whereid_paciente($id);
+    $paciente->delete();
 
-    */
- 
-    /*
     return redirect()->route('index.paciente')->with('resultado','Se a eliminado el paciente correctamente!');
-*/
+
     }
 }

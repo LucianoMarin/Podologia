@@ -54,8 +54,8 @@
                     <ul>
                         <li><a href="">Pacientes</a>
                             <ul>
-                                <li><a href="crear_paciente">Crear Paciente</a></li>
-                                <li><a href="pacientes">Listado Pacientes</a></li>
+                                <li><a href="/crear_paciente">Crear Paciente</a></li>
+                                <li><a href="/pacientes">Listado Pacientes</a></li>
                          
                         </li>
                     </ul>

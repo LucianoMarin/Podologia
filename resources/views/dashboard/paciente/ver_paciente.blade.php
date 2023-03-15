@@ -14,13 +14,19 @@
         <br>
         <label>{{$pacientes->primer_nombre . ' ' . $pacientes->segundo_nombre . ' ' .$pacientes->apellido_paterno .' '.$pacientes->apellido_materno }}</label>
         <br>
-        <label>Edad - Fecha Nacimiento: </label>
-        <br>
         @php
         $fecha=date('d/m/Y', strtotime($pacientes->fecha_nacimiento ));
         @endphp
 
-        <label>{{$pacientes->edad . ' ' . $fecha}}</label>
+        <label>Fecha Nacimiento: </label>
+        <br>
+        <label>{{$fecha}}</label>
+        <br>
+
+        <label>Edad</label>
+        <br>
+  
+        <label>{{$pacientes->edad}}</label>
         <br>
     </div>
       <div class="modal-footer">

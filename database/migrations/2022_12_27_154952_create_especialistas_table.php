@@ -14,6 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('especialistas', function (Blueprint $table) {
+            $table->id('id_especialista');
             $table->integer('rut');
             $table->string('verificador',1);
             $table->string('primer_nombre', 15);
@@ -24,7 +25,6 @@ return new class extends Migration
             $table->bigInteger('user')->unsigned();
             $table->foreign('cargo')->on('cargos')->references('id_cargo');
             $table->foreign('user')->on('users')->references('id');
-            $table->primary('rut');
         });
     }
 

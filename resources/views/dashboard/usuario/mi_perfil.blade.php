@@ -5,6 +5,7 @@
   <h4 class="alert-heading"><img class="icono" src="imagenes/usuario/configuraciones.png"><b>Mi Perfil</b></h4>
   <br>
   <label><h4><b>Nombre Usuario: </b><br>{{$username}}</h4></label>
+
 <br>
 <div class="row">
 <div class="col-md-6">  
@@ -47,7 +48,7 @@
 </hr>
 
 
-<a href="{{Route('edit.perfil', $especialistas->rut)}}"><button class="btnPublicar">Editar Perfil</button></a>
+<a href="{{Route('edit.perfil', $especialistas->id_especialista)}}"><button class="btnPublicar">Editar Perfil</button></a>
 
 
 </form>

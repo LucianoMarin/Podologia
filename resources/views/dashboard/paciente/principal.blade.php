@@ -57,7 +57,7 @@
         <tbody>
         @foreach($paciente as $pacientes)
         <tr>
-        <td>{{$pacientes->rut}}</td>
+        <td>{{$pacientes->rut .'-'.$pacientes->verificador}}</td>
         <td>{{$pacientes->primer_nombre}} {{$pacientes->segundo_nombre}} {{$pacientes->apellido_paterno}} {{$pacientes->apellido_materno}}</td>
         <td>
  

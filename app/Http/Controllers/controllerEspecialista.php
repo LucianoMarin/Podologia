@@ -140,10 +140,9 @@ class controllerEspecialista extends Controller
 
 
         $especialista =Especialista::findOrFail($id); //busca por id
-        $this->authorize('update',$especialista);
+       $this->authorize('update',$especialista);
 
         $idCuenta=Auth::user()->id;
-        $especialista->rut=$id;
         $especialista->primer_nombre=$request->primer_nombre;
         $especialista->segundo_nombre=$request->segundo_nombre;
         $especialista->apellido_paterno=$request->apellido_paterno;

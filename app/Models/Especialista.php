@@ -9,7 +9,7 @@ class Especialista extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $primaryKey = 'rut';
+    protected $primaryKey = 'id_especialista';
 
     protected $fillable = [
         
