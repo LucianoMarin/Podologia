@@ -33,6 +33,7 @@ class controllerPaciente extends Controller
         'apellido_materno'=>'required',
         'fecha_nacimiento'=>'required',
         'edad'=>'numeric',  
+        'discapacidad'=>'required',
         ]);
 
         $paciente=new Paciente();
@@ -46,6 +47,7 @@ class controllerPaciente extends Controller
         $paciente->edad=$request->edad;
         $paciente->direccion=$request->direccion;
         $paciente->telefono=$request->telefono;
+        $paciente->discapacidad=$request->discapacidad;
 
         $paciente->save();
 

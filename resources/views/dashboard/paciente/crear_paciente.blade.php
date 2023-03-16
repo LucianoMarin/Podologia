@@ -101,6 +101,13 @@
 <br>
 <input type="text" name="telefono">
 <br>
+<label>Discapacidad: </label>
+<br>
+<label>Si</label>
+<input type="radio" name="discapacidad" value="0"/>
+<label>No</label>
+<input type="radio" name="discapacidad" value="1"/>
+
 <br>
 <br>    
 <input type="submit" class="btnPublicar" value="Ingresar" id="btnCrearPaciente">

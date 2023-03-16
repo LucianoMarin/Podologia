@@ -41,6 +41,23 @@
         <br>
         <label>{{$pacientes->telefono}}</label>
         <br>
+        <br>
+      <hr>
+      <label><b>Discapacidad: </b></label>
+      <br>
+      @php
+      $discapacidad='';
+      if($pacientes->discapacidad==0){
+        $discapacidad='No';
+
+      }else{
+        $discapacidad='Si';
+
+      }
+      @endphp
+      <label>{{$discapacidad}}</label>
+      <br>
+
     </div>
       <div class="modal-footer">
  

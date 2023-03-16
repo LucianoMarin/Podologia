@@ -23,6 +23,7 @@ return new class extends Migration
             $table->integer('edad')->nullable();
             $table->string('direccion',100)->nullable();
             $table->integer('telefono')->nullable();
+            $table->boolean('discapacidad');
             $table->primary('rut');
         });
     }

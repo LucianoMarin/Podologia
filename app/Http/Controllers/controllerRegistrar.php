@@ -29,11 +29,13 @@ class controllerRegistrar extends Controller
                 'username'=>'required | unique:users',
                 'contraseña'=>'required | same:validar_contraseña',
                 'validar_contraseña'=>'required'
+
             ]);
         
             $cuenta = new User();
             $cuenta->email=$request->correo;
             $cuenta->username = $request->username;
+            $cuenta->intento=0;
             $cuenta->password = Hash::make($request->contraseña); //ENCRIPTA 
             
             $cuenta->save();
