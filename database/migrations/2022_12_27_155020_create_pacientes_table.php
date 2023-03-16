@@ -16,13 +16,13 @@ return new class extends Migration
         Schema::create('pacientes', function (Blueprint $table) {
             $table->integer('rut');
             $table->string('primer_nombre',15);
-            $table->string('segundo_nombre',15);
+            $table->string('segundo_nombre',15)->nullable();
             $table->string('apellido_paterno',15);
             $table->string('apellido_materno',15);
-            $table->date('fecha_nacimiento');
-            $table->integer('edad');
-            $table->string('direccion',100);
-            $table->integer('telefono');
+            $table->date('fecha_nacimiento')->nullable();
+            $table->integer('edad')->nullable();
+            $table->string('direccion',100)->nullable();
+            $table->integer('telefono')->nullable();
             $table->primary('rut');
         });
     }

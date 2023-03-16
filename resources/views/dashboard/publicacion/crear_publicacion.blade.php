@@ -12,7 +12,6 @@
         <br>
         <select name="tipo" id="sTipo">
         <option value="nota">Nota</option>
-        <option value="noticia">Noticia</option>
         </select>
        
         <br>
@@ -22,8 +21,12 @@
         <input type="text" id="txtTitulo" class="txtTitulo" name="titulo">
         <br>
         <div class="vModal"></div>
+
         <label> Publicacion</label>
         <br>
+        <div class="btn btn-primary" id="EnlaceImg">
+          Enlace IMG
+        </div>
         <textarea id="txtComentario" class="txtComentario" name="publicacion"></textarea>
         <div class="vModal"></div>
 

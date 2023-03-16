@@ -17,6 +17,7 @@ const texto=document.createElement('div');
 const texto2=document.createElement('div');
 const mVF=document.querySelector('#form_crearPublicacion');
 const mVFE=document.querySelector('#form_EPublicacion');
+const btnImagen=document.querySelector('#EnlaceImg');
 
 
 
@@ -177,7 +178,33 @@ inputPublicacionEd[i].addEventListener('input',(e)=>{
          
 }
 
+if(btnImagen){
+    btnImagen.addEventListener('click',()=>{
+        
+        const url=prompt('Pegue la url de su imagen: ',);
+        if(url!=null){
+            inputPublicacion.value+=`<img src="${url}" class="fotosUrl">\n`;
+            
+        }   
+    })
 
+}
+
+
+/*
+if(btnImagen){
+    btnImagen.addEventListener('click',()=>{
+        
+        const url=prompt('Pegue la url de su imagen: ',);
+        if(url!=null){
+            const foto=document.createElement('img');
+            foto.classList.add('fotosUrl');
+            foto.src=url;
+         
+            inputPublicacion.value=;
+        }   
+    })
+*/
 
 
 

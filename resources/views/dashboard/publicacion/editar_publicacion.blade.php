@@ -12,7 +12,6 @@
       <label>Tipo: </label>
         <br>
         <select name="tipo">
-        <option value="noticia">Noticia</option>
         <option value="nota">Nota</option>
         </select>
        

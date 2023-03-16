@@ -69,7 +69,7 @@ class controllerEspecialista extends Controller
         'rut'=>'required | numeric | unique:especialistas',
         'verificador'=>'required',
         'primer_nombre'=>'required',
-        'segundo_nombre'=>'required',
+        'segundo_nombre'=>'',
         'apellido_paterno'=>'required',
         'apellido_materno'=>'required',
         'cargo'=>'required'
@@ -98,7 +98,7 @@ class controllerEspecialista extends Controller
           
           }
 
-        return redirect()->route('index.usuario')->with('error', 'Error: no se pudo ingresar informacion en la BD');
+        return redirect()->route('index.usuario')->with('error', 'Error: no se pudo ingresar informacion en la BD'.$ex->getMessage());
 
         }
       }
@@ -138,7 +138,7 @@ class controllerEspecialista extends Controller
 
         $this->validate($request,[
           'primer_nombre'=>'required',
-          'segundo_nombre'=>'required',
+          'segundo_nombre'=>'',
           'apellido_paterno'=>'required',
           'apellido_materno'=>'required',
           'cargo'=>'required'

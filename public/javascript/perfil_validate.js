@@ -19,8 +19,6 @@ else if(verificador.value==''){
 
 else if(primer_nombre.value==''){
     alert('ERROR: Campo primer nombre vacio!');
-}else if(segundo_nombre.value==''){
-    alert('ERROR: Campo segundo nombre vacio!');
 }
 else if(apellido_paterno.value==''){
     alert('ERROR: Campo apellido paterno vacio!');
@@ -57,8 +55,6 @@ const editarPerfil=(event)=>{
 
     if(primer_nombre.value==''){
         alert('ERROR: Campo primer nombre vacio!');
-    }else if(segundo_nombre.value==''){
-        alert('ERROR: Campo segundo nombre vacio!');
     }
     else if(apellido_paterno.value==''){
         alert('ERROR: Campo apellido paterno vacio!');

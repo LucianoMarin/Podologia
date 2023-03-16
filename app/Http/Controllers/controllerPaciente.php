@@ -58,7 +58,7 @@ class controllerPaciente extends Controller
 
 
         }else{
-        return redirect()->route('crear_paciente')->with('error', 'Error: no se pudo ingresar informacion en la BD');
+        return redirect()->route('crear_paciente')->with('error', 'Error: no se pudo ingresar informacion en la BD'.$ex->getMessage());
         }
 
     }

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('tipo',100);
             $table->string('titulo',200);
             $table->date('fecha_publicacion');
-            $table->text('contenido');
+            $table->binary('contenido');
             $table->bigInteger('user')->unsigned();
             $table->foreign('user')->on('users')->references('id');
         

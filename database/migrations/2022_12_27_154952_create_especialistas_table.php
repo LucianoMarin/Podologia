@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('especialistas', function (Blueprint $table) {
             $table->integer('rut');
             $table->string('primer_nombre', 15);
-            $table->string('segundo_nombre', 15);
+            $table->string('segundo_nombre', 15)->nullable();
             $table->string('apellido_paterno', 15);
             $table->string('apellido_materno', 15);
             $table->bigInteger('cargo')->unsigned();

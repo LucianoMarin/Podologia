@@ -47,7 +47,7 @@
 <label>Rut Paciente: </label>
 <br>
 
-<form action="{{route('crear_paciente')}}" method="POST">
+<form action="{{route('crear_paciente')}}" method="POST" id="formulario_paciente">
     @csrf
 <input type="text" name="rut"> -
 <select name="verificador">
@@ -87,11 +87,11 @@
 <div class="col-md-6">
 <label>Fecha de nacimiento: </label>
 <br>
-<input type="date" name="fecha_nacimiento">
+<input type="date" name="fecha_nacimiento" id="fecha_nacimiento">
 <br>
 <label>Edad: </label>
 <br>
-<input type="text" name="edad">
+<input type="text" name="edad" id="edad" readonly>
 <br>
 <label>Direccion: </label>
 <br>
@@ -103,7 +103,7 @@
 <br>
 <br>
 <br>    
-<input type="submit" class="btnPublicar" value="Ingresar">
+<input type="submit" class="btnPublicar" value="Ingresar" id="btnCrearPaciente">
 </form>
 </div>
 </div>
