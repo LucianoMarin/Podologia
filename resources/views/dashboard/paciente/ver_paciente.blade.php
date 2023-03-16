@@ -48,10 +48,10 @@
       @php
       $discapacidad='';
       if($pacientes->discapacidad==0){
-        $discapacidad='No';
+        $discapacidad='Si';
 
       }else{
-        $discapacidad='Si';
+        $discapacidad='No';
 
       }
       @endphp
