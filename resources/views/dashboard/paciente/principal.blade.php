@@ -43,7 +43,7 @@
 <h1>Lista de Pacientes: </h1>
 <br>
 <br>
-@if($paciente->isEmpty())
+@if(null)
 <label>No hay pacientes registrados</label>
 <br>    
 @else
@@ -71,7 +71,7 @@
         </button>
         </td>
         <td>
-        <button type="button" class="btnTablas" data-bs-toggle="modal" data-bs-target="#editar_publicacion" id="btnEditarPublicacion">
+        <button type="button" class="btnTablas" data-bs-toggle="modal" data-bs-target="#editar_paciente{{$pacientes->rut}}" id="btnEditarPublicacion">
         <img src="/imagenes/iconos/table_icons/editar.png" value="" class="t_imagen">    
         </button>
         </td>
@@ -81,8 +81,10 @@
         </td>
         </tr>
 
+        @include('dashboard.paciente.editar_paciente')
         @include('dashboard.paciente.eliminar_paciente')
         @include('dashboard.paciente.ver_paciente')
+        
         @endforeach
   
 </tr>

@@ -75,7 +75,8 @@ class controllerPaciente extends Controller
     {
         $paciente=new Paciente();
         $paciente=DB::table('pacientes')->get();
-
+   
+        
 
 
         return view('dashboard.paciente.principal', compact('paciente'));
@@ -90,7 +91,51 @@ class controllerPaciente extends Controller
 
     public function update(Request $request, $id)
     {
-        //
+        try{
+            $this->validate($request,[
+                'rut'=>'required | numeric | unique:pacientes',
+                'verificador'=>'required',
+                'primer_nombre'=>'required',
+                'apellido_paterno'=>'required',
+                'apellido_materno'=>'required',
+                'fecha_nacimiento'=>'required',
+                'edad'=>'numeric',  
+                'discapacidad'=>'required',
+                ]);
+              
+         
+             
+        
+            $paciente =Paciente::findOrFail($id); 
+
+            $rutCompleto=$request->rut.$request->verificador;
+        
+            $paciente->rut=$rutCompleto;
+            $paciente->primer_nombre=$request->primer_nombre;
+            $paciente->segundo_nombre=$request->segundo_nombre;
+            $paciente->apellido_paterno=$request->apellido_paterno;
+            $paciente->apellido_materno=$request->apellido_materno;
+            $paciente->fecha_nacimiento=$request->fecha_nacimiento;
+            $paciente->edad=$request->edad;
+            $paciente->direccion=$request->direccion;
+            $paciente->telefono=$request->telefono;
+            $paciente->discapacidad=$request->discapacidad;
+    
+            $paciente->save();
+    
+            return redirect()->route('index.paciente')->with('resultado','Se a editado exitosamente el paciente');
+            
+             }catch(QueryException $ex){
+    
+            if($ex->errorInfo[1]==1062){
+                return redirect()->route('index.paciente')->with('error', 'ERROR: El rut ingresado ya se encontraba registrado.');
+    
+    
+            }else{
+            return redirect()->route('index.paciente')->with('error', 'Error: no se pudo ingresar informacion en la BD'.$ex->getMessage());
+            }
+    
+        }
     }
 
 

@@ -6,8 +6,9 @@ export const validarPaciente=(()=>{
 const fPaciente=document.querySelector('#formulario_paciente');
 const btnCrearPaciente=document.querySelector('#btnCrearPaciente');
 const sFecha=document.querySelector('#fecha_nacimiento');
+const eFecha=document.querySelectorAll('.fecha_nacimiento2');
 const inputEdad=document.querySelector('#edad');
-
+const einputEdad=document.querySelectorAll('.edad2');
 
 
 const calcularEdad=(fecha_nacimiento)=>{
@@ -48,6 +49,20 @@ if(sFecha){
     })
 }
         
+
+for(let i=0; i<=eFecha.length-1; i++){
+
+    if(eFecha){
+        eFecha[i].addEventListener('change',()=>{
+
+     if(eFecha[i].value){
+        einputEdad[i].value=calcularEdad(eFecha[i].value);
+     }
+
+    })
+}
+}
+
 
 
 

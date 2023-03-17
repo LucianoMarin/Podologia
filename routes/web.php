@@ -60,6 +60,8 @@ Route::get('/dashboard', [controllerInicio::class, 'show'])->name('index');
 
 Route::get('/pacientes',[controllerPaciente::class, 'show'])->name('index.paciente');
 Route::delete('/pacientes/{verificador}/',[controllerPaciente::class, 'destroy'])->name('eliminar.paciente');
+Route::patch('/pacientes/{id}', [controllerPaciente::class, 'update'])->name('editar.paciente');
+
 
 Route::post('/crear_paciente',[controllerPaciente::class,'store'])->name('crear_paciente');
 Route::get('/crear_paciente',function(){
