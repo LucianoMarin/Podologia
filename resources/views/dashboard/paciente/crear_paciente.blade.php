@@ -134,16 +134,19 @@
 
 @stop
 @section('cHorizontal2')
-
+@php
+date_default_timezone_set("America/Santiago");
+$date = date("d/m/Y");
+@endphp
 <div class="fecha">
-<label>12 de Diciembre</label>
+<label>Fecha Hoy:</label>
 <br>
-<label>2022</label>
-
+<label>{{$date}}</label>
 </div>
 <br>
 
 @stop
+
 
 
 
