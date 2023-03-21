@@ -4,7 +4,6 @@ export const validarPaciente=(()=>{
 
 
 const fPaciente=document.querySelector('#formulario_paciente');
-const btnCrearPaciente=document.querySelector('#btnCrearPaciente');
 const sFecha=document.querySelector('#fecha_nacimiento');
 const inputEdad=document.querySelector('#edad');
 const einputEdad=document.querySelectorAll('.edad2');

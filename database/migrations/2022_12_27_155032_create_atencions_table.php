@@ -16,11 +16,14 @@ return new class extends Migration
         Schema::create('atencions', function (Blueprint $table) {
             $table->id('id_atencion');
             $table->date('fecha_atencion');
-            $table->date('hora');
+            $table->TIME('hora');
             $table->bigInteger('precio_atencion');
             $table->string('nota',255);
             $table->string('rut_especialista');
             $table->string('rut_paciente');
+            $table->foreign('rut_especialista')->references('rut')->on('especialistas');
+            $table->foreign('rut_paciente')->references('rut')->on('pacientes');
+
         });
     }
 

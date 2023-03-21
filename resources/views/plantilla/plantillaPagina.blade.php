@@ -63,10 +63,9 @@
 
                     <li><a href="#">Atenciones</a>
                         <ul>
-                            <li><a href="#">Crear Atenciones</a></li>
-                            <li><a href="#">Eliminar Atenciones</a></li>
-                            <li><a href="#">Modificar Atenciones</a></li>
-                            <li><a href="#">Ver Atenciones</a></li>
+                            <li><a href="#">Agendar Hora</a></li>
+                            <li><a href="#">Modificar Hora</a></li>
+
                     </li>
                     </ul>
                     </li>

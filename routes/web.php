@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\controllerAtencion;
 use App\Http\Controllers\controllerCargo;
 use App\Http\Controllers\controllerCuenta;
 use App\Http\Controllers\controllerEspecialista;
@@ -88,3 +89,11 @@ Route::delete('/publicaciones/{id}',[controllerPublicacion::class, 'destroy'])->
 Route::patch('/publicaciones/{id}',[controllerPublicacion::class, 'update'])->name('editar.publicacion');
 
 
+
+//publicacion
+
+
+
+route::get('/atencion',[controllerAtencion::class , 'index'])->name('index.atencion');
+route::post('/atencion/buscar',[controllerAtencion::class, 'show'])->name('buscar_atencion');
+route::post('/atencion',[controllerAtencion::class, 'store'])->name('crear_paciente');
