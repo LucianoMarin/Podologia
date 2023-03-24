@@ -95,5 +95,8 @@ Route::patch('/publicaciones/{id}',[controllerPublicacion::class, 'update'])->na
 
 
 route::get('/atencion',[controllerAtencion::class , 'index'])->name('index.atencion');
-route::post('/atencion/buscar',[controllerAtencion::class, 'show'])->name('buscar_atencion');
+route::get('/atencion/buscar',[controllerAtencion::class, 'show'])->name('buscar_atencion');
 route::post('/atencion',[controllerAtencion::class, 'store'])->name('crear_paciente');
+route::post('/atencion/buscar',[controllerAtencion::class, 'horario'])->name('enviar_informacion');
+
+

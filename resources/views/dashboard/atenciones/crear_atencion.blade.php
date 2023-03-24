@@ -1,4 +1,4 @@
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
 @section('cHorizontal3')
 
 @if (session('resultado'))
@@ -32,30 +32,20 @@
 
 <label>Nombre Completo: </label>
 <br>
-<input type="text" name="primer_nombre" readonly value="{{$pacientes->primer_nombre .' '.$pacientes->segundo_nombre.' '.$pacientes->apellido_paterno .' '.$pacientes->apellido_materno}}">
+<input type="text" id="primer_nombre" name="primer_nombre" readonly value="{{$pacientes->primer_nombre .' '.$pacientes->segundo_nombre.' '.$pacientes->apellido_paterno .' '.$pacientes->apellido_materno}}">
 <br>
 <br>
 <label>Fecha Atención: </label>
 <br>
-<input type="date" name="fecha_atencion">
+<input type="date" id="fecha_atencion" name="fecha_atencion">
 <br>
 <label>Hora: </label>
 <br>
-<select name="hora">
-<option>09:00</option>
-<option>10:00</option>
-<option>11:00</option>
-<option>12:00</option>
-<option>13:00</option>
-<option>14:00</option>
-<option>15:00</option>
-<option>16:00</option>
-<option>17:00</option>
-<option>18:00</option>
-<option>19:00</option>
+<select name="hora" id="hora">
+<option></option>
+
 </select>
 <br>
-
 </div>
 
 
@@ -79,5 +69,3 @@
 
 <br>
 <br>
-
-

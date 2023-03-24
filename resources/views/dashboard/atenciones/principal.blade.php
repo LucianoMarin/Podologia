@@ -1,5 +1,4 @@
 
-
 @extends('plantilla.plantillaPagina')
 
 @section('cHorizontal3')
@@ -45,8 +44,7 @@
 
 <label>Agendar por RUT: </label>
 <br>
-<form action="{{route('buscar_atencion')}}" method="POST">
-    @csrf
+<form action="{{route('buscar_atencion')}}" method="get">
 <input type="text" name="rut"><button type="submit">Buscar</button>
 </form>
 <br>

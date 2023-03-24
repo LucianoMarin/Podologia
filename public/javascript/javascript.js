@@ -23,3 +23,36 @@ $(document).ready(function() {
 });
  
 
+
+$(document).ready(function(){
+  $("#fecha_atencion").on("change", function(e) {
+
+e.preventDefault();
+let data={fecha_atencion: $('#fecha_atencion').val()};
+const hora=document.querySelector('#hora');
+$("#hora").empty();
+
+$.ajax({
+  
+  headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+},
+  url : '/atencion/buscar',
+  type : 'POST',
+  dataType : 'json',
+  data: data,
+  success : function (data)
+  { 
+
+    for(let i=0; i<=data.length-1; i++){
+
+      var option = document.createElement("option");
+      option.text=data[i];
+      hora.add(option);
+    }
+  
+  }
+
+});
+});
+});

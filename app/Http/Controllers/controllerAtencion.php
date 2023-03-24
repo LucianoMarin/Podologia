@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Atencion;
 use App\Models\Especialista;
 use App\Models\Paciente;
+use Illuminate\Database\Schema\IndexDefinition;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -34,6 +35,8 @@ class controllerAtencion extends Controller
 
         $especialista=db::table('especialistas')
         ->where('user',$id)->first();
+
+  
         
         $atencion->fecha_atencion=$request->fecha_atencion;
         $atencion->hora=$request->hora;
@@ -51,40 +54,70 @@ class controllerAtencion extends Controller
 
     }
 
-    public function show(Request $request)
-    {
-        $validar=0;
-        $paciente=$this->cargarPacientes();
-        $pacientes=new Paciente();
-        $especialista=new Especialista();
 
-        /* 
+    public function horario(Request $request){
+        $horario=array(
+        '09:00:00',
+        '10:00:00',
+        '11:00:00',
+        '12:00:00',
+        '13:00:00',
+        '14:00:00',
+        '15:00:00',
+        '16:00:00',
+        '17:00:00',
+        '18:00:00',
+        '19:00:00',);
+
+
+
+
         $atenciones=db::table('atencions')
          
                     ->join('especialistas','atencions.rut_especialista','especialistas.rut')
                     ->join('pacientes','atencions.rut_paciente','pacientes.rut')
-                    ->where('pacientes.rut',$request->rut)
                     ->get();
 
                     foreach($atenciones as $atencion){
-
-                        if($atencion->rut_paciente){
-                            $validar=1;
-
+      
+                        if($atencion->fecha_atencion==$request->fecha_atencion){
+                            if (($clave = array_search($atencion->hora, $horario)) !== false) {
+                            unset($horario[$clave]);
+                            
                         }
-
+                    }
                     }
 
-                    */
+                     sort($horario);
+
+                        return $horario;
+
+    }
+
+    public function show(Request $request)
+    {
+        $validar=0;
+        
+        $paciente=$this->cargarPacientes();
+        $pacientes=new Paciente();
+        $especialista=new Especialista();
+       
+
+        
+        $horario=$this->horario($request);
+                   
 
 
             $pacientes=db::table('pacientes')
             ->where('rut',$request->rut)->first();
 
+
+            
                     
         if($pacientes!=null){
             $validar=1;
-            return view('dashboard.atenciones.principal', compact('paciente','pacientes','validar'))->with('resultado','Paciente Encontrado!');
+            
+            return view('dashboard.atenciones.principal', compact('paciente','pacientes','validar','horario'))->with('resultado','Paciente Encontrado!');
 
         }
         else{
