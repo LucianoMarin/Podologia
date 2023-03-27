@@ -15,6 +15,14 @@ class controllerAtencion extends Controller
 
     public function index()
     {
+        if(!Auth::check()){
+            return redirect('/login');
+                }  
+                if(isset(Auth::user()->id)){
+                    $id=Auth::user()->id;  
+                    Especialista::where('user',$id)->firstOrFail();
+                }
+
         $validar=0;
         $paciente=$this->cargarPacientes();
         return view('dashboard.atenciones.principal', compact('paciente','validar'));
@@ -94,8 +102,22 @@ class controllerAtencion extends Controller
 
     }
 
+
+
+public function cantidadCupos(){
+
+    
+}
+
+
     public function show(Request $request)
     {
+
+        if(!Auth::check()){
+            return redirect('/login');
+                }  
+
+
         $validar=0;
         
         $paciente=$this->cargarPacientes();

@@ -78,8 +78,14 @@ if($intento==3){
 
 }catch(QueryException $ex){
 
-  return redirect('/')->with('error','Error: Hay un problema de conexion (BD)'.$ex->getMessage());
-  
+  if($ex->getCode()==2002){
+    return redirect('/')->with('error','Error: Hay un problema de conexion (BD)');
+  }
+  else{
+    return redirect('/')->with('error','Error: ocurrio un error interno');
+
+
+  }
   }
   }
 

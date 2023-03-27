@@ -23,7 +23,7 @@
 @endif
 
 @stop
-<form action="{{route('crear_paciente')}}" method="POST">
+<form action="{{route('crear_atencion')}}" method="POST">
 @csrf
 <h1>Ingresar Atencion: </h1>
 <div class="container">

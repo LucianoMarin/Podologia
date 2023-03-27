@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Especialista;
 use App\Models\Paciente;
+use Auth;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -33,6 +36,7 @@ class controllerPaciente extends Controller
         'apellido_materno'=>'required',
         'fecha_nacimiento'=>'required',
         'edad'=>'numeric',  
+        'telefono'=>'max:11',
         'discapacidad'=>'required',
         ]);
 
@@ -73,13 +77,44 @@ class controllerPaciente extends Controller
 
     public function show()
     {
+        try
+        {
+
+        if(!Auth::check()){
+            return redirect('/login');
+                }  
+
+        if(isset(Auth::user()->id)){
+            $id=Auth::user()->id;  
+            Especialista::where('user',$id)->firstOrFail();
+        }
+     
+
         $paciente=new Paciente();
         $paciente=DB::table('pacientes')->get();
    
-        
-
 
         return view('dashboard.paciente.principal', compact('paciente'));
+    
+    }catch(ModelNotFoundException $e){
+
+        return view('dashboard.error.errorAC');
+    }
+    
+    }
+
+    public function principalPaciente()
+    {
+        if(!Auth::check()){
+            return redirect('/login');
+                }  
+
+        if(isset(Auth::user()->id)){
+            $id=Auth::user()->id;  
+            Especialista::where('user',$id)->firstOrFail();
+        }
+     
+        return view('dashboard.paciente.crear_paciente');
 
     }
 
@@ -100,6 +135,7 @@ class controllerPaciente extends Controller
                 'apellido_materno'=>'required',
                 'fecha_nacimiento'=>'required',
                 'edad'=>'numeric',  
+                'telefono'=>'max:11',
                 'discapacidad'=>'required',
                 ]);
               

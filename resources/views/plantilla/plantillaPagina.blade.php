@@ -52,7 +52,7 @@
                 <div class="navo">
                 <nav>
                     <ul>
-                        <li><a href="">Pacientes</a>
+                        <li><a href="#">Pacientes</a>
                             <ul>
                                 <li><a href="/crear_paciente">Crear Paciente</a></li>
                                 <li><a href="/pacientes">Listado Pacientes</a></li>
