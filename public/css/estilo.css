@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Pacifico&family=Roboto:ital,wght@1,400;1,900&family=Sacramento&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300&display=swap');
 @import url('tabla.css');
 @import url('media.css');
 @import url('modales.css');
 @import url('alerta.css');
+@import url('error.css');
+
+
 .contenedor {
     min-height: 100vh;
     position: relative;
 }
-
-
-
-
 
 
 .contenedorPrincipal {
@@ -20,8 +20,6 @@
     background-color: rgba(220, 217, 221, 0.158);
     box-shadow: 2px 5px 20px 0px rgba(51, 51, 51, 0.2);
     padding: 20px 20px 10px 20px;
-  
-
 }
 
 
