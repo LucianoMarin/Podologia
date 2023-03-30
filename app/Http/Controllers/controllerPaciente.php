@@ -105,6 +105,10 @@ class controllerPaciente extends Controller
 
     public function principalPaciente()
     {
+        try
+        {
+
+
         if(!Auth::check()){
             return redirect('/login');
                 }  
@@ -115,7 +119,10 @@ class controllerPaciente extends Controller
         }
      
         return view('dashboard.paciente.crear_paciente');
+    }catch(ModelNotFoundException $e){
 
+        return view('dashboard.error.errorAC');
+    }
     }
 
  

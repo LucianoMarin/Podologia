@@ -29,14 +29,14 @@
     <br>
 <div class="container">
 <div class="row">
-<div class="col-md-4">
-    <a href="" class="linksError">Inicio</a>
+<div class="col-md-2">
 </div>
 <div class="col-md-4">
-   <a href="" class="linksError"> Perfil</a>
+<a  href="./dashboard" class="linksError ">Inicio</a>
 </div>
 <div class="col-md-4">
-   <a href="" class="linksError"> Otro</a>
+<a href="./usuario" class="linksError">Crear Perfil</a>
+
 </div>
 </div>
 </div>

@@ -36,16 +36,32 @@
     background-color: #c07496;
     color:#fcfcfc;
     font-size:50px;
-    font-family: 'Barlow', sans-serif;
+    font-family: 'Courgette', cursive;
     
 }
 
 
-.pError .linksError{
-    
-    background-color: #c07496;
-    color:#fcfcfc;
-    font-size:30px;
+.linksError{
+    display: inline-block;
+    color: white;
+    border: 0px;
+    padding: 8px;
+    margin-top: 30px;
+    border-radius: 2px;
     text-decoration: none;
-    text-transform: uppercase;
+    font-size: 30px;
+    transition: 0.3s;
+    font-family: 'Courgette', cursive;
+    padding: 10px 30px 10px;
+
 }
+
+
+
+.linksError:hover{
+    background-color: #9b84ad;
+    color:#ffffff;
+    transform: scale(1.1) !important;
+    border-radius: 10px;
+}
+

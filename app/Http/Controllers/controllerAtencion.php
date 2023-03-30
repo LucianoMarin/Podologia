@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Atencion;
 use App\Models\Especialista;
 use App\Models\Paciente;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\Schema\IndexDefinition;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,17 +16,32 @@ class controllerAtencion extends Controller
 
     public function index()
     {
+    try{
         if(!Auth::check()){
+
             return redirect('/login');
+
                 }  
+
                 if(isset(Auth::user()->id)){
+
                     $id=Auth::user()->id;  
+
                     Especialista::where('user',$id)->firstOrFail();
                 }
 
         $validar=0;
+
         $paciente=$this->cargarPacientes();
-        return view('dashboard.atenciones.principal', compact('paciente','validar'));
+
+                 return view('dashboard.atenciones.principal', compact('paciente','validar'));
+
+                 
+               }catch(ModelNotFoundException $e){
+
+                return view('dashboard.error.errorAC');
+            }
+   
     }
 
     public function create()
@@ -104,10 +120,6 @@ class controllerAtencion extends Controller
 
 
 
-public function cantidadCupos(){
-
-    
-}
 
 
     public function show(Request $request)
