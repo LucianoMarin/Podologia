@@ -1,0 +1,134 @@
+.inputFormularios{
+
+    color:rgb(37, 37, 37);
+    background-color: rgb(255, 255, 255);
+    padding: 4px;
+    border: 1px solid #aea1b3;
+    border-radius: 3px;
+    margin: 1px 0px 20px 0px;
+
+}
+
+.inputFormulariosb{
+
+    color:rgb(37, 37, 37);
+    background-color: rgb(236, 234, 234);
+    padding: 4px;
+    border: 1px solid #aea1b3;
+    border-radius: 3px;
+    margin: 1px 0px 20px 0px;
+
+}
+
+.inputEdad{
+
+     width: 40px;
+    padding: 4px;
+    border: 1px solid #aea1b3;
+    border-radius: 3px;
+
+}
+
+
+.sVerificador{
+    
+    background-color: rgb(255, 255, 255);
+    width: 35px;
+    padding: 4px;
+    border: 1px solid #aea1b3;
+    border-radius: 3px;
+
+}
+
+
+.edad2{
+
+    width: 40px;
+    padding: 4px;
+    border: 1px solid #aea1b3;
+    border-radius: 3px;
+
+}
+
+.fecha_nacimiento2{
+
+    color:rgb(37, 37, 37);
+    background-color: rgb(255, 255, 255);
+    padding: 4px;
+    border: 1px solid #aea1b3;
+    border-radius: 3px;
+    margin: 1px 0px 20px 0px;
+
+}
+
+.buscarRut{
+    width: 200px;
+    color:rgb(37, 37, 37);
+    background-color: rgb(255, 255, 255);
+    padding: 4px;
+    border: 1px solid #aea1b3;
+    border-radius: 3px;
+    margin: 1px 0px 20px 0px;
+    font-size: 17px;
+
+}
+
+.fecha_atencion{
+
+    color:rgb(37, 37, 37);
+    background-color: rgb(255, 255, 255);
+    padding: 4px;
+    border: 1px solid #aea1b3;
+    border-radius: 3px;
+    margin: 1px 0px 20px 0px;
+ 
+}
+
+.hora{
+    color:rgb(37, 37, 37);
+    background-color: rgb(255, 255, 255);
+    padding: 4px;
+    border: 1px solid #aea1b3;
+    border-radius: 3px;
+    margin: 1px 0px 20px 0px;
+
+}
+
+.inputNombre{
+    width:310px;
+    color:rgb(37, 37, 37);
+    background-color: rgb(255, 255, 255);
+    padding: 4px;
+    border: 1px solid #aea1b3;
+    border-radius: 3px;
+    margin: 1px 0px 20px 0px;
+
+}
+
+.notasA{
+    width:300px;
+    height: 200px;
+    color:rgb(37, 37, 37);
+    background-color: rgb(255, 255, 255);
+    padding: 4px;
+    border: 1px solid #aea1b3;
+    border-radius: 3px;
+    margin: 1px 0px 20px 0px;
+    outline:none;
+    resize:none;
+
+
+}
+
+.cargo{
+
+    color:rgb(37, 37, 37);
+    background-color: rgb(255, 255, 255);
+    padding: 4px;
+    border: 1px solid #aea1b3;
+    border-radius: 3px;
+    margin: 1px 0px 20px 0px;
+
+}
+
+

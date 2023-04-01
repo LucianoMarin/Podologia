@@ -41,6 +41,7 @@
 @stop
 @section('contenedor')
 <h1>Ingresar Pacientes: </h1>
+<br>
 <div class="container">
 <div class="row">
 <div class="col-md-6">
@@ -49,8 +50,8 @@
 
 <form action="{{route('crear_paciente')}}" method="POST" id="formulario_paciente">
     @csrf
-<input type="text" name="rut"> -
-<select name="verificador">
+<input type="text" name="rut" class="inputFormularios"> -
+<select name="verificador" class="sVerificador">
     <option selected value=""></option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -67,19 +68,19 @@
 <br>
 <label>Primer Nombre: </label>
 <br>
-<input type="text" name="primer_nombre">
+<input type="text" name="primer_nombre" class="inputFormularios">
 <br>
 <label>Segundo Nombre: </label>
 <br>
-<input type="text" name="segundo_nombre">
+<input type="text" name="segundo_nombre" class="inputFormularios">
 <br>
 <label>Apellido Paterno: </label>
 <br>
-<input type="text" name="apellido_paterno">
+<input type="text" name="apellido_paterno" class="inputFormularios">
 <br>
 <label>Apellido Materno: </label>
 <br>
-<input type="text" name="apellido_materno">
+<input type="text" name="apellido_materno" class="inputFormularios">
 <br>
 </div>
 
@@ -87,19 +88,19 @@
 <div class="col-md-6">
 <label>Fecha de nacimiento: </label>
 <br>
-<input type="date" name="fecha_nacimiento" id="fecha_nacimiento">
+<input type="date" name="fecha_nacimiento" id="fecha_nacimiento" class="inputFormularios">
 <br>
 <label>Edad: </label>
 <br>
-<input type="text" name="edad" id="edad" readonly>
+<input type="text" name="edad" id="edad" readonly class="inputEdad">
 <br>
 <label>Direccion: </label>
 <br>
-<input type="text" name="direccion">
+<input type="text" name="direccion" class="inputFormularios">
 <br>
 <label>Telefono: </label>
 <br>
-<input type="text" name="telefono">
+<input type="text" name="telefono" class="inputFormularios">
 <br>
 <label>Discapacidad: </label>
 <br>

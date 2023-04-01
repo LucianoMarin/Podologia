@@ -19,8 +19,8 @@
         @csrf
         <label>Rut:</label>
         <br>
-        <input type="text" name="rut"> - 
-            <select name="verificador" id="verificador">
+        <input type="text" name="rut" class="inputFormularios"> - 
+            <select name="verificador" id="verificador" class="sVerificador">
             <option selected></option>
             <option value="0">0</option>
             <option value="1">1</option>
@@ -37,11 +37,11 @@
         <br>
         <label>Primer Nombre:</label>   
         <br>
-        <input type="text" name="primer_nombre" id="primer_nombre">
+        <input type="text" name="primer_nombre" id="primer_nombre" class="inputFormularios">
         <br>
         <label>Segundo Nombre:</label>
         <br>
-        <input type="text" name="segundo_nombre" id="segundo_nombre">
+        <input type="text" name="segundo_nombre" id="segundo_nombre" class="inputFormularios">
         <br>
        
         
@@ -50,16 +50,16 @@
     <br>
     <label>Apellido Paterno:</label>
         <br>
-        <input type="text" name="apellido_paterno" id="apellido_paterno">
+        <input type="text" name="apellido_paterno" id="apellido_paterno" class="inputFormularios">
         <br>
         <label>Apellido Materno:</label>
         <br>
-        <input type="text" name="apellido_materno" id="apellido_materno">
+        <input type="text" name="apellido_materno" id="apellido_materno" class="inputFormularios">
     <br>
     <br>
   
     <lavel>Cargo: </label>  
-    <select name="cargo" id="cargo" >
+    <select name="cargo" id="cargo" class="cargo">
     @foreach($cargo as $cargos)
     <option value="{{$cargos->id_cargo}}">{{$cargos->nombre}}</option>
     @endforeach

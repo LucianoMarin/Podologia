@@ -45,7 +45,8 @@
 <label>Agendar por RUT: </label>
 <br>
 <form action="{{route('buscar_atencion')}}" method="get">
-<input type="text" name="rut"><button type="submit">Buscar</button>
+<input type="text" name="rut" class="buscarRut">
+<button type="submit" class="btnPublicar">Buscar</button>
 </form>
 <br>
 

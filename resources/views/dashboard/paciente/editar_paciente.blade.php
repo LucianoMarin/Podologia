@@ -16,8 +16,8 @@
 
         @endphp
         <form action="{{route('editar.paciente', [$pacientes->rut])}}" method="POST" id="formulario_editarPaciente">
-      <input type="text" name="rut" id="rut" value="{{$rut}}"> -
-<select name="verificador" id="verificador">
+      <input type="text" name="rut" id="rut" class="inputFormularios" value="{{$rut}}"> -
+<select name="verificador" id="verificador" class="sVerificador">
     <option selected value="{{$verificador}}">*{{$verificador}}</option>
     <option value="0">0</option>
     <option value="1">1</option>
@@ -34,19 +34,19 @@
 <br>
 <label>Primer Nombre: </label>
 <br>
-<input type="text" name="primer_nombre" id="primer_nombre" value="{{$pacientes->primer_nombre}}">
+<input type="text" name="primer_nombre" id="primer_nombre" class="inputFormularios" value="{{$pacientes->primer_nombre}}">
 <br>
 <label>Segundo Nombre: </label>
 <br>
-<input type="text" name="segundo_nombre" id="segundo_nombre" value="{{$pacientes->segundo_nombre}}">
+<input type="text" name="segundo_nombre" id="segundo_nombre"  class="inputFormularios" value="{{$pacientes->segundo_nombre}}">
 <br>
 <label>Apellido Paterno: </label>
 <br>
-<input type="text" name="apellido_paterno" id="apellido_paterno" value="{{$pacientes->apellido_paterno}}">
+<input type="text" name="apellido_paterno" id="apellido_paterno"  class="inputFormularios" value="{{$pacientes->apellido_paterno}}">
 <br>
 <label>Apellido Materno: </label>
 <br>
-<input type="text" name="apellido_materno" id="apellido_materno" value="{{$pacientes->apellido_materno}}">
+<input type="text" name="apellido_materno" id="apellido_materno"  class="inputFormularios" value="{{$pacientes->apellido_materno}}">
 <br>
 
 
@@ -58,13 +58,14 @@
 <br>
 <input type="text" name="edad" class="edad2" id="edad2"  readonly value="{{$pacientes->edad}}">
 <br>
+<br>
 <label>Direccion: </label>
 <br>
-<input type="text" name="direccion" id="direccion" value="{{$pacientes->direccion}}">
+<input type="text" name="direccion" id="direccion"   class="inputFormularios" value="{{$pacientes->direccion}}">
 <br>
 <label>Telefono: </label>
 <br>
-<input type="text" name="telefono" id="telefono" value="{{$pacientes->telefono}}">
+<input type="text" name="telefono" id="telefono"  class="inputFormularios" value="{{$pacientes->telefono}}">
 <br>
 
 

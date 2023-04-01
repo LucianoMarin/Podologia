@@ -26,38 +26,36 @@
 <form action="{{route('crear_atencion')}}" method="POST">
 @csrf
 <h1>Ingresar Atencion: </h1>
+<br>
 <div class="container">
 <div class="row">
 <div class="col-md-6">
 
 <label>Nombre Completo: </label>
 <br>
-<input type="text" id="primer_nombre" name="primer_nombre" readonly value="{{$pacientes->primer_nombre .' '.$pacientes->segundo_nombre.' '.$pacientes->apellido_paterno .' '.$pacientes->apellido_materno}}">
-<br>
+<input type="text" id="primer_nombre" name="primer_nombre" class="inputNombre" readonly value="{{$pacientes->primer_nombre .' '.$pacientes->segundo_nombre.' '.$pacientes->apellido_paterno .' '.$pacientes->apellido_materno}}">
 <br>
 <label>Fecha Atención: </label>
 <br>
-<input type="date" id="fecha_atencion" name="fecha_atencion">
+<input type="date" id="fecha_atencion" name="fecha_atencion" class="fecha_atencion">
 <br>
 <label>Hora: </label>
 <br>
-<select name="hora" id="hora">
+<select name="hora" id="hora" class="hora">
 <option></option>
 
 </select>
-<br>
+
 </div>
 
-
 <div class="col-md-6">
-<br>
 <label>Valor Atención</label>
 <br>
-<input type="text" name="precio_atencion">
+<input type="text" name="precio_atencion" class="inputFormularios">
 <br>
 <label>Nota: </label>
 <br>
-<textarea name="nota"></textarea>
+<textarea name="nota" class="notasA"></textarea>
 <br>
 <br>
 <input type="hidden" name="rut" value="{{$pacientes->rut}}">

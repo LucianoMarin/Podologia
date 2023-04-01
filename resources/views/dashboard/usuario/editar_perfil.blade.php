@@ -41,11 +41,11 @@
 
         <label>Primer Nombre:</label>   
         <br>
-        <input type="text" name="primer_nombre" value="{{$especialista->primer_nombre}}">
+        <input type="text" name="primer_nombre" class="inputFormularios" value="{{$especialista->primer_nombre}}">
         <br>
         <label>Segundo Nombre:</label>
         <br>
-        <input type="text" name="segundo_nombre" value="{{$especialista->segundo_nombre}}">
+        <input type="text" name="segundo_nombre" class="inputFormularios" value="{{$especialista->segundo_nombre}}">
         <br>
        
         
@@ -54,16 +54,16 @@
     <br>
     <label>Apellido Paterno:</label>
         <br>
-        <input type="text" name="apellido_paterno" value="{{$especialista->apellido_paterno}}">
+        <input type="text" name="apellido_paterno" class="inputFormularios" value="{{$especialista->apellido_paterno}}">
         <br>
         <label>Apellido Materno:</label>
         <br>
-        <input type="text" name="apellido_materno" value="{{$especialista->apellido_materno}}">
+        <input type="text" name="apellido_materno" class="inputFormularios" value="{{$especialista->apellido_materno}}">
     <br>
     <br>
 
     <lavel>Cargo: </label>  
-    <select name="cargo">
+    <select name="cargo" class="cargo">
     @foreach($cargo as $cargos)
     <option value="{{$cargos->id_cargo}}">{{$cargos->nombre}}</option>
     @endforeach
