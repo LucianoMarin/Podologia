@@ -415,3 +415,10 @@ margin-right: 30px;
     width: 80%;
     height: auto;
 }
+
+
+.accordion-button{
+
+background-color: #c07496 !important;
+color:rgb(255, 255, 255) !important;
+}

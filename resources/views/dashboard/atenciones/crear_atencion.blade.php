@@ -52,10 +52,20 @@
 <label>Valor Atención</label>
 <br>
 <input type="text" name="precio_atencion" class="inputFormularios">
+
+<br>
+<label>Boleta: </label>
+<br>
+<label>Si</label>
+<input type="radio" name="boleta" value="1">
+<label>No</label>
+<input type="radio" name="boleta" value="0">
+<br>
 <br>
 <label>Nota: </label>
 <br>
 <textarea name="nota" class="notasA"></textarea>
+<br>
 <br>
 <br>
 <input type="hidden" name="rut" value="{{$pacientes->rut}}">

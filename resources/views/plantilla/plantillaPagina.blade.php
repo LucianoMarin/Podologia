@@ -92,6 +92,7 @@
             <div class="col-md-4">
             </div>
             <div class="col-md-4">
+                
  
             @yield('cHorizontal3')
     
@@ -106,42 +107,61 @@
 
 
     </div>
-    <br>
+
 
     <!----FIN----->
 
 
     <!--Inicio Body-->
 
-
-    <div class="container">
-
-        <div class="row ">
-            <div class="col-12 col-xs-6 col-sm-6 col-md-3 col-lg-2 ">
-              
-                    <div class="row">          
-                        <div class="menuLateral">
-                            @yield('menuLateral')
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            @yield('cHorizontal')
-                            <br>
-                            <br>
-                            @yield('menuLateral3')
+<div class="container">
+<div class="row">
+<div class="col-12 col-xs-6 col-sm-6 col-md-3 col-lg-2 ">
+<br>
+<div class="row">          
+<div class="menuLateral">
+<div class="accordion" id="accordionPanelsStayOpenExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="acordion1-headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#acordion1-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+        OPCIONES RAPIDAS
+      </button>
+    </h2>
+    <div id="acordion1-collapseOne" class="accordion-collapse collapse" aria-labelledby="acordion1-headingOne">
+      <div class="accordion-body">
+      @yield('menuLateral')
+    </div>
+    </div>
+  </div>
+  </div>                   
+<br>
+<div class="row">          
+<div class="accordion" id="accordionPanelsStayOpenExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="acordion2-headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#acordion2-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+    Gadget
+    </button>
+    </h2>
+    <div id="acordion2-collapseOne" class="accordion-collapse collapse" aria-labelledby="acordion2-headingOne">
+      <div class="accordion-body">
+      @yield('cHorizontal')
+      <br>
+      <br>
+      @yield('menuLateral3')
                             @include('dashboard.publicacion.crear_publicacion')
-
-                        </div>
-                        <br>
-                        <br>
-
-                </div>
-            </div>
-
+    </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>       
+    
             <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 col-lg-10 ">
+            <br>
                 <div class="contenedorPrincipal">
-           
                     @yield('contenedor')
                     <br>
                  
@@ -160,6 +180,7 @@
     <br>
     </div>
     </div>
+
 
 
 
@@ -192,7 +213,8 @@
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="../javascript/DataTables/jQuery-3.6.0/jquery-3.6.0.min.js"></script>
-   <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <link href="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.css" rel="stylesheet"/>
+ <script src="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.js"></script>
     <script src="../javascript/javascript.js" type="module"></script>
 
 </body>

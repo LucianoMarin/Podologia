@@ -25,12 +25,15 @@ $(document).ready(function() {
 
 
 $(document).ready(function(){
-  $("#fecha_atencion").on("change", function(e) {
+$("#fecha_atencion").on("change", function(e) {
 
 e.preventDefault();
+
 let data={fecha_atencion: $('#fecha_atencion').val()};
 const hora=document.querySelector('#hora');
-$("#hora").empty();
+
+
+
 
 $.ajax({
   
@@ -43,6 +46,7 @@ $.ajax({
   data: data,
   success : function (data)
   { 
+    $("#hora").empty();
 
     for(let i=0; i<=data.length-1; i++){
 

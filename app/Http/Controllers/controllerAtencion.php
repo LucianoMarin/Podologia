@@ -66,6 +66,7 @@ class controllerAtencion extends Controller
         $atencion->hora=$request->hora;
         $atencion->precio_atencion=$request->precio_atencion;
         $atencion->nota=$request->nota;
+        $atencion->boleta=$request->boleta;
         $atencion->rut_especialista=$especialista->rut;
         $atencion->rut_paciente=$request->rut;
 

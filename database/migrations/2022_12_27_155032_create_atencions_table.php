@@ -18,7 +18,8 @@ return new class extends Migration
             $table->date('fecha_atencion');
             $table->TIME('hora');
             $table->bigInteger('precio_atencion');
-            $table->string('nota',255);
+            $table->string('nota',255)->nullable();
+            $table->boolean('boleta');
             $table->string('rut_especialista');
             $table->string('rut_paciente');
             $table->foreign('rut_especialista')->references('rut')->on('especialistas');
