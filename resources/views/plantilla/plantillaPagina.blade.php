@@ -140,7 +140,7 @@
   <div class="accordion-item">
     <h2 class="accordion-header" id="acordion2-headingOne">
       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#acordion2-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-    Gadget
+    GADGET
     </button>
     </h2>
     <div id="acordion2-collapseOne" class="accordion-collapse collapse" aria-labelledby="acordion2-headingOne">

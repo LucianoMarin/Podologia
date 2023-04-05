@@ -10,7 +10,7 @@ class Paciente extends Model
     use HasFactory;
 
 
-    protected $primaryKey = 'rut';
+    protected $primaryKey = 'id_paciente';
     public $timestamps = false;
 
     protected $fillable = [

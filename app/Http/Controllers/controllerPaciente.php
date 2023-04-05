@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Especialista;
 use App\Models\Paciente;
 use Auth;
+use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
@@ -184,11 +185,24 @@ class controllerPaciente extends Controller
 
     public function destroy($id)
     {
+
+        try{
     $paciente=new Paciente();
-    $paciente=Paciente::whereRut($id);
+ 
+
+    $paciente=Paciente::whereId_paciente($id);
     $paciente->delete();
 
     return redirect()->route('index.paciente')->with('resultado','Se a eliminado el paciente correctamente!');
+        }catch(Exception $ex){
+            
+            if($ex->getCode()==23000){
 
+                return redirect()->route('index.paciente')->with('error','Imposible eliminar paciente, tiene atenciones asignadas');
+
+
+            }
+
+        }
     }
 }

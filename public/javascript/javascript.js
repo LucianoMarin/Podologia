@@ -6,23 +6,34 @@ import {validarPaciente} from '../javascript/paciente.validate.js';
  $(document).ready(function() {
   $('#tablaPublicacion').DataTable({
     "language": {
-      "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
-    }
+      "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json",
+      "pageLength": 5
+ 
+      
+    },
+    "lengthMenu": [
+      [1,5],
+      [1,5],
+  ],
   });
 });
  
 
 
 
-$(document).ready(function() {
+$(document).ready(function () {
   $('#tablaPaciente').DataTable({
     "language": {
-      "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
-    }
+      "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json",
+      "pageLength": 5
+ 
+    },
+      "lengthMenu": [
+          [1,5],
+          [1,5],
+      ],
   });
 });
- 
-
 
 $(document).ready(function(){
 $("#fecha_atencion").on("change", function(e) {

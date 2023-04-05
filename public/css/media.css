@@ -48,12 +48,14 @@ table td{
 border-bottom: 1px solid rgb(196, 182, 182);
 border: 1px solid rgb(216, 216, 216);
 
+
 }
 
 		/* Force table to not be like tables anymore */
 		table, thead, tbody, th, td, tr {
 			display: block;
-            padding-top: 5px;
+            padding-top: 2px;
+			
   
 		}
 
@@ -62,6 +64,7 @@ border: 1px solid rgb(216, 216, 216);
 			position: absolute;
 			top: -9999px;
 			left: -9999px;
+			
             
 		}
 
@@ -73,6 +76,7 @@ border: 1px solid rgb(216, 216, 216);
       
     tr:nth-child(odd) {
       background: #f7e6ff;
+	  
     }
     
 		td {
@@ -80,7 +84,6 @@ border: 1px solid rgb(216, 216, 216);
 			border: none;
 			border-bottom: 1px solid #eee;
 			position: relative;
-			padding-left: 50%;
             padding-bottom: 4px;
 
 		}
@@ -90,9 +93,10 @@ border: 1px solid rgb(216, 216, 216);
 			position: absolute;
 			/* Top/left values mimic padding */
 			top: 0;
-			left: 6px;
-			width: 45%;
+			left: 10px;
+			width: 35%;
 			padding-right: 10px;
+			padding-bottom: 30px;
 			white-space: nowrap;
             font-size: 16px;
             font-weight: bolder;
@@ -109,8 +113,8 @@ border: 1px solid rgb(216, 216, 216);
 		td:nth-of-type(4):before { content: "MODIFICAR"; }
 		td:nth-of-type(5):before { content: "VER"; }
 
-		#tablaPaciente td:nth-of-type(1):before { content: "RUT"; }
-		#tablaPaciente td:nth-of-type(2):before { content: "NOMBRE"; }
+		#tablaPaciente td:nth-of-type(1):before { content: "RUT" ; }
+		#tablaPaciente td:nth-of-type(2):before { content: ""; }
 		#tablaPaciente td:nth-of-type(3):before { content: "ELIMINAR"; }
 		#tablaPaciente td:nth-of-type(4):before { content: "MODIFICAR"; }
 		#tablaPaciente td:nth-of-type(5):before { content: "VER"; }

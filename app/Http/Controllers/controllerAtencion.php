@@ -58,9 +58,12 @@ class controllerAtencion extends Controller
         $atencion=new Atencion();
 
         $especialista=db::table('especialistas')
-        ->where('user',$id)->first();
+        ->where('user',$id)->first(); //entre el rut del especialista
 
   
+        $paciente=DB::table('pacientes')->where('rut',$request->rut)
+        ->first(); //entrega el id
+
         
         $atencion->fecha_atencion=$request->fecha_atencion;
         $atencion->hora=$request->hora;
@@ -68,7 +71,7 @@ class controllerAtencion extends Controller
         $atencion->nota=$request->nota;
         $atencion->boleta=$request->boleta;
         $atencion->rut_especialista=$especialista->rut;
-        $atencion->rut_paciente=$request->rut;
+        $atencion->id_pacientes=$paciente->id_paciente;
 
 
 
@@ -100,7 +103,7 @@ class controllerAtencion extends Controller
         $atenciones=db::table('atencions')
          
                     ->join('especialistas','atencions.rut_especialista','especialistas.rut')
-                    ->join('pacientes','atencions.rut_paciente','pacientes.rut')
+                    ->join('pacientes','atencions.id_pacientes','pacientes.id_paciente')
                     ->get();
 
                     foreach($atenciones as $atencion){
@@ -139,7 +142,7 @@ class controllerAtencion extends Controller
        
 
         
-        $horario=$this->horario($request);
+      $horario=$this->horario($request); //aqui
                    
 
 

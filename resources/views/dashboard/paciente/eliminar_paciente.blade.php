@@ -19,7 +19,7 @@
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
       
 
-        <form action="{{route('eliminar.paciente', [$pacientes->rut])}}" method="POST">
+        <form action="{{route('eliminar.paciente', [$pacientes->id_paciente])}}" method="POST">
 
         <button type="submit" id="btnPublicar" class="btnPublicar">Eliminar</button></div>
         @method('DELETE')

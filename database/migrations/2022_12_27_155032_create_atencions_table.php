@@ -21,9 +21,9 @@ return new class extends Migration
             $table->string('nota',255)->nullable();
             $table->boolean('boleta');
             $table->string('rut_especialista');
-            $table->string('rut_paciente');
+            $table->bigInteger('id_pacientes')->unsigned();
             $table->foreign('rut_especialista')->references('rut')->on('especialistas');
-            $table->foreign('rut_paciente')->references('rut')->on('pacientes');
+            $table->foreign('id_pacientes')->references('id_paciente')->on('pacientes');
 
         });
     }
