@@ -7,7 +7,13 @@ import {validarPaciente} from '../javascript/paciente.validate.js';
   $('#tablaPublicacion').DataTable({
     "language": {
       "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json",
-      "pageLength": 5
+      "pageLength": 5,
+      "responsive": true,
+      "info":           "Resultados Encontrados _START_ de _END_",
+      "infoEmpty":      "No encontrado",
+
+
+
  
       
     },
@@ -15,6 +21,9 @@ import {validarPaciente} from '../javascript/paciente.validate.js';
       [1,5],
       [1,5],
   ],
+
+
+  
   });
 });
  
