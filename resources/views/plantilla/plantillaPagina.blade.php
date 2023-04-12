@@ -64,7 +64,7 @@
                     <li><a href="#">Atenciones</a>
                         <ul>
                             <li><a href="/atencion">Agendar Hora</a></li>
-                            <li><a href="#">Modificar Hora</a></li>
+                            <li><a href="/gestionar_atencion">Modificar Hora</a></li>
 
                     </li>
                     </ul>

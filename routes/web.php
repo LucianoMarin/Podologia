@@ -96,3 +96,6 @@ route::post('/atencion',[controllerAtencion::class, 'store'])->name('crear_atenc
 route::post('/atencion/buscar',[controllerAtencion::class, 'horario'])->name('enviar_informacion');
 
 
+
+route::get('/gestionar_atencion',[controllerAtencion::class, 'mostrarAtenciones'])->name('gestionar.atencion');
+

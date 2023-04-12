@@ -55,7 +55,7 @@
     <th>Eliminar </th>
     <th>Modificar </th>
     <th>Ver Ficha </th>
-
+    <th>Generar Informe</th>
 </thead>
 
         <tbody>
@@ -79,6 +79,8 @@
         <button type="button" class="btnTablas" data-bs-toggle="modal" data-bs-target="#ver_paciente{{$pacientes->rut}}">
         <img src="/imagenes/iconos/table_icons/comentarios.png" class="t_imagen"></button>
         </td>
+        <td>
+</td>
         </tr>
 
         @include('dashboard.paciente.editar_paciente')

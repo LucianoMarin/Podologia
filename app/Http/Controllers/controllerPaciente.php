@@ -37,7 +37,7 @@ class controllerPaciente extends Controller
         'apellido_materno'=>'required',
         'fecha_nacimiento'=>'required',
         'edad'=>'numeric',  
-        'telefono'=>'max:11 | numeric',
+        'telefono'=>'numeric| digits_between:1,11',
         'discapacidad'=>'required',
         ]);
 
@@ -143,7 +143,7 @@ class controllerPaciente extends Controller
                 'apellido_materno'=>'required',
                 'fecha_nacimiento'=>'required',
                 'edad'=>'numeric',  
-                'telefono'=>'max:11 | numeric',
+                'telefono'=>'numeric| digits_between:1,11',
                 'discapacidad'=>'required',
                 ]);
               

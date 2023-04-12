@@ -168,6 +168,20 @@ class controllerAtencion extends Controller
     }
 
 
+    public function mostrarAtenciones(){
+    $atencion=db::table('atencions')
+    ->join('pacientes','atencions.id_pacientes','pacientes.id_paciente')
+    ->orderBy('fecha_atencion','desc')
+    ->orderBy('hora', 'desc')
+    ->get();
+
+        return view('dashboard.atenciones.gestionar_atencion', compact('atencion'));
+
+
+
+    }
+
+
     public function edit($id)
     {
         //

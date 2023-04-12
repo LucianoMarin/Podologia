@@ -3,6 +3,32 @@ import {validacionP} from '../javascript/perfil_validate.js';
 import {validarPaciente} from '../javascript/paciente.validate.js';
 
 
+
+$(document).ready(function() {
+  $('#tablaGestionarAtencion').DataTable({
+    "language": {
+      "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json",
+      "pageLength": 5,
+      "responsive": true,
+      "info":           "Resultados Encontrados _START_ de _END_",
+      "infoEmpty":      "No encontrado",
+
+
+
+ 
+      
+    },
+    "lengthMenu": [
+      [1,5],
+      [1,5],
+  ],
+
+
+  
+  });
+});
+
+
  $(document).ready(function() {
   $('#tablaPublicacion').DataTable({
     "language": {
@@ -44,6 +70,8 @@ $(document).ready(function () {
   });
 });
 
+
+
 $(document).ready(function(){
 $("#fecha_atencion").on("change", function(e) {
 
@@ -51,6 +79,8 @@ e.preventDefault();
 
 let data={fecha_atencion: $('#fecha_atencion').val()};
 const hora=document.querySelector('#hora');
+
+
 
 
 
