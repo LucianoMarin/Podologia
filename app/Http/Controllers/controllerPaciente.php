@@ -37,7 +37,7 @@ class controllerPaciente extends Controller
         'apellido_materno'=>'required',
         'fecha_nacimiento'=>'required',
         'edad'=>'numeric',  
-        'telefono'=>'numeric| digits_between:1,11',
+        'telefono'=>'numeric| nullable |digits_between:0,11',
         'discapacidad'=>'required',
         ]);
 
@@ -51,7 +51,14 @@ class controllerPaciente extends Controller
         $paciente->fecha_nacimiento=$request->fecha_nacimiento;
         $paciente->edad=$request->edad;
         $paciente->direccion=$request->direccion;
-        $paciente->telefono=$request->telefono;
+        if($request->telefono==null){
+            $paciente->telefono=0;
+
+        }else{
+
+            $paciente->telefono=$request->telefono;
+
+        }
         $paciente->discapacidad=$request->discapacidad;
 
         $paciente->save();
@@ -143,7 +150,7 @@ class controllerPaciente extends Controller
                 'apellido_materno'=>'required',
                 'fecha_nacimiento'=>'required',
                 'edad'=>'numeric',  
-                'telefono'=>'numeric| digits_between:1,11',
+                'telefono'=>'numeric| digits_between:0,11',
                 'discapacidad'=>'required',
                 ]);
               

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->bigInteger('precio_atencion');
             $table->string('nota',255)->nullable();
             $table->boolean('boleta');
+            $table->integer('estado');
             $table->string('rut_especialista');
             $table->bigInteger('id_pacientes')->unsigned();
             $table->foreign('rut_especialista')->references('rut')->on('especialistas');

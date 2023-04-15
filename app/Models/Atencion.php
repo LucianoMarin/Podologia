@@ -17,8 +17,8 @@ class Atencion extends Model
         'fecha',
         'hora',
         'precio_atencion',
-        'nota'
-
+        'nota',
+        'boleta'
 
     ];
 

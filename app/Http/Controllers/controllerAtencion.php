@@ -72,9 +72,8 @@ class controllerAtencion extends Controller
         $atencion->boleta=$request->boleta;
         $atencion->rut_especialista=$especialista->rut;
         $atencion->id_pacientes=$paciente->id_paciente;
-
-
-
+        $atencion->estado=0;
+        
         $atencion->save();
         return view('dashboard.atenciones.principal', compact('validar'))->with('resultado','Hora ingresada exitosamente!');
 
