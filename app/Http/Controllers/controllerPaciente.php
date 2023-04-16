@@ -97,7 +97,6 @@ class controllerPaciente extends Controller
             Especialista::where('user',$id)->firstOrFail();
         }
      
-
         $paciente=new Paciente();
         $paciente=DB::table('pacientes')->get();
    
@@ -126,6 +125,7 @@ class controllerPaciente extends Controller
             Especialista::where('user',$id)->firstOrFail();
         }
      
+
         return view('dashboard.paciente.crear_paciente');
     }catch(ModelNotFoundException $e){
 

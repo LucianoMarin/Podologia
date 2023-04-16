@@ -36,13 +36,7 @@ return view('login.principal');
 
 Route::GET('/salir', [controllerLogout::class, 'salir']);
 
-/*
 
-Route::get('/registrar_usuario',function(){
-return view('dashboard.usuario.nuevo_usuario');
-});
-
-*/
 
 
 

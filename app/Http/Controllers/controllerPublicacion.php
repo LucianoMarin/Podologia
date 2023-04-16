@@ -41,12 +41,12 @@ class controllerPublicacion extends Controller
         $publicacion->user=$id;
         if($request->titulo!='' && $request->publicacion!='' && $request->tipo!='' ){
             $publicacion->save();
-            return redirect()->route('index.publicacion')->with('resultado','Se a agregado una nueva publicación');
+            return redirect()->route('index')->with('resultado','Se a agregado una nueva publicación');
         }
         return redirect()->route('index');
 
     }catch(QueryException $ex){
-        return redirect()->route('index.publicacion')->with('error', 'ERROR: No se ingreso la publicación');
+        return redirect()->route('index')->with('error', 'ERROR: No se ingreso la publicación');
 
 
 

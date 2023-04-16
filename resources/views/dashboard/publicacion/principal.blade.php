@@ -8,9 +8,11 @@
 <img class="icono" src="imagenes/iconos/enlace.png">
 <label class="submenu">Accesos rapidos</label>
 <br>
-<a href="#">Ing. Paciente</a>
+<a href="/crear_paciente">Ing. Paciente</a>
 <br>
-<a href="#">Agendar Hora</a>
+<a href="/atencion">Agendar Hora</a>
+<br>
+<a href="publicaciones">Publicaciones</a>
 @stop
 @section('contenedor')
 <h1>Publicaciones</h1>

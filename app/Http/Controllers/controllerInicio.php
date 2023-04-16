@@ -21,7 +21,13 @@ class controllerInicio extends Controller
             ->where('tipo','nota')
             ->orderBy('id_publicacion','desc')
             ->paginate(1);
-           return view('dashboard.principal',compact('publicaciones'));
+
+            $atencion=new controllerAtencion();
+            $cupos=$atencion->cuposDia();
+
+
+            
+           return view('dashboard.principal',compact('publicaciones','cupos'));
 
     }
 

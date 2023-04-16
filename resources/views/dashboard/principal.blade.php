@@ -2,16 +2,18 @@
 
 @extends('plantilla.plantillaPagina')
 
+
 @section('menuLateral')
 
-<img class="icono" src="imagenes/iconos/enlace.png">
+<img class="icono" src="/imagenes/iconos/enlace.png">
 <label class="submenu">Accesos rapidos</label>
 <br>
-<a href="#">Ing. Paciente</a>
+<a href="/crear_paciente">Ing. Paciente</a>
 <br>
-<a href="#">Agendar Hora</a>
+<a href="/atencion">Agendar Hora</a>
 <br>
-<a href="publicaciones">Publicaciones</a>
+<a href="/publicaciones">Publicaciones</a>
+
 @stop
 @section('contenedor')
 
@@ -40,26 +42,18 @@ echo str_replace("\n", "<br>", $publicacion->contenido);
 
 @stop
 
-@section('menuLateral2')
-<img class="icono" src="imagenes/iconos/paciente.png">
-<label class="submenu">N° Total Pacientes: </label>
-<br>
-<label class="interior">12</label>
-@stop
-
-
-@section('menuLateral3')
-<img class="icono" src="imagenes/iconos/atencion-medica.png">
-<label class="submenu">Cupos Hoy: </label>
-<br>
-<label class="interior">0</label>
-<br>
-<input type="button" id="btnCalendario" value="Buscar fecha">
-@stop
-
-
-
-@section('cHorizontal')
+@section('menulat2')
+<div class="row">          
+<div class="accordion" id="accordionPanelsStayOpenExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="acordion2-headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#acordion2-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+    GADGET
+    </button>
+    </h2>
+    <div id="acordion2-collapseOne" class="accordion-collapse collapse" aria-labelledby="acordion2-headingOne">
+      <div class="accordion-body">
+  
 <!-- Button trigger modal -->
 <img class="icono" src="imagenes/iconos/publicalo.png">
 <label>Crear nota: </label>
@@ -68,11 +62,39 @@ echo str_replace("\n", "<br>", $publicacion->contenido);
 <button id="btnNotas" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#crear_publicacion">
 Nueva Nota
 </button>
+
+      <br>
+      <br>
+
+<img class="icono" src="imagenes/iconos/atencion-medica.png">
+<label class="submenu">Cupos Dia Hoy: </label>
+<br>
+@if(isset($cupos))
+<label class="interior">
+{{$cupos}}
+</label>
+@endif
+<br>
+<input type="button" id="btnCalendario" value="Buscar fecha">
+
+
+                            @include('dashboard.publicacion.crear_publicacion')
+    </div>
+    </div>
+  </div>
+  </div>
+  </div>
 @stop
+
+
+
+
+
 @section('cHorizontal3')
 
 @if (session('resultado'))
-<div class="alert alert-danger">
+<div class="alert alert-success">
+
 {{ session('resultado') }}
 </div>
 

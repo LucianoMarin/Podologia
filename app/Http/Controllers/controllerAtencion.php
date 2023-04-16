@@ -198,6 +198,49 @@ class controllerAtencion extends Controller
     }
 
 
+    public function cuposDia(){
+        
+        $horario=array(
+            '09:00:00',
+            '10:00:00',
+            '11:00:00',
+            '12:00:00',
+            '13:00:00',
+            '14:00:00',
+            '15:00:00',
+            '16:00:00',
+            '17:00:00',
+            '18:00:00',
+            '19:00:00',);
+    
+            $cupos=11;
+    
+            date_default_timezone_set("America/Santiago");
+            $date = date("Y-m-d");
+    
+            $atenciones=db::table('atencions')
+             
+                        ->join('especialistas','atencions.rut_especialista','especialistas.rut')
+                        ->join('pacientes','atencions.id_pacientes','pacientes.id_paciente')
+                        ->get();
+    
+                        foreach($atenciones as $atencion){
+          
+                            if($atencion->fecha_atencion==$date){
+                             
+                                $cupos--;
+                                
+                            
+                        }
+                        }
+    
+    
+                            return $cupos;
+
+    }
+
+
+
     public function cargarPacientes(){
         $paciente=new Paciente();
         $paciente=DB::table('pacientes')->get();
