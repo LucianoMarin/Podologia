@@ -1,0 +1,153 @@
+
+
+
+@media(max-width: 700px){
+
+
+	.txtTitulo{
+		width: 100px;
+		padding: 2px;
+		
+		}
+		
+		
+		
+		.txtComentario{
+			width: 410px;
+			height: 200px;
+			outline:none;
+			resize:none;
+			}
+		
+			#btnPublicar{
+				background:#c9005a;
+				border:none;
+	
+	
+			}
+
+
+    nav ul{
+        padding-left: 2px;
+        padding-top: 8px;
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        text-align: left;
+        border-radius: 8px;
+        font-size: 18px;
+     
+         
+    }
+    .t_imagen{
+        width: 40px;
+        padding: 2px;
+        border-radius: 4px;
+        }
+    
+
+table td{
+border-bottom: 1px solid rgb(196, 182, 182);
+border: 1px solid rgb(216, 216, 216);
+
+
+}
+
+		/* Force table to not be like tables anymore */
+		table, thead, tbody, th, td, tr {
+			display: block;
+            padding-top: 2px;
+			
+  
+		}
+
+		/* Hide table headers (but not display: none;, for accessibility) */
+		thead tr {
+			position: absolute;
+			top: -9999px;
+			left: -9999px;
+			
+            
+		}
+
+    tr {
+      margin: 0 0 1rem 0;
+      
+ 
+    }
+      
+    tr:nth-child(odd) {
+      background: #f7e6ff;
+	  
+    }
+    
+		td {
+			/* Behave  like a "row" */
+			border: none;
+			border-bottom: 1px solid #eee;
+			position: relative;
+            padding-bottom: 4px;
+
+		}
+
+		td:before {
+			/* Now like a table header */
+			position: absolute;
+			/* Top/left values mimic padding */
+			top: 0;
+			left: 10px;
+			width: 35%;
+			padding-right: 10px;
+			padding-bottom: 30px;
+			white-space: nowrap;
+            font-size: 16px;
+            font-weight: bolder;
+
+		}
+
+		/*
+		Label the data
+    You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
+		*/
+		td:nth-of-type(1):before { content: "TITULO"; }
+		td:nth-of-type(2):before { content: "FECHA"; }
+		td:nth-of-type(3):before { content: "ELIMINAR"; }
+		td:nth-of-type(4):before { content: "MODIFICAR"; }
+		td:nth-of-type(5):before { content: "VER"; }
+
+		#tablaPaciente td:nth-of-type(1):before { content: "" ; }
+		#tablaPaciente td:nth-of-type(2):before { content: ""; }
+		#tablaPaciente td:nth-of-type(3):before { content: "ELIMINAR"; }
+		#tablaPaciente td:nth-of-type(4):before { content: "MODIFICAR"; }
+		#tablaPaciente td:nth-of-type(5):before { content: "VER"; }
+
+			
+
+		.paginate_button.previous {
+			display: inline !important;
+		
+		}
+	 
+		 .paginate_button.next {
+			display: inline !important;
+	
+		}
+	 
+		.paginate_button {
+			display: none !important;
+	
+		}
+
+		input[type=search]{
+
+			display: block !important;
+			width: auto;
+
+		}
+
+	
+		
+}
+
+
+

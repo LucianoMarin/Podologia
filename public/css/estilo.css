@@ -1,0 +1,428 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Pacifico&family=Roboto:ital,wght@1,400;1,900&family=Sacramento&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300&display=swap');
+@import url('tabla.css');
+@import url('media.css');
+@import url('modales.css');
+@import url('alerta.css');
+@import url('error.css');
+@import url('input.css');
+
+
+.contenedor {
+    min-height: 100vh;
+    position: relative;
+}
+
+
+.contenedorPrincipal {
+    border: 1px solid rgba(220, 217, 221, 0.158);
+    border-radius: 10px;
+    background-color: rgba(220, 217, 221, 0.158);
+    box-shadow: 2px 5px 20px 0px rgba(51, 51, 51, 0.2);
+    padding: 20px 20px 10px 20px;
+}
+
+
+.navo nav ul {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    list-style: none;
+    background-color: #c07496;
+    padding-top: 20px;
+    padding-bottom: 1px;
+    border-radius: 4px 4px 4px 4px;
+    font-size: 22px;
+
+}
+
+.navo ul ul {
+    position: absolute;
+    padding: 2px;
+    background-color: #edc7b7;
+    border-radius: 0px 0px 8px 8px;
+    text-align: center;
+}
+
+.navo ul a {
+ 
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    margin: 5px;
+    font-family: 'Roboto', sans-serif;
+    transition: 0.4s;
+}
+
+
+.navo ul li ul {
+    display: none;
+
+}
+
+
+.navo ul li:hover>ul {
+    
+    display: flex;
+    flex-direction: column;
+
+}
+
+.navo ul ul li:hover {
+    background-color: rgb(87, 84, 84);
+
+}
+
+.navo ul a:hover {
+    text-decoration: none;
+    color: #beb8bc;
+    font-family: 'Roboto', sans-serif;
+    transition: 0.3s;
+}
+
+
+footer {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: #8f66af;
+    color: #ffffff;
+    font-size: 15px;
+    padding: 2px;
+    box-shadow: 10px 10px 20px 10px rgba(51, 51, 51, 0.2);
+
+
+}
+
+
+.imgl {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    height: 120px;
+}
+
+@media(max-width: 700px) {
+
+    .navo nav ul {
+        padding-left: 2px;
+        padding-top: 8px;
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        text-align: left;
+        border-radius: 8px;
+        font-size: 20px;
+
+    }
+
+    footer {
+        font-size: 10px;
+
+    }
+
+    footer h4 {
+        font-size: 10px;
+
+    }
+
+
+    .txtTitulo{
+        width: 220px;
+        padding: 2px;
+        
+        }
+        
+
+        .txtComentario{
+            width: 400px;
+            height: 200px;
+            outline:none;
+            resize:none;
+            }
+
+}
+
+
+
+@media(max-width: 422px) {
+    
+    .txtTitulo{
+        width: 220px;
+        padding: 2px;
+        
+        }
+        
+        
+        
+        .txtComentario{
+            width: 300px;
+            height: 200px;
+            outline:none;
+            resize:none;
+            }
+        
+            #btnPublicar{
+                background:#c07496;
+                border:none;
+    
+    
+            }
+    
+        }
+
+
+
+@media(max-width: 400px) {
+    
+.txtTitulo{
+    width: 200px;
+    padding: 2px;
+    
+    }
+    
+    
+    
+    .txtComentario{
+        width: 300px;
+        height: 200px;
+        outline:none;
+        resize:none;
+        }
+    
+        #btnPublicar{
+            background:#c07496;
+            border:none;
+
+
+        }
+
+    }
+
+
+    
+@media(max-width: 350px) {
+    
+    .txtTitulo{
+        width: 200px;
+        padding: 2px;
+        
+        }
+        
+        
+        
+        .txtComentario{
+            width: 265px;
+            height: 200px;
+            outline:none;
+            resize:none;
+            }
+        
+            #btnPublicar{
+                background:#c07496;
+                border:none;
+    
+    
+            }
+    
+        }
+
+
+.icono {
+    height: 20px;
+    display: inline;
+
+}
+
+.menuLateral {
+    border: 1px solid rgba(220, 217, 221, 0.158);
+    border-radius: 10px;
+    background-color: rgba(220, 217, 221, 0.158);
+    box-shadow: 2px 5px 20px 0px rgba(51, 51, 51, 0.2);
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    list-style: none;
+    width: 220px;
+}
+
+.menuLateral a {
+    text-decoration: none;
+    font-size: 18px;
+    padding: 2px 0 0 22px;
+    color: #000;
+}
+
+.menuLateral a:hover {
+    color: rgb(193, 188, 188);
+    transition: 0.2s;
+}
+
+
+.menuLateral2 {
+    padding-top: 20px;
+    padding-left: 2px;
+    padding-bottom: 20px;
+    list-style: none;
+}
+
+.menuLateral2 a {
+    text-decoration: none;
+    font-size: 18px;
+    padding: 2px 0 0 22px;
+    color: #000;
+}
+
+.menuLateral2 a:hover {
+    color: rgb(193, 188, 188);
+    transition: 0.2s;
+}
+
+
+
+.submenu {
+    font-size: 18px;
+    font-weight: 200;
+
+}
+
+
+.interior {
+    font-size: 38px;
+    font-weight: 200px;
+    padding-left: 55px;
+
+}
+
+#notas {
+    width: 100%;
+    height: 100px;
+    border: 2px solid #c07496;
+    border-radius: 2px;
+    resize: none;
+
+}
+
+#btnNotas {
+    color: white;
+    border: 0px;
+    background-color: #8f66af;
+    padding: 8px;
+    border-radius: 2px;
+    transition: 0.3s;
+
+}
+
+#btnNotas:hover {
+    background-color: #9b84ad;
+    transform: scale(1.1);
+
+}
+
+.fecha {
+    margin-top: 10px;
+    width: auto;
+    background-color: #c07496;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 30px;
+    font-family: 'Courgette', cursive;
+    text-align: center;
+    padding: 2px;
+    transition: 0.5s;
+
+}
+
+.fecha:hover {
+    background-color: #8f66af;
+    transition: 0.5s;
+
+}
+
+#btnCalendario {
+    color: white;
+    border: 0px;
+    background-color: #8f66af;
+    padding: 8px;
+    border-radius: 2px;
+    transition: 0.3s;
+
+}
+
+#btnCalendario:hover {
+    background-color: #9b84ad;
+    transform: scale(1.1);
+
+}
+
+
+
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
+    background-color: #8f66af;
+    border-color: rgb(214, 214, 214);
+}
+
+
+
+.navbar .dropdown{
+margin-right: 30px;
+}
+
+.dropColor{
+    color:rgb(255, 255, 255) !important;
+    background-color: rgb(145, 160, 163) !important;
+    text-transform: uppercase;
+   
+}
+
+
+
+
+    .estiloNav .navbar-toggler{
+
+        background-color:rgb(255, 255, 255) !important;
+  
+
+    } 
+
+    
+    .estiloNav .navbar-toggler-icon{
+        color:red !important;
+        background-color:rgb(255, 255, 255) !important;
+
+
+    } 
+
+    .page-link{
+
+        color:rgb(173, 173, 173) !important;
+    }
+
+
+  .alert {
+  position: static !important;
+
+}
+
+.fotosUrl{
+
+    width: 80%;
+    height: auto;
+}
+
+
+.accordion-button{
+
+background-color: #c07496 !important;
+color:rgb(255, 255, 255) !important;
+}
+
+
+
+ 

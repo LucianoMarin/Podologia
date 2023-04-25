@@ -1,0 +1,21 @@
+.alerta{
+
+background-color: rgba(232, 234, 241, 0.425);
+border: 4px solid  rgb(215, 206, 206);
+padding: 12px;
+border-radius: 8px;
+
+}
+
+.alerta h4 {
+color:#c07496;
+
+}
+
+
+.alerta p b{
+    color:#8f66af;
+    font-weight: bolder;
+    text-transform: uppercase;
+    text-decoration: underline;
+}

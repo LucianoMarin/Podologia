@@ -1,0 +1,67 @@
+
+
+.pError{
+    min-height: 100vh;
+    background-color: #c07496;
+    font-size:30px;
+}
+
+.IPError{
+    min-height: 100vh;
+    font-family: 'Courgette', cursive;
+    background-image: url("../imagenes/backgrounds/errorPage.JPG");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.backgrounderror .tError{
+    color:rgb(255, 255, 255);
+    font-size: 45px;
+    font-weight: bolder;
+    text-shadow: 2px 2px #474747;
+    text-align: center;
+}
+
+.backgrounderror{
+    background-color:rgba(150, 148, 148, 0.329);
+    width: auto;
+    height: auto;
+    margin-top: 48%;
+    border-radius: 3px;
+}
+
+.pError .textoPrincipal{
+    min-height: 60vh;
+    margin-top: 18%;
+    background-color: #c07496;
+    color:#fcfcfc;
+    font-size:50px;
+    font-family: 'Courgette', cursive;
+    
+}
+
+
+.linksError{
+    display: inline-block;
+    color: white;
+    border: 0px;
+    padding: 8px;
+    margin-top: 30px;
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: 30px;
+    transition: 0.3s;
+    font-family: 'Courgette', cursive;
+    padding: 10px 30px 10px;
+
+}
+
+
+
+.linksError:hover{
+    background-color: #9b84ad;
+    color:#ffffff;
+    transform: scale(1.1) !important;
+    border-radius: 10px;
+}
+
