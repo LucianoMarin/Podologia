@@ -67,11 +67,8 @@
     <td>{{$atenciones->primer_nombre .' '.$atenciones->segundo_nombre.' '.$atenciones->apellido_paterno.' '.$atenciones->apellido_materno }}</td>
     <td>{{$fecha . ' '. $atenciones->hora }}</td>
 
-    @if($atenciones->estado==0)
-    <td>
-    <div class="p-2 mb-0 bg-warning text-white text-center">Pendiente</div>  
-  </td>   
-     @elseif($atenciones->estado==1)
+  
+     @if($atenciones->estado==1)
      <td>
      <div class="p-2 mb-0 bg-success text-white text-center">Realizado</div>  
      </td>
@@ -79,6 +76,10 @@
     <td>
      <div class="p-2 mb-0 bg-danger text-white text-center">Cancelada</div>  
      </td>
+     @else
+    <td>
+    <div class="p-2 mb-0 bg-warning text-white text-center">Pendiente</div>  
+  </td> 
     @endif
 
 

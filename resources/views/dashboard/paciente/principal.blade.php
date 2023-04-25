@@ -80,7 +80,11 @@
         <img src="/imagenes/iconos/table_icons/comentarios.png" class="t_imagen"></button>
         </td>
         <td>
-</td>
+        <form action="{{route('imprimirInforme', [$pacientes->rut])}}" method="POST">
+            @csrf
+        <input type="submit" class="btnTablas" value="GENERAR">
+        </form>
+        </td>
         </tr>
 
         @include('dashboard.paciente.editar_paciente')

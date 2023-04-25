@@ -8,6 +8,7 @@ use App\Http\Controllers\controllerInicio;
 use App\Http\Controllers\controllerLogin;
 use App\Http\Controllers\controllerLogout;
 use App\Http\Controllers\controllerPaciente;
+use App\Http\Controllers\controllerPDF;
 use App\Http\Controllers\controllerPublicacion;
 use App\Http\Controllers\controllerRegistrar;
 use Illuminate\Support\Facades\Route;
@@ -93,3 +94,8 @@ route::post('/atencion/buscar',[controllerAtencion::class, 'horario'])->name('en
 
 route::get('/gestionar_atencion',[controllerAtencion::class, 'mostrarAtenciones'])->name('gestionar.atencion');
 
+
+
+
+
+route::post('/informe/{rut}',[controllerPDF::class, 'imprimirInforme'])->name('imprimirInforme');
