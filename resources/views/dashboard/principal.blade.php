@@ -28,7 +28,6 @@ $fecha=date('d/m/Y', strtotime($publicacion->fecha_publicacion));
 <label>{{$fecha}}</label>
 <br>
 <br>
-<br>
 @php
 echo str_replace("\n", "<br>", $publicacion->contenido);
 @endphp
