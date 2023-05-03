@@ -50,7 +50,7 @@
 
 <form action="{{route('crear_paciente')}}" method="POST" id="formulario_paciente">
     @csrf
-<input type="text" name="rut" class="inputFormularios"> -
+<input type="text" name="rut" class="inputRut"> -
 <select name="verificador" class="sVerificador">
     <option selected value=""></option>
     <option value="0">0</option>

@@ -175,6 +175,32 @@ footer {
 
 
 @media(max-width: 400px) {
+
+    .inputNombre{
+		max-width: 290px ;
+        min-width: 215px;
+        width: auto;
+
+
+	}
+
+
+    .notasA{
+        max-width: 290px ;
+        min-width: 190px;
+        width: auto;
+    
+    
+    }
+
+    .inputRut{
+        max-width: 150px ;
+        min-width: 153px;
+        width: auto;
+
+
+    }
+
     
 .txtTitulo{
     width: 200px;

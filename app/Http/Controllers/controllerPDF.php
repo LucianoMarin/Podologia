@@ -24,6 +24,8 @@ $paciente=DB::table('pacientes')
 $realizadas=DB::table('atencions')
 ->where('id_pacientes',$paciente->id_paciente)
 ->where('estado',1)
+->orderBy('fecha_atencion','ASC')
+->orderBy('boleta','DESC')
 ->get();
 
 //CONSULTAS NO REALIZADAS

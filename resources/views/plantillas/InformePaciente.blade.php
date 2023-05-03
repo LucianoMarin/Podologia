@@ -5,30 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informe Paciente</title>
+    <link href="./css/plantilla.css" rel="stylesheet"/>
 </head>
 <body>
-
-<h1>REGISTRO DE ATENCIONES</h1>
-<h2>DATOS PACIENTE</h2>
+<h1 class="titulos">REGISTRO DE ATENCIONES</h1>
+<h2 class="stitulos">DATOS PACIENTE</h2>
+<label class="textos"> Rut: </label><label>{{$rut}}</label>
 <br>
-<label>Rut: {{$rut}}</label>
+<label class="textos"> Nombre: </label><label>{{$nombreCompleto}}</label>
 <br>
-<label>Nombre: {{$nombreCompleto}} </label>
-<br>
-<label>Discapacidad: {{$discapacidad}}</label>
+<label class="textos"> Discapacidad: </label><label>{{$discapacidad}}</label>
 <br>
 <br>
-
-<label>N° ATENCIONES REALIZADAS: </label>
-<table border="1px solid black">
+@php
+$atenciones=0;
+$noAtencion=0;
+@endphp
+@foreach($realizadas as $realizados)
+@php
+$atenciones+=1;
+@endphp
+@endforeach
+<label class="">N° ATENCIONES REALIZADAS {{$atenciones}}: </label>
+<br>
+<br>
+<table>
     <thead>
-        <th>FECHA/HORA ASIGNADA</th>
-        <th>BOLETA</th>
-        <th>VALOR ATENCION</th>
+        <th class="oTexto">FECHA/HORA ASIGNADA</th>
+        <th class="oTexto">BOLETA</th>
+        <th class="oTexto">VALOR ATENCION</th>
 
     </thead>
+    <tbody>
+    <tr>
     @foreach($realizadas as $realizados)
-    
+
     @php
     $fechaRealizado=date('d/m/Y', strtotime($realizados->fecha_atencion));
 
@@ -44,19 +55,28 @@
     <td>{{$mPago}}</td>
 
     <td>{{$realizados->precio_atencion}}</td>
-    <tr>
+</tr>
     @endforeach
+</tbody>
 </table>
 
 <br>
+@foreach($noRealizadas as $noRealizado)
+@php
+$noAtencion+=1;
+@endphp
+@endforeach
 
-<label>N° ATENCIONES NO REALIZADAS: </label>
-<table border="1px solid black">
+<label>N° ATENCIONES NO REALIZADAS {{$noAtencion}}: </label>
+<br>
+<br>
+<table class="noRealizado">
     <thead>
-        <th>FECHA/HORA</th>
+        <th class="oTexto">FECHA/HORA</th>
 
 
     </thead>
+    <tbody>
 @foreach($noRealizadas as $noRealizado)
 @php
 $fechaNoRealizado=date('d/m/Y', strtotime($noRealizado->fecha_atencion));
@@ -64,6 +84,7 @@ $fechaNoRealizado=date('d/m/Y', strtotime($noRealizado->fecha_atencion));
         <td>{{$fechaNoRealizado}}</td>
         <tr>
             @endforeach
+</tbody>
 </table>
 </body>
 </html>
