@@ -128,10 +128,20 @@ class controllerAtencion extends Controller
     public function show(Request $request)
     {
 
+        try{
         if(!Auth::check()){
             return redirect('/login');
                 }  
 
+
+
+                
+            if(isset(Auth::user()->id)){
+
+                $id=Auth::user()->id;  
+        
+                Especialista::where('user',$id)->firstOrFail();
+            }
 
         $validar=0;
         
@@ -149,6 +159,7 @@ class controllerAtencion extends Controller
             ->where('rut',$request->rut)->first();
 
 
+        
             
                     
         if($pacientes!=null){
@@ -161,21 +172,37 @@ class controllerAtencion extends Controller
             return view('dashboard.atenciones.principal', compact('paciente','validar'))->with('error','ERROR: No fue posible encontrar el Paciente');
 
         }
-        
+    }catch(ModelNotFoundException $e){
+
+        return view('dashboard.error.errorAC');
+    }
             
 
     }
 
 
     public function mostrarAtenciones(){
+        try{
     $atencion=db::table('atencions')
     ->join('pacientes','atencions.id_pacientes','pacientes.id_paciente')
     ->orderBy('fecha_atencion','desc')
     ->orderBy('hora', 'desc')
     ->get();
 
-        return view('dashboard.atenciones.gestionar_atencion', compact('atencion'));
+    if(isset(Auth::user()->id)){
 
+        $id=Auth::user()->id;  
+
+        Especialista::where('user',$id)->firstOrFail();
+    }
+
+
+
+        return view('dashboard.atenciones.gestionar_atencion', compact('atencion'));
+    }catch(ModelNotFoundException $e){
+
+        return view('dashboard.error.errorAC');
+    }
 
 
     }
@@ -194,7 +221,16 @@ class controllerAtencion extends Controller
 
     public function destroy($id)
     {
-        //
+    
+     
+        $atencion=Atencion::findOrFail($id);
+        $atencion->delete();
+  
+        return redirect()->route('gestionar.atencion')->with('resultado','A eliminado exitosamente la hora!');
+
+
+
+
     }
 
 

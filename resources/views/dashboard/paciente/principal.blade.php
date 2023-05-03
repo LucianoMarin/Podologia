@@ -60,8 +60,12 @@
 
         <tbody>
         @foreach($paciente as $pacientes)
+        @php
+        $validador = substr($pacientes->rut, -1, 1);
+        $rut = substr($pacientes->rut, 0, -1)."-".$validador;
+        @endphp
         <tr>
-        <td>{{$pacientes->rut}}</td>
+        <td>{{$rut}}</td>
         <td>{{$pacientes->primer_nombre}} {{$pacientes->segundo_nombre}} {{$pacientes->apellido_paterno}} {{$pacientes->apellido_materno}}</td>
         <td>
  

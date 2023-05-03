@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Error</title>
-    <link href="css/estilo.css" rel="stylesheet" />
+    <link href="../css/estilo.css" rel="stylesheet" />
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
 
@@ -32,10 +32,10 @@
 <div class="col-md-2">
 </div>
 <div class="col-md-4">
-<a  href="./dashboard" class="linksError ">Inicio</a>
+<a  href="../dashboard" class="linksError ">Inicio</a>
 </div>
 <div class="col-md-4">
-<a href="./usuario" class="linksError">Crear Perfil</a>
+<a href="../usuario" class="linksError">Crear Perfil</a>
 
 </div>
 </div>

@@ -4,13 +4,14 @@
 
 @section('cHorizontal3')
 
-@if(!empty($resultado))
-  <div class="alert alert-success"> {{ $resultado }}</div>
+@if (session('resultado'))
+<div class="alert alert-success">
+{{ session('resultado') }}
+</div>
 
-
-@elseif(!empty($error))
+@elseif(session('error'))
 <div class="alert alert-danger">
-{{ $error }}
+{{ session('error') }}
 </div>
 
 @elseif (count($errors) > 0)
@@ -59,13 +60,18 @@
 
 @foreach($atencion as $atenciones)
 @php
-        $fecha=date('d/m/Y', strtotime($atenciones->fecha_atencion ));
+
+        $fecha=date('d/m/Y', strtotime($atenciones->fecha_atencion));
+        $hora = substr($atenciones->hora, 0, -3);
+        $validador = substr($atenciones->rut, -1, 1);
+        $rut = substr($atenciones->rut, 0, -1)."-".$validador;
         @endphp
+    
 </tr>
 
-    <td>{{$atenciones->rut}}</td>
+    <td>{{$rut}}</td>
     <td>{{$atenciones->primer_nombre .' '.$atenciones->segundo_nombre.' '.$atenciones->apellido_paterno.' '.$atenciones->apellido_materno }}</td>
-    <td>{{$fecha . ' '. $atenciones->hora }}</td>
+    <td>{{$fecha . ' '. $hora}}</td>
 
   
      @if($atenciones->estado==1)
@@ -84,9 +90,11 @@
 
 
     <td></td>
-    <td></td>
+    <td><button type="button" class="btnTablas" data-bs-toggle="modal" data-bs-target="#eliminar_atencion{{$atenciones->id_atencion}}">
+        <img src="/imagenes/iconos/table_icons/eliminar.png" class="t_imagen"></button></td>
     <td></td>
 </tr>
+@include('dashboard.atenciones.eliminar_atencion')
 @endforeach
     
     <tbody>  
