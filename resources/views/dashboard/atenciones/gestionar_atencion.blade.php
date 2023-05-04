@@ -88,13 +88,19 @@
   </td> 
     @endif
 
-
-    <td></td>
+    <td><button type="button" class="btnTablasAtenciones" data-bs-toggle="modal" data-bs-target="#editarAtencion{{$atenciones->id_atencion}}">
+        <img src="/imagenes/iconos/table_icons/editar.png" class="t_imagen"></button></td>
     <td><button type="button" class="btnTablas" data-bs-toggle="modal" data-bs-target="#eliminar_atencion{{$atenciones->id_atencion}}">
         <img src="/imagenes/iconos/table_icons/eliminar.png" class="t_imagen"></button></td>
-    <td></td>
+    <td><button type="button" class="btnTablas" data-bs-toggle="modal" data-bs-target="#verInformacion{{$atenciones->id_atencion}}">
+        <img src="/imagenes/iconos/table_icons/ver.png" class="t_imagen"></button></td>
 </tr>
+
+@include('dashboard.atenciones.editar_atencion')
 @include('dashboard.atenciones.eliminar_atencion')
+@include('dashboard.atenciones.informacion_atencion')
+
+
 @endforeach
     
     <tbody>  

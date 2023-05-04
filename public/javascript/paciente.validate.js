@@ -9,10 +9,19 @@ const inputEdad=document.querySelector('#edad');
 const einputEdad=document.querySelectorAll('.edad2');
 
 
+
+
 const fEditarPaciente=document.querySelectorAll('#formulario_editarPaciente');
 const btneditarPaciente=document.querySelectorAll('#btnEditarPublicacion');
 const eFecha=document.querySelectorAll('.fecha_nacimiento2');
 
+
+
+
+
+const btnEditar=document.querySelectorAll(".btnTablasAtenciones");
+const lfecha=document.querySelectorAll(".fecha_atencion");
+const lhora=document.querySelectorAll(".hora");
 
 const calcularEdad=(fecha_nacimiento)=>{
     const fechaActual=new Date();
@@ -329,8 +338,18 @@ persona.telefono=telefono[i].value;
 }
 
 
+for(let j=0; j<lfecha.length; j++){
+btnEditar[j].addEventListener("click",()=>{
 
+lfecha[j].value="";
+lhora[j].value="";
 
+})
+console.log(j);
+
+}
 
 
 })();
+
+

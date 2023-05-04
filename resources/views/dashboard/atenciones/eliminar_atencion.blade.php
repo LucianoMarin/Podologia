@@ -7,7 +7,7 @@
       </div>
       <div class="modal-body">
     
-        <label>Esta seguro que desea eliminar la atencion al paciente..</label>
+        <label>Esta seguro que desea eliminar la atencion del paciente: </label>
         <br>
         <label class="textoSubModal">{{$atenciones->primer_nombre}} {{$atenciones->segundo_nombre}} {{$atenciones->apellido_paterno}} {{$atenciones->apellido_materno}}</label>
         <br>

@@ -1,6 +1,6 @@
 .t_imagen{
+    display: absolute;
 width: 45px;
-
 }
 
 
@@ -23,6 +23,8 @@ width: 45px;
         
 
     }
+
+
     
     .tablas td{
         
@@ -31,12 +33,12 @@ width: 45px;
         font-size: 16px;
         padding-bottom: 10px;
         margin: 10px;
-        text-align: right;
+        text-align: center;
 
         }
 
 
-        .tablas tr:hover{
+        .tablas td:hover{
             background-color: rgba(233, 229, 229, 0.726);
         }
 

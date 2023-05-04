@@ -70,7 +70,7 @@ $(document).ready(function () {
   });
 });
 
-
+/*
 
 $(document).ready(function(){
 $("#fecha_atencion").on("change", function(e) {
@@ -79,8 +79,6 @@ e.preventDefault();
 
 let data={fecha_atencion: $('#fecha_atencion').val()};
 const hora=document.querySelector('#hora');
-
-
 
 
 
@@ -110,3 +108,50 @@ $.ajax({
 });
 });
 });
+*/
+
+
+
+
+$(document).ready(function(){
+const fechas=document.querySelectorAll(".fecha_atencion");
+for(let j=0; j<fechas.length; j++){
+
+
+  $(fechas[j]).on("change", function(e) {
+  
+  e.preventDefault();
+  
+  let data={fecha_atencion: $(fechas[j]).val()};
+  const hora=document.querySelectorAll('.hora');
+  
+  
+  
+  $.ajax({
+    
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  },
+    url : '/atencion/buscar',
+    type : 'POST',
+    dataType : 'json',
+    data: data,
+    success : function (data)
+    { 
+      $(hora[j]).empty();
+  
+      for(let i=0; i<=data.length-1; i++){
+  
+        var option = document.createElement("option");
+        option.text=data[i];
+        hora[j].add(option);
+      }
+    
+    }
+    
+  
+  });
+
+  });
+}
+  });
