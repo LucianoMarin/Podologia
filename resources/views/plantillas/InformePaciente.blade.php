@@ -37,9 +37,9 @@ $atenciones+=1;
 
     </thead>
     <tbody>
-    <tr>
+  
     @foreach($realizadas as $realizados)
-
+    <tr>
     @php
     $fechaRealizado=date('d/m/Y', strtotime($realizados->fecha_atencion));
 

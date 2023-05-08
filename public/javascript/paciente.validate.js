@@ -333,21 +333,26 @@ persona.telefono=telefono[i].value;
     })
 }  
 
-
-
 }
+
 
 
 for(let j=0; j<lfecha.length; j++){
-btnEditar[j].addEventListener("click",()=>{
+    if(btnEditar[j]){
+    btnEditar[j].addEventListener("click",()=>{
 
-lfecha[j].value="";
-lhora[j].value="";
+    lfecha[j].value="";
+    lhora[j].value="";
 
-})
-console.log(j);
+    
+    })
+}
 
 }
+
+
+
+
 
 
 })();

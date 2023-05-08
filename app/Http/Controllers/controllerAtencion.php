@@ -52,7 +52,7 @@ class controllerAtencion extends Controller
 
     public function store(Request $request)
     {
-
+//validar precio y campos nullos
         $validar=0;
         $id=Auth::user()->id;
         $atencion=new Atencion();
@@ -70,9 +70,11 @@ class controllerAtencion extends Controller
         $atencion->precio_atencion=$request->precio_atencion;
         $atencion->nota=$request->nota;
         $atencion->boleta=$request->boleta;
-        $atencion->rut_especialista=$especialista->rut;
-        $atencion->id_pacientes=$paciente->id_paciente;
         $atencion->estado=0;
+        $atencion->rut_especialista=$especialista->rut;
+        $atencion->nombre_proyecto=$request->nombre_proyecto;
+        $atencion->id_pacientes=$paciente->id_paciente;
+        $atencion->id_atenciones=$request->tipo_atencion;
         
         $atencion->save();
         return view('dashboard.atenciones.principal', compact('validar'))->with('resultado','Hora ingresada exitosamente!');
@@ -152,20 +154,22 @@ class controllerAtencion extends Controller
 
         
       $horario=$this->horario($request); //aqui
+      $proyecto=$this->nombreProyecto($request);
                    
 
+      $tipo_atencion=$this->tipo_atencion();
+    
 
             $pacientes=db::table('pacientes')
             ->where('rut',$request->rut)->first();
 
 
-        
             
                     
         if($pacientes!=null){
             $validar=1;
             
-            return view('dashboard.atenciones.principal', compact('paciente','pacientes','validar','horario'))->with('resultado','Paciente Encontrado!');
+            return view('dashboard.atenciones.principal', compact('proyecto','tipo_atencion','paciente','pacientes','validar','horario'))->with('resultado','Paciente Encontrado!');
 
         }
         else{
@@ -179,6 +183,9 @@ class controllerAtencion extends Controller
             
 
     }
+
+
+
 
 
     public function mostrarAtenciones(){
@@ -284,4 +291,26 @@ class controllerAtencion extends Controller
         
 
     }
+
+    public function tipo_atencion(){
+
+        $tipo_atencion=db::table('forma_atencion')->get();
+        return $tipo_atencion;
+    }
+
+
+    
+    public function nombreProyecto(Request $request){
+
+        
+        $proyecto=db::table('proyectos')
+        ->where('id_proyecto',$request->tipo_atencion)
+        ->get();
+            
+
+        return $proyecto;
+    
+
+    }
+
 }

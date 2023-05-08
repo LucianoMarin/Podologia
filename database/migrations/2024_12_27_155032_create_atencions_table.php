@@ -22,9 +22,12 @@ return new class extends Migration
             $table->boolean('boleta');
             $table->integer('estado');
             $table->string('rut_especialista');
+            $table->integer('nombre_proyecto')->nullable();
             $table->bigInteger('id_pacientes')->unsigned();
+            $table->bigInteger('id_atenciones')->unsigned();
             $table->foreign('rut_especialista')->references('rut')->on('especialistas');
             $table->foreign('id_pacientes')->references('id_paciente')->on('pacientes');
+            $table->foreign('id_atenciones')->references('id_tipo')->on('forma_atencion');
 
         });
     }

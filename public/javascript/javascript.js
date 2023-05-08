@@ -70,45 +70,64 @@ $(document).ready(function () {
   });
 });
 
-/*
+
 
 $(document).ready(function(){
-$("#fecha_atencion").on("change", function(e) {
+  $(".mostrarNombre").hide();
+
+
+const tipo=$(".tipo_atencion").on("change click", function(e) {
+const nProyecto=document.querySelector('.nombre_proyecto');
+
 
 e.preventDefault();
 
-let data={fecha_atencion: $('#fecha_atencion').val()};
-const hora=document.querySelector('#hora');
+if(tipo.val()!=1){
+  $(".mostrarNombre").hide();
+
+}else if(tipo.val()==1){
+  $(".mostrarNombre").show();
 
 
+}
 
+
+let data={tipo_atencion: $('.tipo_atencion').val()};
 
 $.ajax({
   
   headers: {
     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 },
-  url : '/atencion/buscar',
+  url : '/atencion/nombreProyecto',
   type : 'POST',
   dataType : 'json',
   data: data,
   success : function (data)
   { 
-    $("#hora").empty();
 
+    $(nProyecto).empty();
+    
     for(let i=0; i<=data.length-1; i++){
-
       var option = document.createElement("option");
-      option.text=data[i];
-      hora.add(option);
-    }
+      option.text=data[i].nombre;
+      option.value=data[i].id;
+      nProyecto.add(option);
+   
+    
+
+  }
+
+
   
   }
 
+
 });
 });
+
 });
-*/
+
 
 
 
@@ -144,6 +163,8 @@ for(let j=0; j<fechas.length; j++){
   
         var option = document.createElement("option");
         option.text=data[i];
+     
+
         hora[j].add(option);
       }
     

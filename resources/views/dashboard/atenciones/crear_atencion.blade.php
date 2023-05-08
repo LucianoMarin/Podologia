@@ -62,6 +62,25 @@
 <input type="radio" name="boleta" value="0">
 <br>
 <br>
+<label>Tipo:</label>
+<br>
+<select class="tipo_atencion" name="tipo_atencion">
+<option value="" selected></option>
+    @foreach($tipo_atencion as $tipo_atenciones)
+<option value="{{$tipo_atenciones->id_tipo}}">{{$tipo_atenciones->nombre_tipo}}</option>
+@endforeach
+</select>
+
+<br>
+<br>
+<div class="mostrarNombre">
+<label >Nombre Proyecto:</label>
+<br>
+<select class="nombre_proyecto" id="nombre_proyecto" name="nombre_proyecto">
+</select>
+</div>
+<br>
+<br>
 <label>Nota: </label>
 <br>
 <textarea name="nota" class="notasA"></textarea>
