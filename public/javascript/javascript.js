@@ -73,26 +73,30 @@ $(document).ready(function () {
 
 
 $(document).ready(function(){
+  const tipo=document.querySelectorAll('.tipo_atencion');
+  const nombre=document.querySelectorAll('.mostrarNombre');
   $(".mostrarNombre").hide();
 
 
-const tipo=$(".tipo_atencion").on("change click", function(e) {
-const nProyecto=document.querySelector('.nombre_proyecto');
+for(let j=0; j<=tipo.length; j++){
+
+$(tipo[j]).on("change click", function(e) {
+const nProyecto=document.querySelectorAll('.nombre_proyecto');
 
 
 e.preventDefault();
 
-if(tipo.val()!=1){
-  $(".mostrarNombre").hide();
+if(tipo[j].value!=1){
+  $(nombre[j]).hide();
 
-}else if(tipo.val()==1){
-  $(".mostrarNombre").show();
+}else if(tipo[j].value==1){
+  $(nombre[j]).show();
 
 
 }
 
 
-let data={tipo_atencion: $('.tipo_atencion').val()};
+let data={tipo_atencion: $(tipo[j]).val()};
 
 $.ajax({
   
@@ -106,26 +110,22 @@ $.ajax({
   success : function (data)
   { 
 
-    $(nProyecto).empty();
+    $(nProyecto[j]).empty();
     
     for(let i=0; i<=data.length-1; i++){
       var option = document.createElement("option");
       option.text=data[i].nombre;
       option.value=data[i].id;
-      nProyecto.add(option);
+      nProyecto[j].add(option);
    
-    
-
-  }
-
-
   
   }
+  }
 
 
 });
 });
-
+}
 });
 
 

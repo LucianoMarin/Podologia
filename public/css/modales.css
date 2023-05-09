@@ -68,3 +68,10 @@ INPUT Modal PUBLICACION
 
 
         }
+
+        .btnTablasAtenciones{
+
+            border: none;
+            border-radius: 8px;
+
+        }

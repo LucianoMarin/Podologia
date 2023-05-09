@@ -196,6 +196,9 @@ class controllerAtencion extends Controller
     ->orderBy('hora', 'desc')
     ->get();
 
+    $proyecto=db::table('proyectos')
+    ->get();
+
     if(isset(Auth::user()->id)){
 
         $id=Auth::user()->id;  
@@ -204,8 +207,10 @@ class controllerAtencion extends Controller
     }
 
 
+    $tipo_atencion=$this->tipo_atencion();
 
-        return view('dashboard.atenciones.gestionar_atencion', compact('atencion'));
+
+        return view('dashboard.atenciones.gestionar_atencion', compact('atencion','tipo_atencion','proyecto'));
     }catch(ModelNotFoundException $e){
 
         return view('dashboard.error.errorAC');
@@ -223,7 +228,10 @@ class controllerAtencion extends Controller
  
     public function update(Request $request, $id)
     {
-        //
+        
+
+
+        
     }
 
     public function destroy($id)

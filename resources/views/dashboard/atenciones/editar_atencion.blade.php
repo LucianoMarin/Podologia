@@ -27,18 +27,27 @@
 
         @endphp
 
-
+      <h3>DATOS PACIENTE: </h3>
       <label><b>Rut</b></label>
       <br>
-      <input type="text" value="{{$atenciones->rut}}" disabled="disabled" readOnly>
+      <input type="text" value="{{$atenciones->rut}}"  readOnly>
       <br>
       <label><b>Nombre</b></label>
       <br>
-      <input type="text" value="{{$nombreCompleto}}" disabled="disabled" readOnly>
+      <input type="text" value="{{$nombreCompleto}}"  readOnly>
       <br>
       <hr>
+      <br>
+      <h3>HORARIO ASIGNADO: </h3>
+      <label><b>Fecha: </b></label>
+      <br>
+      <input type="text" value="{{$fecha}}" readOnly>
+      <br>
+      <label><b>Hora: </b></label>
+      <br>
+      <input type="text" value="{{$hora}}" readOnly>
+      <hr>
         <h3>MODIFICANDO HORARIO</h3>
-        <br>
       <label><b>Nueva Fecha</b></label>
       <br>
       <input type="date" id="fecha_atencion" name="fecha_atencion" class="fecha_atencion">
@@ -49,12 +58,31 @@
 <option></option>
 
 </select>
-      <div class="modal-footer">
- 
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-      
 
-    </div>
+<br>
+<hr>
+<h3>TIPO DE ATENCION</h3>
+<label><b>Tipo:</b></label>
+<br>
+<select class="tipo_atencion" name="tipo_atencion">
+<option value="" selected></option>
+    @foreach($tipo_atencion as $tipo_atenciones)
+<option value="{{$tipo_atenciones->id_tipo}}">{{$tipo_atenciones->nombre_tipo}}</option>
+@endforeach
+</select>
+
+<br>
+<br>
+<div class="mostrarNombre">
+<label >Nombre Proyecto:</label>
+<select class="nombre_proyecto" id="nombre_proyecto" name="nombre_proyecto">
+</select>
+</div>
+<br>
+<br>
+<div class="modal-footer">
+ <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
   </div>
 </div>
 </div>

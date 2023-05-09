@@ -8,6 +8,7 @@
       <div class="modal-body">
 
         @php
+        $validarProyecto=false;
         $fecha=date('d/m/Y', strtotime($atenciones->fecha_atencion ));
         $nombreCompleto=$atenciones->primer_nombre." ".$atenciones->segundo_nombre." ".$atenciones->apellido_paterno;
         $hora = substr($atenciones->hora, 0, -3);
@@ -32,6 +33,27 @@
         <label><b>HORA:</b> {{ $hora}}</label>
         <br>
         <hr>
+
+        @foreach($tipo_atencion as $tipo_atenciones)
+        
+        @if($tipo_atenciones->id_tipo==$atenciones->id_atenciones)
+       
+        <label><b>Tipo Atencion: </b>{{$tipo_atenciones->nombre_tipo}}</label>
+        @if($atenciones->id_atenciones==1)
+        @php
+        $validarProyecto=$atenciones->nombre_proyecto;
+        @endphp
+
+        @endif        
+        @endif
+        @endforeach
+        <br>
+        @foreach($proyecto as $proyectos)
+        @if($proyectos->id==$validarProyecto)
+        <label><b>Nombre Proyecto: </b>{{$proyectos->nombre}}</label>
+        @endif
+        @endforeach
+        <br>
         <label><b>BOLETA:</b> {{$boleta}}</label>
         <br>
         <label><b>VALOR:</b> {{ "$".$atenciones->precio_atencion }}</label>
