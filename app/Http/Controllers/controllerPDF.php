@@ -34,6 +34,36 @@ $noRealizadas=DB::table('atencions')
 ->where('estado',2)
 ->get();
 
+//CONSULTAS REALIZADAS PROYECTO
+$proyecto=DB::table('atencions')
+->where('id_pacientes',$paciente->id_paciente)
+->join('forma_atencion','id_atenciones','id_tipo')
+->join('proyectos','nombre_proyecto','id')
+->where('estado',1)
+->where('id_atenciones',1)
+->orderBy('id','ASC')
+->get();
+
+
+$domicilio=DB::table('atencions')
+->where('id_pacientes',$paciente->id_paciente)
+->join('forma_atencion','id_atenciones','id_tipo')
+->where('estado',1)
+->where('id_atenciones',2)
+->get();
+
+
+$particular=DB::table('atencions')
+->where('id_pacientes',$paciente->id_paciente)
+->join('forma_atencion','id_atenciones','id_tipo')
+->where('estado',1)
+->where('id_atenciones',3)
+->get();
+
+
+
+
+
 
 $nombreCompleto=$paciente->primer_nombre.' '.$paciente->segundo_nombre.' '. $paciente->apellido_paterno.' '.$paciente->apellido_materno;
 if($paciente->discapacidad==0){
@@ -49,7 +79,7 @@ $discapacidad="NO INFORMADA";
 
 }
 
-$pdf=Pdf::loadView('plantillas.informePaciente', compact('rut','nombreCompleto','discapacidad','realizadas','noRealizadas'));
+$pdf=Pdf::loadView('plantillas.informePaciente', compact('particular','domicilio','proyecto','rut','nombreCompleto','discapacidad','realizadas','noRealizadas'));
 return $pdf->download($nombreCompleto.' '.$today.'- INFORME.pdf');
 }
 

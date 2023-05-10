@@ -18,15 +18,63 @@
 <br>
 <br>
 @php
+$nProyecto=0;
+$nDomicilio=0;
+$nParticular=0;
 $atenciones=0;
 $noAtencion=0;
 @endphp
-@foreach($realizadas as $realizados)
+@foreach($proyecto as $proyectos)
 @php
-$atenciones+=1;
+$nProyecto++
 @endphp
+
 @endforeach
-<label class="">N° ATENCIONES REALIZADAS {{$atenciones}}: </label>
+
+@foreach($domicilio as $domicilios)
+@php
+$nDomicilio++
+@endphp
+
+@endforeach
+
+@foreach($particular as $particulares)
+@php
+$nParticular++
+@endphp
+
+@endforeach
+
+
+<label class="">N° ATENCIONES <b>PROYECTOS</b>:  {{$nProyecto}} </label>
+<br>
+<br>
+<table>
+    <thead>
+        <th class="oTexto">FECHA/HORA ASIGNADA</th>
+        <th class="oTexto">NOMBRE PROYECTO</th>
+
+    </thead>
+    <tbody>
+  
+    @foreach($proyecto as $proyectos)
+    <tr>
+    @php
+    $fechaRealizadop=date('d/m/Y', strtotime($proyectos->fecha_atencion));
+    $horaP = substr($proyectos->hora, 0, -3);
+    @endphp
+    <td>{{$fechaRealizadop." ".$horaP}}</td>
+    <td>{{$proyectos->nombre}}</td>
+
+</tr>
+    @endforeach
+</tbody>
+</table>
+
+<br>
+<br>
+
+<label class="">N° ATENCIONES <b>DOMICILIO</b>: {{$nDomicilio}} </label>
 <br>
 <br>
 <table>
@@ -38,27 +86,84 @@ $atenciones+=1;
     </thead>
     <tbody>
   
-    @foreach($realizadas as $realizados)
+    @foreach($domicilio as $domicilios)
     <tr>
     @php
-    $fechaRealizado=date('d/m/Y', strtotime($realizados->fecha_atencion));
+    $fechaRealizadod=date('d/m/Y', strtotime($domicilios->fecha_atencion));
+    $horad = substr($domicilios->hora, 0, -3);
 
-    if($realizados->boleta==1){
+    if($domicilios->boleta==1){
         $mPago="SI";
     }
     else{
         $mPago="NO";
     }
     @endphp
-    <td>{{$fechaRealizado}}</td>
+    <td>{{$fechaRealizadod." ".$horad}}</td>
 
     <td>{{$mPago}}</td>
 
-    <td>{{$realizados->precio_atencion}}</td>
+    <td>{{$domicilios->precio_atencion}}</td>
+
 </tr>
     @endforeach
 </tbody>
 </table>
+
+<br>
+<br>
+
+
+
+<label class="">N° ATENCIONES <b>PARTICULAR</b>: {{$nParticular}} </label>
+<br>
+<br>
+<table>
+    <thead>
+        <th class="oTexto">FECHA/HORA ASIGNADA</th>
+        <th class="oTexto">BOLETA</th>
+        <th class="oTexto">VALOR ATENCION</th>
+
+    </thead>
+    <tbody>
+  
+    @foreach($particular as $particulares)
+    <tr>
+    @php
+    $fechaRealizadopa=date('d/m/Y', strtotime($particulares->fecha_atencion));
+    $horapa = substr($particulares->hora, 0, -3);
+
+    if($particulares->boleta==1){
+        $mPago="SI";
+    }
+    else{
+        $mPago="NO";
+    }
+    @endphp
+    <td>{{$fechaRealizadopa." ".$horapa}}</td>
+
+    <td>{{$mPago}}</td>
+
+    <td>{{$particulares->precio_atencion}}</td>
+
+</tr>
+    @endforeach
+</tbody>
+</table>
+
+<br>
+<br>
+
+
+
+
+@foreach($realizadas as $realizados)
+@php
+$atenciones+=1;
+@endphp
+@endforeach
+<label class="">N° ATENCIONES REALIZADAS {{$atenciones}}: </label>
+
 
 <br>
 @foreach($noRealizadas as $noRealizado)
@@ -68,23 +173,6 @@ $noAtencion+=1;
 @endforeach
 
 <label>N° ATENCIONES NO REALIZADAS {{$noAtencion}}: </label>
-<br>
-<br>
-<table class="noRealizado">
-    <thead>
-        <th class="oTexto">FECHA/HORA</th>
 
-
-    </thead>
-    <tbody>
-@foreach($noRealizadas as $noRealizado)
-@php
-$fechaNoRealizado=date('d/m/Y', strtotime($noRealizado->fecha_atencion));
-@endphp
-        <td>{{$fechaNoRealizado}}</td>
-        <tr>
-            @endforeach
-</tbody>
-</table>
 </body>
 </html>

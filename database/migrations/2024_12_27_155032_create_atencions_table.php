@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id('id_atencion');
             $table->date('fecha_atencion');
             $table->TIME('hora');
-            $table->bigInteger('precio_atencion');
+            $table->bigInteger('precio_atencion')->nullable();
             $table->string('nota',255)->nullable();
             $table->boolean('boleta');
             $table->integer('estado');
