@@ -70,7 +70,7 @@ $(document).ready(function () {
   });
 });
 
-
+//tipo atencion
 
 $(document).ready(function(){
   const tipo=document.querySelectorAll('.tipo_atencion');
@@ -132,19 +132,27 @@ $.ajax({
 
 
 
+//editando
+
 $(document).ready(function(){
 const fechas=document.querySelectorAll(".fecha_atencion");
+const hora=document.querySelectorAll('.inicio_hora');
+const horarios=document.querySelectorAll('.horas'); //div
+
 for(let j=0; j<fechas.length; j++){
 
 
   $(fechas[j]).on("change", function(e) {
   
   e.preventDefault();
-  
   let data={fecha_atencion: $(fechas[j]).val()};
-  const hora=document.querySelectorAll('.hora');
   
-  
+  /*
+  if(fecha_atencion!=null || fecha_atencion.val()==''){
+  $(horarios).show();
+  }
+
+  */
   
   $.ajax({
     
@@ -163,11 +171,13 @@ for(let j=0; j<fechas.length; j++){
   
         var option = document.createElement("option");
         option.text=data[i];
-     
-
         hora[j].add(option);
+                
       }
     
+      
+
+      
     }
     
   
@@ -176,3 +186,66 @@ for(let j=0; j<fechas.length; j++){
   });
 }
   });
+
+
+  
+
+
+
+  $(document).ready(function(){
+    const fechas=document.querySelectorAll(".fecha_atencion");
+    const hora=document.querySelectorAll('.inicio_hora');
+    const hora_final=document.querySelectorAll('.termino_hora');
+    const horarios=document.querySelectorAll('.horas');
+    
+    for(let j=0; j<fechas.length; j++){
+    
+    
+      $(hora[j]).on("change", function(e) {
+      
+      e.preventDefault();
+      let data={hora_inicio: $(hora[j]).val(),fecha_atencion: $(fechas[j]).val()};
+      
+ 
+      $(horarios).show();
+      
+      
+      $.ajax({
+        
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+        url : '/atencion/buscar/2',
+        type : 'POST',
+        dataType : 'json',
+        data: data,
+        success : function (data)
+        { 
+          $(hora_final[j]).empty();
+      
+        
+          for(let i=0; i<=data.length-1; i++){
+          
+            var option = document.createElement("option");
+            option.text=data[i];
+            hora_final[j].add(option);
+            }
+                    
+          
+        
+          
+    
+          
+        }
+        
+      
+      });
+    
+      });
+    }
+      });
+    
+    
+      
+    
+    

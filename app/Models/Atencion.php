@@ -15,7 +15,8 @@ class Atencion extends Model
 
     protected $fillable = [
         'fecha',
-        'hora',
+        'hora_inicio',
+        'hora_termino',
         'precio_atencion',
         'nota',
         'boleta'

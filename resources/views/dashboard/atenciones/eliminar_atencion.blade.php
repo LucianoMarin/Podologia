@@ -14,7 +14,7 @@
         <br>
         @php
         $fecha=date('d/m/Y', strtotime($atenciones->fecha_atencion ));
-        $hora = substr($atenciones->hora, 0, -3);
+        $hora = substr($atenciones->hora_inicio, 0, -3);
         $validador = substr($atenciones->rut, -1, 1);
         $rut = substr($atenciones->rut, 0, -1)."-".$validador;
         @endphp

@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('atencions', function (Blueprint $table) {
             $table->id('id_atencion');
             $table->date('fecha_atencion');
-            $table->TIME('hora');
+            $table->TIME('hora_inicio');
+            $table->TIME('hora_termino');
             $table->bigInteger('precio_atencion')->nullable();
             $table->string('nota',255)->nullable();
             $table->boolean('boleta');

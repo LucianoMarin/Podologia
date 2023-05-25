@@ -39,12 +39,35 @@
 <br>
 <input type="date" id="fecha_atencion" name="fecha_atencion" class="fecha_atencion">
 <br>
+<fieldset>
+<div class="horas">
+<legend>HORA</legend>
+<br>
+<label>Inicio Hora</label>
+<br>
+<select name="hora_inicio" id="inicio_hora" class="inicio_hora">
+<option></option>
+
+</select>
+<br>
+<label>Hora Termino</label>
+<br>
+<select name="hora_termino" id="termino_hora" class="termino_hora">
+
+<select></select>
+</div>
+
+</fieldset>
+
+<!---
 <label>Hora: </label>
 <br>
 <select name="hora" id="hora" class="hora">
 <option></option>
 
 </select>
+
+---->
 
 </div>
 

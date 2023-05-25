@@ -11,7 +11,7 @@
         $validarProyecto=false;
         $fecha=date('d/m/Y', strtotime($atenciones->fecha_atencion ));
         $nombreCompleto=$atenciones->primer_nombre." ".$atenciones->segundo_nombre." ".$atenciones->apellido_paterno;
-        $hora = substr($atenciones->hora, 0, -3);
+        $hora = substr($atenciones->hora_inicio, 0, -3);
         $validador = substr($atenciones->rut, -1, 1);
         $mPago=substr($atenciones->precio_atencion,0,-1)."$ ";
         if($atenciones->boleta==0){
@@ -30,7 +30,9 @@
       <br>
         <label><b>FECHA: </b>{{ $fecha }}</label>  
         <br>
-        <label><b>HORA:</b> {{ $hora}}</label>
+        <label><b>HORA INICIO:</b> {{ $hora}}</label>
+        <br>
+        <label><b>HORA TERMINO:</b> {{ $hora}}</label>
         <br>
         <hr>
 

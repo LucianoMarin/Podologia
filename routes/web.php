@@ -89,6 +89,7 @@ route::get('/atencion',[controllerAtencion::class , 'index'])->name('index.atenc
 route::get('/atencion/buscar',[controllerAtencion::class, 'show'])->name('buscar_atencion');
 route::post('/atencion',[controllerAtencion::class, 'store'])->name('crear_atencion');
 route::post('/atencion/buscar',[controllerAtencion::class, 'horario'])->name('enviar_informacion');
+route::post('/atencion/buscar/2',[controllerAtencion::class, 'hora_termino'])->name('enviar_informacion2');
 route::delete('/atencion/{id}', [controllerAtencion::class , 'destroy'])->name('eliminar.atencion');
 route::get('/gestionar_atencion',[controllerAtencion::class, 'mostrarAtenciones'])->name('gestionar.atencion');
 

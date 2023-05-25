@@ -44,10 +44,7 @@ class controllerAtencion extends Controller
    
     }
 
-    public function create()
-    {
-        
-    }
+
 
 
     public function store(Request $request)
@@ -66,7 +63,8 @@ class controllerAtencion extends Controller
 
         
         $atencion->fecha_atencion=$request->fecha_atencion;
-        $atencion->hora=$request->hora;
+        $atencion->hora_inicio=$request->hora_inicio;
+        $atencion->hora_termino=$request->hora_termino;
         $atencion->precio_atencion=$request->precio_atencion;
         $atencion->nota=$request->nota;
         $atencion->boleta=$request->boleta;
@@ -80,6 +78,96 @@ class controllerAtencion extends Controller
         return view('dashboard.atenciones.principal', compact('validar'))->with('resultado','Hora ingresada exitosamente!');
 
        
+
+    }
+
+
+
+    public function hora_termino(Request $request){
+        $horario_termino=array(
+            '09:00:00',
+            '10:00:00',
+            '11:00:00',
+            '12:00:00',
+            '13:00:00',
+            '14:00:00',
+            '15:00:00',
+            '16:00:00',
+            '17:00:00',
+            '18:00:00',
+            '19:00:00',);
+
+
+            $atenciones=db::table('atencions')
+         
+            ->join('especialistas','atencions.rut_especialista','especialistas.rut')
+            ->join('pacientes','atencions.id_pacientes','pacientes.id_paciente')
+            ->get();
+
+
+            
+          
+            foreach($atenciones as $atencion){
+                $indice=null;
+                if($atencion->fecha_atencion==$request->fecha_atencion){
+                ($clave = array_search($atencion->hora_inicio, $horario_termino));
+                ($clave2 = array_search($atencion->hora_termino, $horario_termino)); 
+                ($eReq = array_search($request->hora_inicio, $horario_termino));
+  
+                            
+                        
+                            unset($horario_termino[$clave]);
+                            unset($horario_termino[$clave2]);
+
+
+                            $date_inicio = strtotime($atencion->hora_inicio);
+                            $date_fin = strtotime($atencion->hora_termino);
+                            $date_nueva = strtotime($request->hora_inicio);
+
+
+              
+              
+
+                            $indice=0;
+                            $tam=count($horario_termino);
+
+                           
+                            $indicee=$clave;
+
+                            while($indicee<$clave2){
+
+                                unset($horario_termino[$indicee]);
+                                    $indicee++;
+                            }
+
+                            
+
+                            while($indice<$eReq && $indice<$tam){
+                                unset($horario_termino[$indice]);
+                                $indice++;
+
+                            }
+                 
+                         
+            
+
+
+                }
+            }
+
+
+   
+
+
+
+
+             sort($horario_termino);
+
+
+
+
+            return $horario_termino;
+
 
     }
 
@@ -107,14 +195,28 @@ class controllerAtencion extends Controller
                     ->join('pacientes','atencions.id_pacientes','pacientes.id_paciente')
                     ->get();
 
+                    $indice=null;
+                        
+                    
                     foreach($atenciones as $atencion){
-      
+                        ($clave = array_search($atencion->hora_inicio, $horario));
+                        ($clave2 = array_search($atencion->hora_termino, $horario)); 
+
                         if($atencion->fecha_atencion==$request->fecha_atencion){
-                            if (($clave = array_search($atencion->hora, $horario)) !== false) {
-                            unset($horario[$clave]);
-                            
+
+                                    unset($horario[$clave]);
+                                    unset($horario[$clave2]);
+
+                                $indice=$clave;
+
+                                    while($indice<$clave2){
+
+                                        unset($horario[$indice]);
+                                            $indice++;
+                                    }
+                                 
+
                         }
-                    }
                     }
 
                      sort($horario);
@@ -154,6 +256,7 @@ class controllerAtencion extends Controller
 
         
       $horario=$this->horario($request); //aqui
+      $hora_termino=$this->hora_termino($request);
       $proyecto=$this->nombreProyecto($request);
                    
 
@@ -169,7 +272,7 @@ class controllerAtencion extends Controller
         if($pacientes!=null){
             $validar=1;
             
-            return view('dashboard.atenciones.principal', compact('proyecto','tipo_atencion','paciente','pacientes','validar','horario'))->with('resultado','Paciente Encontrado!');
+            return view('dashboard.atenciones.principal', compact('proyecto','tipo_atencion','paciente','pacientes','validar','horario','hora_termino'))->with('resultado','Paciente Encontrado!');
 
         }
         else{
@@ -193,7 +296,7 @@ class controllerAtencion extends Controller
     $atencion=db::table('atencions')
     ->join('pacientes','atencions.id_pacientes','pacientes.id_paciente')
     ->orderBy('fecha_atencion','desc')
-    ->orderBy('hora', 'desc')
+    ->orderBy('hora_inicio', 'desc')
     ->get();
 
     $proyecto=db::table('proyectos')
@@ -220,19 +323,7 @@ class controllerAtencion extends Controller
     }
 
 
-    public function edit($id)
-    {
-        //
-    }
-
- 
-    public function update(Request $request, $id)
-    {
-        
-
-
-        
-    }
+   
 
     public function destroy($id)
     {
@@ -248,8 +339,7 @@ class controllerAtencion extends Controller
 
     }
 
-
-    public function cuposDia(){
+   public function cuposDia(){
         
         $horario=array(
             '09:00:00',
