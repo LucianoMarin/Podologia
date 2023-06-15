@@ -37,7 +37,7 @@
 <br>
 <label>Fecha Atención: </label>
 <br>
-<input type="date" id="fecha_atencion" name="fecha_atencion" class="fecha_atencion">
+<input type="date" id="fecha_atencion" name="fecha_atencion" class="fecha_atencion" min=<?php $hoy=date("Y-m-d"); echo $hoy;?> value="<?php $hoy=date("Y-m-d"); echo $hoy;?>" >
 <br>
 <fieldset>
 <div class="horas">
@@ -45,7 +45,8 @@
 <br>
 <label>Inicio Hora</label>
 <br>
-<select name="hora_inicio" id="inicio_hora" class="inicio_hora">
+<select name="hora_inicio" id="inicio_hora" class="inicio_hora"/>
+>
 <option></option>
 
 </select>
