@@ -47,3 +47,43 @@ width: 45px;
             border-radius: 8px;
             margin-top: 2px;
         }
+
+
+        
+.tablass{
+    position: inherit !important;
+    width: 50%;
+    
+    }
+
+    .tablass th{
+        background-color: #9b84ad;
+        color:white;
+        font-size: 18px;
+        text-align: center !important;
+        }
+        
+        .tablass tr{
+            border-radius:6px;
+            margin: 20px;
+            
+    
+        }
+    
+    
+        
+        .tablass td{
+            
+            position: relative;
+            color:rgb(63, 62, 62);
+            font-size: 16px;
+            padding-bottom: 10px;
+            margin: 10px;
+            text-align: center;
+    
+            }
+    
+    
+            .tablass td:hover{
+                background-color: rgba(233, 229, 229, 0.726);
+            }

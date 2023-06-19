@@ -61,9 +61,11 @@ $nParticular++
     <tr>
     @php
     $fechaRealizadop=date('d/m/Y', strtotime($proyectos->fecha_atencion));
-    $horaP = substr($proyectos->hora, 0, -3);
+    $horaP = substr($proyectos->hora_inicio, 0, -3);
+    $horaPt = substr($proyectos->hora_termino, 0, -3);
+
     @endphp
-    <td>{{$fechaRealizadop." ".$horaP}}</td>
+    <td>{{$fechaRealizadop." ".$horaP." A ".$horaPt}}</td>
     <td>{{$proyectos->nombre}}</td>
 
 </tr>
@@ -90,7 +92,9 @@ $nParticular++
     <tr>
     @php
     $fechaRealizadod=date('d/m/Y', strtotime($domicilios->fecha_atencion));
-    $horad = substr($domicilios->hora, 0, -3);
+    $horad = substr($domicilios->hora_inicio, 0, -3);
+    $horaDt = substr($domicilios->hora_termino, 0, -3);
+
 
     if($domicilios->boleta==1){
         $mPago="SI";
@@ -99,11 +103,11 @@ $nParticular++
         $mPago="NO";
     }
     @endphp
-    <td>{{$fechaRealizadod." ".$horad}}</td>
+    <td>{{$fechaRealizadod." ".$horad." A ".$horaDt}}</td>
 
     <td>{{$mPago}}</td>
 
-    <td>{{$domicilios->precio_atencion}}</td>
+    <td>{{"$".$domicilios->precio_atencion}}</td>
 
 </tr>
     @endforeach
@@ -131,7 +135,9 @@ $nParticular++
     <tr>
     @php
     $fechaRealizadopa=date('d/m/Y', strtotime($particulares->fecha_atencion));
-    $horapa = substr($particulares->hora, 0, -3);
+    $horapa = substr($particulares->hora_inicio, 0, -3);
+    $horaPat = substr($particulares->hora_termino, 0, -3);
+
 
     if($particulares->boleta==1){
         $mPago="SI";
@@ -140,11 +146,11 @@ $nParticular++
         $mPago="NO";
     }
     @endphp
-    <td>{{$fechaRealizadopa." ".$horapa}}</td>
+    <td>{{$fechaRealizadopa." ".$horapa." A ".$horaPat}}</td>
 
     <td>{{$mPago}}</td>
 
-    <td>{{$particulares->precio_atencion}}</td>
+    <td>{{"$".$particulares->precio_atencion}}</td>
 
 </tr>
     @endforeach

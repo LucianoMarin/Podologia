@@ -39,11 +39,10 @@
 
 table th{
 
-    background-color: black;
+    background-color: rgb(30, 147, 214);
 }
 
 table tbody{
-    background-color: rgb(224, 224, 224);
     color:rgb(0, 0, 0);
     border: none;
     padding: 8px;

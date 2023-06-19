@@ -16,7 +16,7 @@
 
 @stop
 @section('contenedor')
-
+<!---<div id='calendar'></div>-->
 @foreach($publicaciones as $publicacion)
 @php
 $fecha=date('d/m/Y', strtotime($publicacion->fecha_publicacion));
@@ -77,8 +77,7 @@ Nueva Nota
 <br>
 <input type="button" id="btnCalendario" value="Buscar fecha">
 
-
-                            @include('dashboard.publicacion.crear_publicacion')
+@include('dashboard.publicacion.crear_publicacion')
     </div>
     </div>
   </div>
@@ -86,15 +85,40 @@ Nueva Nota
   </div>
 @stop
 
+@php
+$val=false;
+@endphp
 
 
 
 
 @section('cHorizontal3')
 
+<div class="fecha">
+
+<div class="contenidoAtencion">
+  <label id="textoConfirmacion">ATENCIONES POR CONFIRMAR</label>
+<br>
+@foreach($atencionn as $atenciones)
+<label>{{$atenciones->primer_nombre." ".$atenciones->apellido_paterno}}</label>
+<label>{{$atenciones->hora_inicio}} A {{$atenciones->hora_termino}}</label>
+
+<label><button data-bs-toggle="modal" data-bs-target="#confirmar_atencion{{$atenciones->id_atencion}}">Confirmar</button></label>
+<label><button id="rechazar">Rechazar</button></label>
+
+<br>
+
+
+@include('dashboard.proyecto.aprobar')
+@include('dashboard.proyecto.rechazar')
+@endforeach
+
+  </div>
+</div>
+
+
 @if (session('resultado'))
 <div class="alert alert-success">
-
 {{ session('resultado') }}
 </div>
 

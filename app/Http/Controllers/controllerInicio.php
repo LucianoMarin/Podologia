@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Atencion;
 use App\Models\Publicacion;
 use Auth;
 use DB;
@@ -15,6 +16,19 @@ class controllerInicio extends Controller
     {    if(!Auth::check()){
         return redirect('/login');
             }  
+
+            date_default_timezone_set("America/Santiago");
+            $date = date("Y/m/d");
+
+
+
+            $atencionn=DB::table('atencions')
+            ->where('fecha_atencion',$date)
+            ->where('estado',0)
+            ->join('pacientes', 'pacientes.id_paciente', '=', 'atencions.id_pacientes')
+            ->orderBy('hora_inicio','asc')
+            ->get();
+
             $id=Auth::user()->id;
             $publicaciones=DB::table('publicacions')->where('user',$id)->get();
             $publicaciones=Publicacion::where('user',$id)
@@ -27,7 +41,7 @@ class controllerInicio extends Controller
 
 
             
-           return view('dashboard.principal',compact('publicaciones','cupos'));
+           return view('dashboard.principal',compact('publicaciones','cupos','atencionn'));
 
     }
 

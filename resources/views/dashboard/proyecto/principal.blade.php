@@ -1,19 +1,14 @@
-
 @extends('plantilla.plantillaPagina')
 
 @section('cHorizontal3')
 
-
-@if (session('resultado'))
-<div class="alert alert-success">
-{{ session('resultado') }}
-</div>
+@if(!empty($resultado))
+  <div class="alert alert-success"> {{ $resultado }}</div>
 
 
-
-  @elseif(session('error'))
+@elseif(!empty($error))
 <div class="alert alert-danger">
-{{ session('error') }}
+{{ $error }}
 </div>
 
 @elseif (count($errors) > 0)
@@ -42,27 +37,33 @@
 
 @stop
 @section('contenedor')
-<h1>Agendar Hora: </h1>
+<h1>Proyectos:</h1>
 <br>
+<table class="tablass">
+    <th>Nombre</th>
+    <th>Opciones</th>
+    <tr>
+
+@foreach($proyecto as $proyectos)
+        <td>{{$proyectos->nombre}}</td>
+        <td>
+        <button type="button" class="btnTablasAtenciones" data-bs-toggle="modal" data-bs-target="#eliminarProyecto{{$proyectos->id}}">
+        <img src="/imagenes/iconos/table_icons/eliminar.png" class="t_imagen"></button>
+            <tr>
+
+            @include('dashboard.proyecto.eliminar')
+
+            @endforeach
+               
+    </td>
+</table>
 <br>
-
-<label>Agendar por RUT: </label>
+<form action="{{route('crear_proyecto')}}" method="POST">
+    @csrf
+<label>Proyecto: </label>
 <br>
-<form action="{{route('buscar_atencion')}}" method="get">
-<input type="text" name="rut" class="buscarRut">
-<button type="submit" class="btnPublicar">Buscar</button>
-</form>
-<br>
-
-<hr>
-
-
-@if($validar==1)
-
-@include('dashboard.atenciones.crear_atencion')
-
-
-@endif
+<input type="text" name="nombre_proyecto"><input type="submit" value="Crear">
+<form>
 @stop
 
 

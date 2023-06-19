@@ -15,6 +15,7 @@
         @php
         $fecha=date('d/m/Y', strtotime($atenciones->fecha_atencion ));
         $hora = substr($atenciones->hora_inicio, 0, -3);
+        $hora_final=substr($atenciones->hora_termino, 0,-3);
         $validador = substr($atenciones->rut, -1, 1);
         $rut = substr($atenciones->rut, 0, -1)."-".$validador;
         @endphp
@@ -23,7 +24,9 @@
 
         <label><b>FECHA: </b>{{ $fecha }}</label>  
         <br>
-        <label><b>HORA:</b> {{ $hora}}</label>
+        <label><b>HORA INICIO:</b> {{ $hora}}</label>
+        <br>
+        <label><b>HORA FINAL:</b> {{ $hora_final}}</label>
     </div>
       <div class="modal-footer">
  

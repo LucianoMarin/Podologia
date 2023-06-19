@@ -21,7 +21,7 @@ const eFecha=document.querySelectorAll('.fecha_nacimiento2');
 
 const btnEditar=document.querySelectorAll(".btnTablasAtenciones");
 const lfecha=document.querySelectorAll(".fecha_atencion");
-const lhora=document.querySelectorAll(".hora");
+const lhora=document.querySelectorAll(".inicio_hora");
 
 const calcularEdad=(fecha_nacimiento)=>{
     const fechaActual=new Date();

@@ -1,6 +1,11 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 @section('cHorizontal3')
 
+@php
+date_default_timezone_set("America/Santiago");
+
+@endphp
+
 @if (session('resultado'))
 <div class="alert alert-success">
 {{ session('resultado') }}

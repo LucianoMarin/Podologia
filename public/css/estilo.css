@@ -450,5 +450,42 @@ color:rgb(255, 255, 255) !important;
 }
 
 
+.contenidoAtencion{
+font-size:14px;
+margin-left: 20px;
+font-family: arial;
+}
 
+.contenidoAtencion label button{
+    margin-top: 8px;
+
+
+}
+
+
+.contenidoAtencion button{
+
+    border-radius: 4px;
+    background-color: #af66a9;
+    color:#ffffff;
+    border: none;
+}
  
+#textoConfirmacion{
+font-size: 20px;
+font-weight: bolder;
+}
+
+.contenidoAtencion #rechazar{
+
+    border-radius: 4px;
+    background-color: #a5201c;
+    color:#ffffff;
+    border: none;
+}
+ 
+
+.notificacion{
+
+    color:black;
+}

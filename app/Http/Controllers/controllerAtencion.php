@@ -6,6 +6,7 @@ use App\Models\Atencion;
 use App\Models\Especialista;
 use App\Models\Paciente;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Database\QueryException;
 use Illuminate\Database\Schema\IndexDefinition;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -49,34 +50,55 @@ class controllerAtencion extends Controller
 
     public function store(Request $request)
     {
-        //validar precio y campos nullos
-        $validar = 0;
-        $id = Auth::user()->id;
-        $atencion = new Atencion();
-
-        $especialista = db::table('especialistas')
-            ->where('user', $id)->first(); //entre el rut del especialista
 
 
-        $paciente = DB::table('pacientes')->where('rut', $request->rut)
-            ->first(); //entrega el id
+        try{
 
 
-        $atencion->fecha_atencion = $request->fecha_atencion;
-        $atencion->hora_inicio = $request->hora_inicio;
-        $atencion->hora_termino = $request->hora_termino;
-        $atencion->precio_atencion = $request->precio_atencion;
-        $atencion->nota = $request->nota;
-        $atencion->boleta = $request->boleta;
-        $atencion->estado = 0;
-        $atencion->rut_especialista = $especialista->rut;
-        $atencion->nombre_proyecto = $request->nombre_proyecto;
-        $atencion->id_pacientes = $paciente->id_paciente;
-        $atencion->id_atenciones = $request->tipo_atencion;
+            $this->validate($request, [
+                'fecha_atencion'=>'required',
+                'hora_inicio'=>'required',
+                'hora_termino'=>'required',
+                'precio_atencion'=>'required | numeric',
+                'boleta'=>'required',
+                'tipo_atencion'=>'required',
+            ]);
 
-        $atencion->save();
-        return view('dashboard.atenciones.principal', compact('validar'))->with('resultado', 'Hora ingresada exitosamente!');
+            $validar = 0;
+            $id = Auth::user()->id;
+            $atencion = new Atencion();
 
+            $especialista = db::table('especialistas')
+                ->where('user', $id)->first(); //entre el rut del especialista
+
+
+            $paciente = DB::table('pacientes')->where('rut', $request->rut)
+                ->first(); //entrega el id
+
+
+      
+
+
+            $atencion->fecha_atencion = $request->fecha_atencion;
+            $atencion->hora_inicio = $request->hora_inicio;
+            $atencion->hora_termino = $request->hora_termino;
+            $atencion->precio_atencion = $request->precio_atencion;
+            $atencion->nota = $request->nota;
+            $atencion->boleta = $request->boleta;
+            $atencion->estado = 0;
+            $atencion->rut_especialista = $especialista->rut;
+            $atencion->nombre_proyecto = $request->nombre_proyecto;
+            $atencion->id_pacientes = $paciente->id_paciente;
+            $atencion->id_atenciones = $request->tipo_atencion;
+
+            $atencion->save();
+            return redirect()->route('index.atencion')->with('resultado', 'Hora ingresada exitosamente!');
+      
+        }catch(QueryException $ex){
+            $validar=0;
+            return redirect()->route('index.atencion')->with('error', 'ERROR: no se pudo ingresar la atencion.');
+
+        }
 
 
     }
@@ -422,6 +444,21 @@ class controllerAtencion extends Controller
 
 
         return $proyecto;
+
+
+    }
+
+
+
+    public function confirmarAtencion($id){
+        $atencion=Atencion::findOrFail($id);
+
+        $atencion->estado=1;
+
+        $atencion->save();
+
+        return redirect()->route('index');
+
 
 
     }

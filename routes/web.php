@@ -9,6 +9,7 @@ use App\Http\Controllers\controllerLogin;
 use App\Http\Controllers\controllerLogout;
 use App\Http\Controllers\controllerPaciente;
 use App\Http\Controllers\controllerPDF;
+use App\Http\Controllers\controllerProyecto;
 use App\Http\Controllers\controllerPublicacion;
 use App\Http\Controllers\controllerRegistrar;
 use Illuminate\Support\Facades\Route;
@@ -108,3 +109,13 @@ route::post('/atencion/nombreProyecto',[controllerAtencion::class, 'nombreProyec
 
 
 route::post('/informe/{rut}',[controllerPDF::class, 'imprimirInforme'])->name('imprimirInforme');
+
+
+
+route::get('/proyecto',[controllerProyecto::class,'index'])->name('index.proyecto');
+route::post('/crear_proyecto',[controllerProyecto::class, 'store'])->name('crear_proyecto');
+route::delete('/eliminar_proyecto/{id}',[controllerProyecto::class,'destroy'])->name('eliminar_proyecto');
+
+
+
+route::patch('/confirmar/{id}',[controllerAtencion::class, 'confirmarAtencion'])->name('confirmar_atencion');;
