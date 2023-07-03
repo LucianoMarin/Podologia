@@ -45,6 +45,8 @@ date_default_timezone_set("America/Santiago");
 <input type="date" id="fecha_atencion" name="fecha_atencion" class="fecha_atencion" min=<?php $hoy=date("Y-m-d"); echo $hoy;?> value="<?php $hoy=date("Y-m-d"); echo $hoy;?>" >
 <br>
 <fieldset>
+<div class="mensaje">
+</div>
 <div class="horas">
 <legend>HORA</legend>
 <br>

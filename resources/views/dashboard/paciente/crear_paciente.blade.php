@@ -5,9 +5,14 @@
 @section('cHorizontal3')
 
 @if (session('resultado'))
-<div class="alert alert-success">
+
+<div class="alert alert-success alert-dismissible fade show" role="alert">
 {{ session('resultado') }}
+  <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
 </div>
+
 
 @elseif(session('error'))
 <div class="alert alert-danger">
@@ -15,14 +20,17 @@
 </div>
 
 @elseif (count($errors) > 0)
-    <div class="alert alert-danger">
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
         <ul>
             @foreach ($errors->all() as $error)
                 {{ $error }}
                 <br>
             @endforeach
         </ul>
-    </div>
+        <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 @endif
 
 @stop
@@ -40,7 +48,8 @@
 
 @stop
 @section('contenedor')
-<h1>Ingresar Pacientes: </h1>
+<img src="/../imagenes/iconos/pacientes.png" class="iconosPrincipales"><label><h1>Ingresar Pacientes: </h1></label>
+<br>
 <br>
 <div class="container">
 <div class="row">
@@ -65,6 +74,7 @@
     <option value="9">9</option>
     <option value="k ">K</option>
 </select>
+<br>
 <br>
 <label>Primer Nombre: </label>
 <br>
@@ -93,6 +103,7 @@
 <label>Edad: </label>
 <br>
 <input type="text" name="edad" id="edad" readonly class="inputEdad">
+<br>
 <br>
 <label>Direccion: </label>
 <br>

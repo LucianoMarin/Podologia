@@ -307,7 +307,8 @@ class controllerAtencion extends Controller
                 return view('dashboard.atenciones.principal', compact('proyecto', 'tipo_atencion', 'paciente', 'pacientes', 'validar', 'horario', 'hora_termino'))->with('resultado', 'Paciente Encontrado!');
 
             } else {
-                return view('dashboard.atenciones.principal', compact('paciente', 'validar'))->with('error', 'ERROR: No fue posible encontrar el Paciente');
+                return redirect()->route('index.atencion')->with('error', 'ERROR: No se pudo encontrar el paciente.');
+
 
             }
         } catch (ModelNotFoundException $e) {
@@ -463,4 +464,15 @@ class controllerAtencion extends Controller
 
     }
 
+
+
+    public function rechazarAtencion($id){
+        $atencion=Atencion::findOrFail($id);
+        $atencion->delete();
+
+        return redirect()->route('index');
+
+
+
+    }
 }

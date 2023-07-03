@@ -56,6 +56,8 @@
       <br>
       <input type="date" id="fecha_atencion" name="fecha_atencion" class="fecha_atencion">
       <br>
+      <div class="mensaje">
+</div>
       <div class="horas">
       <label><b>Nueva Hora Inicio </b></label>
       <br>

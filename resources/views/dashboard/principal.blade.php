@@ -97,6 +97,9 @@ $val=false;
 <div class="fecha">
 
 <div class="contenidoAtencion">
+@if($atencionn->isEmpty())
+        No existen atenciones hoy
+@else
   <label id="textoConfirmacion">ATENCIONES POR CONFIRMAR</label>
 <br>
 @foreach($atencionn as $atenciones)
@@ -104,17 +107,20 @@ $val=false;
 <label>{{$atenciones->hora_inicio}} A {{$atenciones->hora_termino}}</label>
 
 <label><button data-bs-toggle="modal" data-bs-target="#confirmar_atencion{{$atenciones->id_atencion}}">Confirmar</button></label>
-<label><button id="rechazar">Rechazar</button></label>
+<label><button data-bs-toggle="modal" data-bs-target="#eliminar_Atencion{{$atenciones->id_atencion}}" id="rechazar">Rechazar</button></label>
 
 <br>
 
 
-@include('dashboard.proyecto.aprobar')
-@include('dashboard.proyecto.rechazar')
+@include('dashboard.publicacion.aprobar')
+@include('dashboard.publicacion.rechazar')
 @endforeach
-
+@endif
   </div>
+
 </div>
+
+
 
 
 @if (session('resultado'))

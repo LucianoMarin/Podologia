@@ -137,13 +137,18 @@ $(document).ready(function () {
   const fechas = document.querySelectorAll(".fecha_atencion");
   const hora = document.querySelectorAll('.inicio_hora');
   const horarios = document.querySelectorAll('.horas'); //div
-  const horarioFinal=document.querySelectorAll('.termino_hora');
+  const horarioFinal = document.querySelectorAll('.termino_hora');
+  const mensaje=document.querySelectorAll('.mensaje');
+
+
 
   for (let j = 0; j < fechas.length; j++) {
 
+
+    fechas[j].value = "";
     $(horarios[j]).hide();
 
-    $(fechas[j]).on("change dblclick", function (e) {
+    $(fechas[j]).on("change", function (e) {
 
       $(horarioFinal[j]).empty();
 
@@ -155,7 +160,7 @@ $(document).ready(function () {
 
       if (fechas[j].value != '') {
         $(horarios[j]).show();
-        
+
       }
       else {
         $(horarios[j]).hide();
@@ -182,9 +187,24 @@ $(document).ready(function () {
             option.text = data[i];
             hora[j].add(option);
 
+
+
           }
 
+          if (hora[j].value == "") {
+  
+            mensaje[j].innerText="ATENCIONES AGOTADAS!";
+            mensaje[j].style.color="red";
+            mensaje[j].style.fontWeight ="bolder";
+            $(horarios[j]).hide();
 
+
+          }else{
+
+            mensaje[j].innerText=" ";
+            $(horarios[j]).show();
+
+          }
 
 
         }
@@ -250,13 +270,7 @@ $(document).ready(function () {
 });
 
 
-document.addEventListener('DOMContentLoaded', function() {
-  var calendarEl = document.getElementById('calendar');
-  var calendar = new FullCalendar.Calendar(calendarEl, {
-    initialView: 'dayGridMonth',
-  });
-  calendar.render();
-});
+
 
 
 

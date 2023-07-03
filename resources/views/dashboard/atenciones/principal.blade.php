@@ -3,29 +3,38 @@
 
 @section('cHorizontal3')
 
-
 @if (session('resultado'))
-<div class="alert alert-success">
+<div class="alert alert-success alert-dismissible fade show" role="alert">
 {{ session('resultado') }}
+  <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
 </div>
 
 
+@elseif(session('error'))
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
 
-  @elseif(session('error'))
-<div class="alert alert-danger">
 {{ session('error') }}
+<button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
 </div>
 
 @elseif (count($errors) > 0)
-    <div class="alert alert-danger">
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
         <ul>
             @foreach ($errors->all() as $error)
                 {{ $error }}
                 <br>
             @endforeach
         </ul>
-    </div>
+        <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 @endif
+
 
 @stop
 
@@ -42,7 +51,8 @@
 
 @stop
 @section('contenedor')
-<h1>Agendar Hora: </h1>
+<img src="/../imagenes/iconos/agendar.png" class="iconosPrincipales"><label><h1>Agendar hora: </h1></label>
+
 <br>
 <br>
 

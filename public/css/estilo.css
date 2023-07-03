@@ -489,3 +489,17 @@ font-weight: bolder;
 
     color:black;
 }
+
+
+.close{
+    border: none;
+    background-color: #ffffff00;
+    border-radius: 8px;
+}
+
+.iconosPrincipales{
+
+width: 37px;
+padding-right: 2px;
+
+}

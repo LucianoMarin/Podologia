@@ -37,7 +37,8 @@
 
 @stop
 @section('contenedor')
-<h1>Proyectos:</h1>
+<img src="/../imagenes/iconos/idea.png" class="iconosPrincipales"><label><h1>Proyectos: </h1></label>
+<br>
 <br>
 <table class="tablass">
     <th>Nombre</th>

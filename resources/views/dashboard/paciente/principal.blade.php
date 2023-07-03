@@ -40,7 +40,7 @@
 
 @stop
 @section('contenedor')
-<h1>Lista de Pacientes: </h1>
+<img src="/../imagenes/iconos/lst_pacientes.png" class="iconosPrincipales"><label><h1>Lista de Pacientes: </h1></label>
 <br>
 <br>
 @if(null)

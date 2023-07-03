@@ -118,4 +118,6 @@ route::delete('/eliminar_proyecto/{id}',[controllerProyecto::class,'destroy'])->
 
 
 
-route::patch('/confirmar/{id}',[controllerAtencion::class, 'confirmarAtencion'])->name('confirmar_atencion');;
+route::patch('/confirmar/{id}',[controllerAtencion::class, 'confirmarAtencion'])->name('confirmar_atencion');
+
+route::delete('/rechazar/{id}',[controllerAtencion::class, 'rechazarAtencion'])->name('rechazar_atencion');

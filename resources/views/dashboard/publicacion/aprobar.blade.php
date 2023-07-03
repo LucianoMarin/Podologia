@@ -6,7 +6,7 @@
       </div>
       <div class="modal-body">
     
-        <label class="notificacion">Esta seguro de confirmar la atencion?</label>
+        <label class="notificacion">Esta seguro de <b>Confirmar</b> la atencion?</label>
         
     </div>
       <div class="modal-footer">

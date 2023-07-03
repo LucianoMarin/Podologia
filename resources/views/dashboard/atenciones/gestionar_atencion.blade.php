@@ -40,7 +40,7 @@
 
 @stop
 @section('contenedor')
-<h1>Editar Atención: </h1>
+<img src="/../imagenes/iconos/editar.png" class="iconosPrincipales"><label><h1>Editar Atención: </h1></label>
 <br>
 <br>
 

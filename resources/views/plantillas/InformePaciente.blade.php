@@ -8,9 +8,14 @@
     <link href="./css/plantilla.css" rel="stylesheet"/>
 </head>
 <body>
+
+@php
+$verificador=substr($rut,-1);
+$rut=substr($rut,0,-1);
+@endphp
 <h1 class="titulos">REGISTRO DE ATENCIONES</h1>
 <h2 class="stitulos">DATOS PACIENTE</h2>
-<label class="textos"> Rut: </label><label>{{$rut}}</label>
+<label class="textos"> Rut: </label><label>{{$rut . '-'. $verificador}}</label>
 <br>
 <label class="textos"> Nombre: </label><label>{{$nombreCompleto}}</label>
 <br>
@@ -94,7 +99,7 @@ $nParticular++
     $fechaRealizadod=date('d/m/Y', strtotime($domicilios->fecha_atencion));
     $horad = substr($domicilios->hora_inicio, 0, -3);
     $horaDt = substr($domicilios->hora_termino, 0, -3);
-
+    $valorDomicilio=number_format($domicilios->precio_atencion, 0, '.','.');
 
     if($domicilios->boleta==1){
         $mPago="SI";
@@ -107,7 +112,7 @@ $nParticular++
 
     <td>{{$mPago}}</td>
 
-    <td>{{"$".$domicilios->precio_atencion}}</td>
+    <td>{{"$".$valorDomicilio}}</td>
 
 </tr>
     @endforeach
@@ -137,6 +142,7 @@ $nParticular++
     $fechaRealizadopa=date('d/m/Y', strtotime($particulares->fecha_atencion));
     $horapa = substr($particulares->hora_inicio, 0, -3);
     $horaPat = substr($particulares->hora_termino, 0, -3);
+    $valorParticular=number_format($particulares->precio_atencion, 0, '.','.');
 
 
     if($particulares->boleta==1){
@@ -150,7 +156,7 @@ $nParticular++
 
     <td>{{$mPago}}</td>
 
-    <td>{{"$".$particulares->precio_atencion}}</td>
+    <td>{{"$".$valorParticular}}</td>
 
 </tr>
     @endforeach
@@ -172,13 +178,8 @@ $atenciones+=1;
 
 
 <br>
-@foreach($noRealizadas as $noRealizado)
-@php
-$noAtencion+=1;
-@endphp
-@endforeach
 
-<label>N° ATENCIONES NO REALIZADAS {{$noAtencion}}: </label>
+
 
 </body>
 </html>
