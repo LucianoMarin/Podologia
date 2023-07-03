@@ -1,6 +1,7 @@
 import { vModal } from '../javascript/modal_validate.js';
 import { validacionP } from '../javascript/perfil_validate.js';
 import { validarPaciente } from '../javascript/paciente.validate.js';
+import {buscar} from '../javascript/buscador.js';
 
 
 

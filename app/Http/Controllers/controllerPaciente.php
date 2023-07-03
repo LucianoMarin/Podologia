@@ -190,6 +190,14 @@ class controllerPaciente extends Controller
     }
 
 
+    public function mostrarPacientes(){
+        $data = $paciente=DB::table('pacientes')
+        ->select('rut','primer_nombre','segundo_nombre','apellido_paterno','apellido_materno')
+        ->get();
+        return response()->json($data);
+        
+    }
+
     public function destroy($id)
     {
 

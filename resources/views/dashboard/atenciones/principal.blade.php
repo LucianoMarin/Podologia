@@ -56,13 +56,13 @@
 <br>
 <br>
 
-<label>Agendar por RUT: </label>
+<label>BUSCAR PACIENTE: </label>
 <br>
 <form action="{{route('buscar_atencion')}}" method="get">
-<input type="text" name="rut" class="buscarRut">
+<input type="text" name="rut"  id="buscarRut" class="buscarRut">
 <button type="submit" class="btnPublicar">Buscar</button>
 </form>
-<br>
+<div class="resultados"></div>
 
 <hr>
 

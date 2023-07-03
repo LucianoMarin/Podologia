@@ -121,3 +121,9 @@ route::delete('/eliminar_proyecto/{id}',[controllerProyecto::class,'destroy'])->
 route::patch('/confirmar/{id}',[controllerAtencion::class, 'confirmarAtencion'])->name('confirmar_atencion');
 
 route::delete('/rechazar/{id}',[controllerAtencion::class, 'rechazarAtencion'])->name('rechazar_atencion');
+
+
+
+//BUSCAR PERSONA
+
+route::get('/atencion/buscar/buscarPersona',[controllerPaciente::class, 'mostrarPacientes'])->name('enviar_informacion2');

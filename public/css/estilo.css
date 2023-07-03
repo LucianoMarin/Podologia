@@ -409,6 +409,13 @@ margin-right: 30px;
 
 
 
+.dropdown-item {
+
+
+    background-color:#ffffff !important;
+}
+
+
 
     .estiloNav .navbar-toggler{
 
@@ -502,4 +509,14 @@ font-weight: bolder;
 width: 37px;
 padding-right: 2px;
 
+}
+
+#libuscador{
+    list-style: none !important;
+
+}
+
+
+#libuscador:hover{
+color:rgb(112, 87, 87);
 }
