@@ -11,6 +11,7 @@ use Illuminate\Database\Schema\IndexDefinition;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class controllerAtencion extends Controller
 {
@@ -59,7 +60,7 @@ class controllerAtencion extends Controller
                 'fecha_atencion'=>'required',
                 'hora_inicio'=>'required',
                 'hora_termino'=>'required',
-                'precio_atencion'=>'required | numeric',
+                'precio_atencion'=>'numeric | nullable',
                 'boleta'=>'required',
                 'tipo_atencion'=>'required',
             ]);
@@ -75,14 +76,14 @@ class controllerAtencion extends Controller
             $paciente = DB::table('pacientes')->where('rut', $request->rut)
                 ->first(); //entrega el id
 
-
-      
-
+                $carbon = new \Carbon\Carbon();
+                $date = Carbon::now();
+                echo $date;
 
             $atencion->fecha_atencion = $request->fecha_atencion;
             $atencion->hora_inicio = $request->hora_inicio;
             $atencion->hora_termino = $request->hora_termino;
-            $atencion->precio_atencion = $request->precio_atencion;
+            $atencion->precio_atencion = 0;
             $atencion->nota = $request->nota;
             $atencion->boleta = $request->boleta;
             $atencion->estado = 0;
@@ -375,6 +376,16 @@ class controllerAtencion extends Controller
     public function cuposDia()
     {
 
+        
+        $cupos = 0;
+        $cont=0;
+
+        
+
+        date_default_timezone_set("America/Santiago");
+        $date = date("Y-m-d");
+
+
         $horario = array(
             '09:00:00',
             '10:00:00',
@@ -389,26 +400,37 @@ class controllerAtencion extends Controller
             '19:00:00',
         );
 
-        $cupos = 11;
-
-        date_default_timezone_set("America/Santiago");
-        $date = date("Y-m-d");
-
         $atenciones = db::table('atencions')
+        ->join('especialistas', 'atencions.rut_especialista', 'especialistas.rut')
+        ->join('pacientes', 'atencions.id_pacientes', 'pacientes.id_paciente')
+        ->get();
 
-            ->join('especialistas', 'atencions.rut_especialista', 'especialistas.rut')
-            ->join('pacientes', 'atencions.id_pacientes', 'pacientes.id_paciente')
-            ->get();
+
+
+       
+/*
 
         foreach ($atenciones as $atencion) {
-
+           
+            
             if ($atencion->fecha_atencion == $date) {
+           
+                while($atencion->hora_inicio==$atencion->hora_termino){
 
-                $cupos--;
+                    echo $cupos++;
+         
+                }
+         
+             
 
 
             }
         }
+*/
+
+    
+
+
 
 
         return $cupos;

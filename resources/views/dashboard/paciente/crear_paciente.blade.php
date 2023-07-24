@@ -48,7 +48,7 @@
 
 @stop
 @section('contenedor')
-<img src="/../imagenes/iconos/pacientes.png" class="iconosPrincipales"><label><h1>Ingresar Pacientes: </h1></label>
+<img src="/../imagenes/iconos/agregar.svg" class="iconosPrincipales"><label><h1>Ingresar Pacientes: </h1></label>
 <br>
 <br>
 <div class="container">
@@ -99,10 +99,6 @@
 <label>Fecha de nacimiento: </label>
 <br>
 <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" class="inputFormularios">
-<br>
-<label>Edad: </label>
-<br>
-<input type="text" name="edad" id="edad" readonly class="inputEdad">
 <br>
 <br>
 <label>Direccion: </label>

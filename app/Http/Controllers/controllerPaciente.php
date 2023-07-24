@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Especialista;
 use App\Models\Paciente;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\QueryException;
@@ -36,7 +36,6 @@ class controllerPaciente extends Controller
         'apellido_paterno'=>'required',
         'apellido_materno'=>'required',
         'fecha_nacimiento'=>'required',
-        'edad'=>'numeric | digits_between:0,120',  
         'telefono'=>'numeric| nullable |digits_between:0,11',
         'discapacidad'=>'required',
         ]);
@@ -49,7 +48,6 @@ class controllerPaciente extends Controller
         $paciente->apellido_paterno=$request->apellido_paterno;
         $paciente->apellido_materno=$request->apellido_materno;
         $paciente->fecha_nacimiento=$request->fecha_nacimiento;
-        $paciente->edad=$request->edad;
         $paciente->direccion=$request->direccion;
         if($request->telefono==null){
             $paciente->telefono=0;
@@ -149,7 +147,6 @@ class controllerPaciente extends Controller
                 'apellido_paterno'=>'required',
                 'apellido_materno'=>'required',
                 'fecha_nacimiento'=>'required',
-                'edad'=>'numeric',  
                 'telefono'=>'numeric| digits_between:0,11',
                 'discapacidad'=>'required',
                 ]);
@@ -167,7 +164,6 @@ class controllerPaciente extends Controller
             $paciente->apellido_paterno=$request->apellido_paterno;
             $paciente->apellido_materno=$request->apellido_materno;
             $paciente->fecha_nacimiento=$request->fecha_nacimiento;
-            $paciente->edad=$request->edad;
             $paciente->direccion=$request->direccion;
             $paciente->telefono=$request->telefono;
             $paciente->discapacidad=$request->discapacidad;

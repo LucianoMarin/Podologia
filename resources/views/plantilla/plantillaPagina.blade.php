@@ -33,7 +33,7 @@
   </button>
   <ul class="dropdown-menu">
     <li><a class="dropdown-item " href="/usuario">Mi Perfil</a></li>
-    <li><a class="dropdown-item" href="">Cambiar Contraseña</a></li>
+    <li><a class="dropdown-item" href="/cambiar_clave">Cambiar Contraseña</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><a class="dropdown-item" href="/salir">Cerrar Sesion</a></li>
   </ul>

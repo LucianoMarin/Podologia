@@ -23,12 +23,6 @@
         <label>{{$fecha}}</label>
         <br>
 
-        <label><b>Edad: </b></label>
-        <br>
-  
-        <label>{{$pacientes->edad}}</label>
-        <br>
-
         <hr>
         <h3>Contacto: </h3>
         <label><b>Dirección: </b></label>

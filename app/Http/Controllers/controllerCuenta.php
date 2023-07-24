@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginRequest;
 use App\Models\Cuenta;
-use Auth;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
@@ -21,41 +22,48 @@ class controllerCuenta extends Controller
     }
 
 
-    public function create()
-    {
-        //
-    }
-
-
-    public function store(Request $request)
-    {
-
-    }
-
-
-
-    public function show($id)
-    {
-        
-    }
-
-
-    public function edit($id)
-    {
-        //
-    }
-
 
     public function update(Request $request, $id)
     {
-        //
+
+    
+        if(!Auth::check()){
+            return redirect('/');
+                }  
+
+
+        $this->validate($request,[
+            'contraseña'=>'required | same:contraseña2',
+            'contraseña2'=>'required'
+
+        ]);
+
+        
+        $nombre=$request->usuario;
+
+        $usuario =User::findOrFail($id); 
+        $usuario->password=$request->contraseña;
+        $usuario->save();
+
+        
+
+        return redirect()->route('clave_principal')->with('resultado', 'Usuario: '.$nombre." a cambiado su contraseña!");
+
     }
 
 
+    public function change_pass(){
 
-    public function destroy($id)
-    {
-        //
+        if(!Auth::check()){
+            return redirect('/');
+                }  
+
+
+        $usuario=Auth::user()->username;
+        $id=Auth::user()->id;
+        return view('dashboard.usuario.edit_password' , compact('usuario','id'));
+
+
     }
 
 

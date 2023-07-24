@@ -506,8 +506,9 @@ font-weight: bolder;
 
 .iconosPrincipales{
 
-width: 37px;
+width: 50px;
 padding-right: 2px;
+padding-bottom: 10px;
 
 }
 
@@ -520,3 +521,18 @@ padding-right: 2px;
 #libuscador:hover{
 color:rgb(112, 87, 87);
 }
+
+
+
+.imgP {
+    display: flex;
+    height: 80px;
+    justify-content: right;
+}
+
+
+.plantilla {
+    border:none;
+    padding: 20px;
+   }
+   

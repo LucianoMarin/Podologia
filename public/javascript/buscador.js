@@ -13,7 +13,7 @@ export const buscar = (() => {
 
                 var data = data;
                 let validar = false;
-           
+                let nombre='';
 
                 $.ajax({
 
@@ -32,9 +32,20 @@ export const buscar = (() => {
 
 
                         data.forEach(paciente => {
+                            if(paciente.segundo_nombre==null){
+                                paciente.segundo_nombre="";
+                                nombre = paciente.primer_nombre.toLowerCase()+""+paciente.segundo_nombre.toLowerCase()
+                                +""+ paciente.apellido_paterno.toLowerCase()+""+ paciente.apellido_materno.toLowerCase();
+                            }else{
 
-                            let nombre = paciente.primer_nombre.toLowerCase() + "" + paciente.segundo_nombre.toLowerCase()
-                                + "" + paciente.apellido_paterno.toLowerCase() + "" + paciente.apellido_materno.toLowerCase();
+                
+                                nombre = paciente.primer_nombre.toLowerCase()+""+paciente.segundo_nombre.toLowerCase()
+                                +""+ paciente.apellido_paterno.toLowerCase()+""+ paciente.apellido_materno.toLowerCase();
+
+                            }
+                            
+
+                
 
                                 let verificador=paciente.rut;
                                verificador=verificador.split('')[verificador.length - 1]

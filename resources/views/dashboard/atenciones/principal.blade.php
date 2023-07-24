@@ -51,7 +51,7 @@
 
 @stop
 @section('contenedor')
-<img src="/../imagenes/iconos/agendar.png" class="iconosPrincipales"><label><h1>Agendar hora: </h1></label>
+<img src="/../imagenes/iconos/calendar.svg" class="iconosPrincipales"><label><h1>Agendar hora: </h1></label>
 
 <br>
 <br>

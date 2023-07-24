@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('apellido_paterno',15);
             $table->string('apellido_materno',15);
             $table->date('fecha_nacimiento')->nullable();
-            $table->integer('edad')->nullable();
             $table->string('direccion',100)->nullable();
             $table->integer('telefono')->nullable();
             $table->boolean('discapacidad');

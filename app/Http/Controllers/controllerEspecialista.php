@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cargo;
 use App\Models\Especialista;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Gate;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;

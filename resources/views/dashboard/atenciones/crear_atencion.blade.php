@@ -42,7 +42,7 @@ date_default_timezone_set("America/Santiago");
 <br>
 <label>Fecha Atención: </label>
 <br>
-<input type="date" id="fecha_atencion" name="fecha_atencion" class="fecha_atencion" min=<?php $hoy=date("Y-m-d"); echo $hoy;?> value="<?php $hoy=date("Y-m-d"); echo $hoy;?>" >
+<input type="date" id="fecha_atencion" name="fecha_atencion" class="fecha_atencion" onkeydown="return false"  min=<?php $hoy=date("Y-m-d"); echo $hoy;?> value="<?php $hoy=date("Y-m-d"); echo $hoy;?>" >
 <br>
 <fieldset>
 <div class="mensaje">
@@ -52,7 +52,7 @@ date_default_timezone_set("America/Santiago");
 <br>
 <label>Inicio Hora</label>
 <br>
-<select name="hora_inicio" id="inicio_hora" class="inicio_hora"/>
+<select name="hora_inicio" id="inicio_hora" class="inicio_hora">
 >
 <option></option>
 
@@ -67,15 +67,7 @@ date_default_timezone_set("America/Santiago");
 
 </fieldset>
 
-<!---
-<label>Hora: </label>
-<br>
-<select name="hora" id="hora" class="hora">
-<option></option>
 
-</select>
-
----->
 
 </div>
 
@@ -96,7 +88,6 @@ date_default_timezone_set("America/Santiago");
 <label>Tipo:</label>
 <br>
 <select class="tipo_atencion" name="tipo_atencion">
-<option value="" selected></option>
     @foreach($tipo_atencion as $tipo_atenciones)
 <option value="{{$tipo_atenciones->id_tipo}}">{{$tipo_atenciones->nombre_tipo}}</option>
 @endforeach

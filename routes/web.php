@@ -12,7 +12,9 @@ use App\Http\Controllers\controllerPDF;
 use App\Http\Controllers\controllerProyecto;
 use App\Http\Controllers\controllerPublicacion;
 use App\Http\Controllers\controllerRegistrar;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -127,3 +129,18 @@ route::delete('/rechazar/{id}',[controllerAtencion::class, 'rechazarAtencion'])-
 //BUSCAR PERSONA
 
 route::get('/atencion/buscar/buscarPersona',[controllerPaciente::class, 'mostrarPacientes'])->name('enviar_informacion2');
+
+
+
+
+route::get('/recuperar',function(){
+return view('registrar.recuperar');
+
+});
+
+
+
+
+
+route::get('/cambiar_clave',[controllerCuenta::class, 'change_pass'])->name('clave_principal');
+route::patch('{id}/cambiar_clave',[controllerCuenta::class, 'update'])->name('cambiar_clave');

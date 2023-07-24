@@ -1,89 +1,107 @@
-.t_imagen{
+.t_imagen {
     display: absolute;
-width: 45px;
+    width: 45px;
 }
 
 
-.tablas{
+.tablas {
     position: inherit !important;
     width: 100%;
-    
-    }
-    
-    .tablas th{
+
+}
+
+.tablas th {
     background-color: #9b84ad;
-    color:white;
+    color: white;
     font-size: 18px;
     text-align: center !important;
-    }
-    
-    .tablas tr{
-        border-radius:6px;
-        margin: 20px;
-        
+}
 
-    }
+.tablas tr {
+    border-radius: 6px;
+    margin: 20px;
 
 
-    
-    .tablas td{
-        
-        position: relative;
-        color:rgb(63, 62, 62);
-        font-size: 16px;
-        padding-bottom: 10px;
-        margin: 10px;
-        text-align: center;
-
-        }
+}
 
 
-        .tablas td:hover{
-            background-color: rgba(233, 229, 229, 0.726);
-        }
 
-        .btnTablas{
-           border-style: none;
-            border-radius: 8px;
-            margin-top: 2px;
-        }
+.tablas td {
+
+    position: relative;
+    color: rgb(63, 62, 62);
+    font-size: 16px;
+    padding-bottom: 10px;
+    margin: 10px;
+    text-align: center;
+
+}
 
 
-        
-.tablass{
+.tablas td:hover {
+    background-color: rgba(233, 229, 229, 0.726);
+}
+
+.btnTablas {
+    border-style: none;
+    border-radius: 8px;
+    margin-top: 2px;
+}
+
+.informe {
+    background-color: #ce84be;
+    color: #ffffff;
+    padding: 1em 3em;
+    border-style: none;
+    border-radius: 8px;
+    margin-top: 2px;
+    transition: .3s;
+}
+
+
+.informe:hover {
+    background-color: #ffffff;
+    color: #ce84be;
+
+
+}
+
+
+
+.tablass {
     position: inherit !important;
     width: 50%;
-    
-    }
 
-    .tablass th{
-        background-color: #9b84ad;
-        color:white;
-        font-size: 18px;
-        text-align: center !important;
-        }
-        
-        .tablass tr{
-            border-radius:6px;
-            margin: 20px;
-            
-    
-        }
-    
-    
-        
-        .tablass td{
-            
-            position: relative;
-            color:rgb(63, 62, 62);
-            font-size: 16px;
-            padding-bottom: 10px;
-            margin: 10px;
-            text-align: center;
-    
-            }
-    
-    
-            .tablass td:hover{
-                background-color: rgba(233, 229, 229, 0.726);
-            }
+}
+
+.tablass th {
+    background-color: #9b84ad;
+    color: white;
+    font-size: 18px;
+    text-align: center !important;
+}
+
+.tablass tr {
+    border-radius: 6px;
+    margin: 20px;
+
+
+}
+
+
+
+.tablass td {
+
+    position: relative;
+    color: rgb(63, 62, 62);
+    font-size: 16px;
+    padding-bottom: 10px;
+    margin: 10px;
+    text-align: center;
+
+}
+
+
+.tablass td:hover {
+    background-color: rgba(233, 229, 229, 0.726);
+}

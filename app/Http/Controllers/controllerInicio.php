@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Atencion;
 use App\Models\Publicacion;
-use Auth;
-use DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 

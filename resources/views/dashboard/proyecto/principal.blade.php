@@ -26,7 +26,7 @@
 
 @section('menuLateral')
 
-<img class="icono" src="../imagenes/iconos/enlace.png">
+<img class="icono" src="../imagenes/iconos/proyecto.png">
 <label class="submenu">Accesos rapidos</label>
 <br>
 <a href="../crear_paciente">Ing. Paciente</a>
@@ -37,26 +37,27 @@
 
 @stop
 @section('contenedor')
-<img src="/../imagenes/iconos/idea.png" class="iconosPrincipales"><label><h1>Proyectos: </h1></label>
+<img src="/../imagenes/iconos/proyecto.svg" class="iconosPrincipales"><label><h1>Proyectos: </h1></label>
 <br>
 <br>
-<table class="tablass">
+<table class="tablass" id="tablaProyecto">
+    <thead>
     <th>Nombre</th>
-    <th>Opciones</th>
-    <tr>
-
+    <th>Eliminar</th>
+</thead>
+<tbody>
 @foreach($proyecto as $proyectos)
         <td>{{$proyectos->nombre}}</td>
         <td>
         <button type="button" class="btnTablasAtenciones" data-bs-toggle="modal" data-bs-target="#eliminarProyecto{{$proyectos->id}}">
         <img src="/imagenes/iconos/table_icons/eliminar.png" class="t_imagen"></button>
-            <tr>
+        
 
             @include('dashboard.proyecto.eliminar')
-
+            <tr>
             @endforeach
-               
-    </td>
+     
+</tbody>   
 </table>
 <br>
 <form action="{{route('crear_proyecto')}}" method="POST">

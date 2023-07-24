@@ -6,14 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informe Paciente</title>
     <link href="./css/plantilla.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="./css/estilo.css">
 </head>
+
+
 <body>
 
 @php
 $verificador=substr($rut,-1);
 $rut=substr($rut,0,-1);
 @endphp
-<h1 class="titulos">REGISTRO DE ATENCIONES</h1>
+<table class="plantilla">
+<td>
+<img class="imgP" src="imagenes/iconos/logo1.png">
+</td>
+<td><h1 class="titulos">REGISTRO DE ATENCIONES</h1>
+</td>
+</table>
 <h2 class="stitulos">DATOS PACIENTE</h2>
 <label class="textos"> Rut: </label><label>{{$rut . '-'. $verificador}}</label>
 <br>

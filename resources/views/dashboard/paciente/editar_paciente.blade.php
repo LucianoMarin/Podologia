@@ -54,9 +54,6 @@
 <br>
 <input type="date" name="fecha_nacimiento"  id="fecha_nacimiento2" class="fecha_nacimiento2" value="{{$fecha}}">
 <br>
-<label>Edad: </label>
-<br>
-<input type="text" name="edad" class="edad2" id="edad2"  readonly value="{{$pacientes->edad}}">
 <br>
 <br>
 <label>Direccion: </label>

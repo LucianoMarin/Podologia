@@ -40,7 +40,7 @@
 
 @stop
 @section('contenedor')
-<img src="/../imagenes/iconos/lst_pacientes.png" class="iconosPrincipales"><label><h1>Lista de Pacientes: </h1></label>
+<img src="/../imagenes/iconos/paciente.svg" class="iconosPrincipales"><label><h1>Lista de Pacientes: </h1></label>
 <br>
 <br>
 @if(null)
@@ -86,7 +86,7 @@
         <td>
         <form action="{{route('imprimirInforme', [$pacientes->rut])}}" method="POST">
             @csrf
-        <input type="submit" class="btnTablas" value="GENERAR">
+        <input type="submit" class="informe" value="GENERAR">
         </form>
         </td>
         </tr>
