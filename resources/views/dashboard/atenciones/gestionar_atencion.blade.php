@@ -88,8 +88,14 @@
   </td> 
     @endif
 
-    <td><button type="button" class="btnTablasAtenciones" data-bs-toggle="modal" data-bs-target="#editarAtencion{{$atenciones->id_atencion}}">
-        <img src="/imagenes/iconos/table_icons/editar.png" class="t_imagen"></button></td>
+
+        <td><button type="button" class="btnTablasAtenciones" data-bs-toggle="modal" data-bs-target="#editarAtencion{{$atenciones->id_atencion}}">
+        <img src="/imagenes/iconos/table_icons/hora.svg" class="t_imagen"></button>
+        <button type="button" class="btnTablasAtenciones" data-bs-toggle="modal" data-bs-target="#editarAtencion2{{$atenciones->id_atencion}}">
+        <img src="/imagenes/iconos/table_icons/files.svg" class="t_imagen"></button>
+    
+    </td>
+        
     <td><button type="button" class="btnTablas" data-bs-toggle="modal" data-bs-target="#eliminar_atencion{{$atenciones->id_atencion}}">
         <img src="/imagenes/iconos/table_icons/eliminar.png" class="t_imagen"></button></td>
     <td><button type="button" class="btnTablas" data-bs-toggle="modal" data-bs-target="#verInformacion{{$atenciones->id_atencion}}">
@@ -97,6 +103,7 @@
 </tr>
 
 @include('dashboard.atenciones.editar_atencion')
+@include('dashboard.atenciones.editar_atencion2')
 @include('dashboard.atenciones.eliminar_atencion')
 @include('dashboard.atenciones.informacion_atencion')
 

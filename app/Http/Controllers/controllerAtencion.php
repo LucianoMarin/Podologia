@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use Exception;
 
 class controllerAtencion extends Controller
 {
@@ -22,7 +23,6 @@ class controllerAtencion extends Controller
             if (!Auth::check()) {
 
                 return redirect('/login');
-
             }
 
             if (isset(Auth::user()->id)) {
@@ -37,13 +37,10 @@ class controllerAtencion extends Controller
             $paciente = $this->cargarPacientes();
 
             return view('dashboard.atenciones.principal', compact('paciente', 'validar'));
-
-
         } catch (ModelNotFoundException $e) {
 
             return view('dashboard.error.errorAC');
         }
-
     }
 
 
@@ -53,16 +50,16 @@ class controllerAtencion extends Controller
     {
 
 
-        try{
+        try {
 
 
             $this->validate($request, [
-                'fecha_atencion'=>'required',
-                'hora_inicio'=>'required',
-                'hora_termino'=>'required',
-                'precio_atencion'=>'numeric | nullable',
-                'boleta'=>'required',
-                'tipo_atencion'=>'required',
+                'fecha_atencion' => 'required',
+                'hora_inicio' => 'required',
+                'hora_termino' => 'required',
+                'precio_atencion' => 'numeric | nullable',
+                'boleta' => 'required',
+                'tipo_atencion' => 'required',
             ]);
 
             $validar = 0;
@@ -76,14 +73,18 @@ class controllerAtencion extends Controller
             $paciente = DB::table('pacientes')->where('rut', $request->rut)
                 ->first(); //entrega el id
 
-                $carbon = new \Carbon\Carbon();
-                $date = Carbon::now();
-                echo $date;
+            $carbon = new \Carbon\Carbon();
+            $date = Carbon::now();
+            echo $date;
 
             $atencion->fecha_atencion = $request->fecha_atencion;
             $atencion->hora_inicio = $request->hora_inicio;
             $atencion->hora_termino = $request->hora_termino;
-            $atencion->precio_atencion = 0;
+            if (empty($request->precio_atencion)) {
+                $atencion->precio_atencion = 0;
+            } else {
+                $atencion->precio_atencion = $request->precio_atencion;
+            }
             $atencion->nota = $request->nota;
             $atencion->boleta = $request->boleta;
             $atencion->estado = 0;
@@ -94,168 +95,10 @@ class controllerAtencion extends Controller
 
             $atencion->save();
             return redirect()->route('index.atencion')->with('resultado', 'Hora ingresada exitosamente!');
-      
-        }catch(QueryException $ex){
-            $validar=0;
+        } catch (QueryException $ex) {
+            $validar = 0;
             return redirect()->route('index.atencion')->with('error', 'ERROR: no se pudo ingresar la atencion.');
-
         }
-
-
-    }
-
-
-
-    public function hora_termino(Request $request)
-    {
-
-
-        $atenciones = db::table('atencions')
-
-            ->join('especialistas', 'atencions.rut_especialista', 'especialistas.rut')
-            ->join('pacientes', 'atencions.id_pacientes', 'pacientes.id_paciente')
-            ->get();
-
-        $cont = 0;
-        $cont2 = 0;
-        $bandera = false;
-
-
-        foreach ($atenciones as $atencion) {
-            if ($atencion->fecha_atencion == $request->fecha_atencion) {
-                $bandera = true;
-            }
-
-        }
-
-
-
-        try {
-            $horario_termino = $this->horario($request); //aqui
-
-            $tam = count($horario_termino);
-
-
-
-            while ($cont < $tam) {
-
-                if ($horario_termino[$cont] < $request->hora_inicio) {
-                    unset($horario_termino[$cont]);
-
-                }
-
-                $cont = $cont + 1;
-
-
-
-            }
-
-
-            sort($horario_termino);
-
-
-            $mifecha = new \DateTime($request->hora_inicio);
-
-
-            while ($cont2 < $tam) {
-
-
-
-                if ($bandera == true && $mifecha->format('H:00:00') < $horario_termino[$cont2]) {
-
-                    unset($horario_termino[$cont2]);
-                }
-
-
-                $cont2 = $cont2 + 1;
-                $mifecha->modify('+1 hours');
-
-
-
-
-            }
-
-
-
-
-
-        } catch (\Exception $ex) {
-            sort($horario_termino);
-
-        }
-
-
-        return $horario_termino;
-
-
-    }
-
-
-    public function horario(Request $request)
-    {
-        $horario = array(
-            '09:00:00',
-            '10:00:00',
-            '11:00:00',
-            '12:00:00',
-            '13:00:00',
-            '14:00:00',
-            '15:00:00',
-            '16:00:00',
-            '17:00:00',
-            '18:00:00',
-            '19:00:00',
-        );
-        $horario_vacio = array(
-
-        );
-
-
-
-
-
-        $atenciones = db::table('atencions')
-
-            ->join('especialistas', 'atencions.rut_especialista', 'especialistas.rut')
-            ->join('pacientes', 'atencions.id_pacientes', 'pacientes.id_paciente')
-            ->get();
-
-        $indice = null;
-
-
-        foreach ($atenciones as $atencion) {
-
-
-            ($clave = array_search($atencion->hora_inicio, $horario));
-            ($clave2 = array_search($atencion->hora_termino, $horario));
-
-            if ($atencion->fecha_atencion == $request->fecha_atencion) {
-
-                unset($horario[$clave]);
-                unset($horario[$clave2]);
-
-
-                $indice = $clave;
-
-                while ($indice < $clave2) {
-
-                    unset($horario[$indice]);
-                    $indice++;
-                }
-
-
-            }
-        }
-
-        sort($horario);
-
-        if ($request->fecha_atencion != null) {
-            return $horario;
-        } else {
-            return $horario_vacio;
-
-        }
-
     }
 
 
@@ -306,18 +149,208 @@ class controllerAtencion extends Controller
                 $validar = 1;
 
                 return view('dashboard.atenciones.principal', compact('proyecto', 'tipo_atencion', 'paciente', 'pacientes', 'validar', 'horario', 'hora_termino'))->with('resultado', 'Paciente Encontrado!');
-
             } else {
                 return redirect()->route('index.atencion')->with('error', 'ERROR: No se pudo encontrar el paciente.');
-
-
             }
         } catch (ModelNotFoundException $e) {
 
             return view('dashboard.error.errorAC');
         }
+    }
 
 
+
+
+    public function modificarhora(Request $request, $id){
+
+        try{
+
+        $atencion=Atencion::findOrfail($id);
+
+        $atencion->fecha_atencion=$request->fecha_atencion;
+        $atencion->hora_inicio=$request->hora_inicio;
+        $atencion->hora_termino=$request->hora_termino;
+
+        $atencion->save();
+
+        return redirect()->route('gestionar.atencion')->with('resultado','Modifico el horario de atencion!');
+
+        }catch(Exception $ex){
+
+
+
+        }
+
+    }
+
+
+
+
+    public function modificartipo(Request $request, $id){
+
+        $atencion=Atencion::findOrfail($id);
+
+        $atencion->id_atenciones=$request->tipo_atencion;
+        if($request->tipo_atencion==1){
+        $atencion->nombre_proyecto=$request->nombre_proyecto;
+        }else{
+            $atencion->nombre_proyecto=null;
+
+        }
+
+        $atencion->save();
+
+
+        return redirect()->route('gestionar.atencion')->with('resultado','Modifico el Tipo de atencion!');
+
+
+    }
+
+
+
+
+
+    public function destroy($id)
+    {
+
+
+        $atencion = Atencion::findOrFail($id);
+        $atencion->delete();
+
+        return redirect()->route('gestionar.atencion')->with('resultado', 'A eliminado exitosamente la hora!');
+    }
+
+
+
+
+
+    public function hora_termino(Request $request)
+    {
+
+
+        $atenciones = db::table('atencions')
+
+            ->join('especialistas', 'atencions.rut_especialista', 'especialistas.rut')
+            ->join('pacientes', 'atencions.id_pacientes', 'pacientes.id_paciente')
+            ->get();
+
+        $cont = 0;
+        $cont2 = 0;
+        $bandera = false;
+
+
+        foreach ($atenciones as $atencion) {
+            if ($atencion->fecha_atencion == $request->fecha_atencion) {
+                $bandera = true;
+            }
+        }
+
+
+
+        try {
+            $horario_termino = $this->horario($request); //aqui
+
+            $tam = count($horario_termino);
+
+
+
+            while ($cont < $tam) {
+
+                if ($horario_termino[$cont] < $request->hora_inicio) {
+                    unset($horario_termino[$cont]);
+                }
+
+                $cont = $cont + 1;
+            }
+
+
+            sort($horario_termino);
+
+
+            $mifecha = new \DateTime($request->hora_inicio);
+
+
+            while ($cont2 < $tam) {
+
+
+
+                if ($bandera == true && $mifecha->format('H:00:00') < $horario_termino[$cont2]) {
+
+                    unset($horario_termino[$cont2]);
+                }
+
+
+                $cont2 = $cont2 + 1;
+                $mifecha->modify('+1 hours');
+            }
+        } catch (\Exception $ex) {
+            sort($horario_termino);
+        }
+
+
+        return $horario_termino;
+    }
+
+
+    public function horario(Request $request)
+    {
+        $horario = array(
+            '09:00:00',
+            '10:00:00',
+            '11:00:00',
+            '12:00:00',
+            '13:00:00',
+            '14:00:00',
+            '15:00:00',
+            '16:00:00',
+            '17:00:00',
+            '18:00:00',
+            '19:00:00',
+        );
+        $horario_vacio = array();
+
+
+
+
+
+        $atenciones = db::table('atencions')
+
+            ->join('especialistas', 'atencions.rut_especialista', 'especialistas.rut')
+            ->join('pacientes', 'atencions.id_pacientes', 'pacientes.id_paciente')
+            ->get();
+
+        $indice = null;
+
+
+        foreach ($atenciones as $atencion) {
+
+
+            ($clave = array_search($atencion->hora_inicio, $horario));
+            ($clave2 = array_search($atencion->hora_termino, $horario));
+
+            if ($atencion->fecha_atencion == $request->fecha_atencion) {
+
+                unset($horario[$clave]);
+                unset($horario[$clave2]);
+
+
+                $indice = $clave;
+
+                while ($indice < $clave2) {
+
+                    unset($horario[$indice]);
+                    $indice++;
+                }
+            }
+        }
+
+        sort($horario);
+
+        if ($request->fecha_atencion != null) {
+            return $horario;
+        } else {
+            return $horario_vacio;
+        }
     }
 
 
@@ -329,6 +362,7 @@ class controllerAtencion extends Controller
         try {
             $atencion = db::table('atencions')
                 ->join('pacientes', 'atencions.id_pacientes', 'pacientes.id_paciente')
+                ->join('forma_atencion', 'atencions.id_atenciones', 'forma_atencion.id_tipo')
                 ->orderBy('fecha_atencion', 'desc')
                 ->orderBy('hora_inicio', 'desc')
                 ->get();
@@ -352,35 +386,17 @@ class controllerAtencion extends Controller
 
             return view('dashboard.error.errorAC');
         }
-
-
     }
 
-
-
-
-    public function destroy($id)
-    {
-
-
-        $atencion = Atencion::findOrFail($id);
-        $atencion->delete();
-
-        return redirect()->route('gestionar.atencion')->with('resultado', 'A eliminado exitosamente la hora!');
-
-
-
-
-    }
 
     public function cuposDia()
     {
 
-        
-        $cupos = 0;
-        $cont=0;
 
-        
+        $cupos = 0;
+        $cont = 0;
+
+
 
         date_default_timezone_set("America/Santiago");
         $date = date("Y-m-d");
@@ -401,14 +417,14 @@ class controllerAtencion extends Controller
         );
 
         $atenciones = db::table('atencions')
-        ->join('especialistas', 'atencions.rut_especialista', 'especialistas.rut')
-        ->join('pacientes', 'atencions.id_pacientes', 'pacientes.id_paciente')
-        ->get();
+            ->join('especialistas', 'atencions.rut_especialista', 'especialistas.rut')
+            ->join('pacientes', 'atencions.id_pacientes', 'pacientes.id_paciente')
+            ->get();
 
 
 
-       
-/*
+
+        /*
 
         foreach ($atenciones as $atencion) {
            
@@ -428,13 +444,12 @@ class controllerAtencion extends Controller
         }
 */
 
-    
+
 
 
 
 
         return $cupos;
-
     }
 
 
@@ -444,8 +459,6 @@ class controllerAtencion extends Controller
         $paciente = new Paciente();
         $paciente = DB::table('pacientes')->get();
         return $paciente;
-
-
     }
 
     public function tipo_atencion()
@@ -467,34 +480,28 @@ class controllerAtencion extends Controller
 
 
         return $proyecto;
-
-
     }
 
 
 
-    public function confirmarAtencion($id){
-        $atencion=Atencion::findOrFail($id);
+    public function confirmarAtencion($id)
+    {
+        $atencion = Atencion::findOrFail($id);
 
-        $atencion->estado=1;
+        $atencion->estado = 1;
 
         $atencion->save();
 
         return redirect()->route('index');
-
-
-
     }
 
 
 
-    public function rechazarAtencion($id){
-        $atencion=Atencion::findOrFail($id);
+    public function rechazarAtencion($id)
+    {
+        $atencion = Atencion::findOrFail($id);
         $atencion->delete();
 
         return redirect()->route('index');
-
-
-
     }
 }

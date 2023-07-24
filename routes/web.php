@@ -96,12 +96,10 @@ route::post('/atencion/buscar/2',[controllerAtencion::class, 'hora_termino'])->n
 route::delete('/atencion/{id}', [controllerAtencion::class , 'destroy'])->name('eliminar.atencion');
 route::get('/gestionar_atencion',[controllerAtencion::class, 'mostrarAtenciones'])->name('gestionar.atencion');
 
-
-
-
 route::post('/atencion/nombreProyecto',[controllerAtencion::class, 'nombreProyecto'])->name('buscar_informacion');
 
-
+route::patch('/atencion/{id}',[controllerAtencion::class, 'modificarhora'])->name('editar_hora');
+route::patch('/atencion/tipo/{id}',[controllerAtencion::class, 'modificarTipo'])->name('editar_tipo');
 
 
 

@@ -2,13 +2,15 @@
 
 @section('cHorizontal3')
 
-@if(!empty($resultado))
-  <div class="alert alert-success"> {{ $resultado }}</div>
 
+@if (session('resultado'))
+<div class="alert alert-success">
+{{ session('resultado') }}
+</div>
 
-@elseif(!empty($error))
+@elseif(session('error'))
 <div class="alert alert-danger">
-{{ $error }}
+{{ session('error') }}
 </div>
 
 @elseif (count($errors) > 0)

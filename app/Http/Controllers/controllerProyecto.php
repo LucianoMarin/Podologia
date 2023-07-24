@@ -53,8 +53,6 @@ class controllerProyecto extends Controller
         ]);
 
 
-        
-
         $proyecto = new Proyecto();
         $proyecto->nombre = $request->nombre_proyecto;
         $proyecto->id_proyecto = 1;
@@ -64,7 +62,7 @@ class controllerProyecto extends Controller
 
 
 
-        return redirect()->route('index.proyecto')->with('resultado','Proyecto creado!');
+        return redirect()->route('index.proyecto')->with('resultado','Proyecto '.$request->nombre_proyecto.' creado!');
 
     }catch(Exception $ex){
     
@@ -104,9 +102,9 @@ class controllerProyecto extends Controller
 
     public function destroy($id)
     {
-
+        
         $proyecto = Proyecto::findOrFail($id);
         $proyecto->delete();
-        return redirect()->route('index.proyecto')->with('resultado','se elimino correctamente!');
+        return redirect()->route('index.proyecto')->with('resultado','Proyecto '.$proyecto->nombre.' eliminado');
     }
 }
