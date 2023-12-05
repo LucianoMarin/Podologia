@@ -9,8 +9,7 @@ color:#000000;
     text-align: center;
     padding:20px 0 20px 0;
     margin: 30px 0 10px 0;
-
-   border-radius: 20px 20px 20px 20px;
+    border-radius: 20px 20px 20px 20px;
 }
 
 .login:hover{
@@ -54,30 +53,29 @@ input[type=password]{
 
     }
 
-    input[type=password]:hover{
-        border-bottom: 1px  solid #b9b9b9;
-        }
+input[type=password]:hover{
+    border-bottom: 1px  solid #b9b9b9;
+    }
 
     
 
 input[type=submit]{
-color:rgb(255, 255, 255);
-background-color: rgb(142, 15, 83);
-border:0px;
-margin: 20px 0 0 0;
-border-radius: 8px;
-padding: 18px;
-border-radius: 2px solid;
-text-transform: uppercase;
-transition: 1s;
+    color:rgb(255, 255, 255);
+    background-color: rgb(142, 15, 83);
+    border:0px;
+    margin: 20px 0 0 0;
+    border-radius: 8px;
+    padding: 18px;
+    border-radius: 2px solid;
+    text-transform: uppercase;
+    transition: 1s;
 }
 
 input[type=submit]:hover{
-background-color: rgb(180, 180, 180);
-transition: 1s;
-transform: scale(1.1);
-
-    }
+    background-color: rgb(180, 180, 180);
+    transition: 1s;
+    transform: scale(1.1);
+}
 
 
 .login label{
